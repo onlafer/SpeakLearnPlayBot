@@ -1,0 +1,8 @@
+# Core dependencies
+aiogram>=3.22.0
+python-dotenv>=1.0.0
+
+# Voice recognition
+openai-whisper>=20231117
+ffmpeg-python>=0.2.0
+

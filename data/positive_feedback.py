@@ -1,0 +1,18 @@
+positive_feedbacks = [
+    "Correct!",
+    "Excellent!",
+    "Yes!",
+    "Well done!",
+    "Great!",
+    "Good job!",
+    "Perfect!",
+    "Bravo!",
+    "Fantastic!",
+    "Nice!",
+    "You're right!",
+    "Super!",
+    "Amazing!",
+    "Right!",
+    "Nice work!",
+    "Absolutely correct!",
+]

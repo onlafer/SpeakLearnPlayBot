@@ -1,0 +1,15 @@
+[project]
+name = "speaklearnplaybot"
+version = "0.1.0"
+description = "Adaptive Telegram bot with extensible game system"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiogram>=3.22.0",
+    "python-dotenv>=1.0.0",
+    "openai-whisper>=20231117",
+    "ffmpeg-python>=0.2.0",
+    "speechrecognition>=3.14.3",
+    "pydub>=0.25.1",
+    "opuslib>=3.0.1",
+]
