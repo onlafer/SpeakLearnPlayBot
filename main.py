@@ -12,7 +12,6 @@ from handlers.shared import router as common_router
 from handlers.user import router as user_router
 from handlers.admin import router as admin_router
 
-# Настройка логирования для получения более детальной информации
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
