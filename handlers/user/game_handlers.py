@@ -6,7 +6,14 @@ from games.base import GameStatus
 from games.game_registry import game_registry
 from games.session_manager import session_manager
 from keyboards.main_menu import get_main_menu
-from games import translate_word_quiz, speech_practice_quiz, verb_tense_quiz, verb_aspect_quiz
+
+from games import (
+    russian_tutor,
+    translate_word_quiz,
+    speech_practice_quiz,
+    verb_tense_quiz,
+    verb_aspect_quiz,
+)
 
 
 router = Router()
@@ -31,6 +38,7 @@ def _get_dynamic_keyboard():
     keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
     return keyboard
 
+
 async def _cancel_game_logic(user_id: int, bot: Bot):
     """Core logic for cancelling a game."""
     if session_manager.has_active_session(user_id):
@@ -38,12 +46,13 @@ async def _cancel_game_logic(user_id: int, bot: Bot):
         game = game_registry.get_game(session.game_id)
 
         if game:
-             await game.end_game(bot, session)
-        
+            await game.end_game(bot, session)
+
         session_manager.end_session(user_id)
         return "✅ Your game progress has been cancelled."
     else:
         return "You don't have an active game to cancel."
+
 
 @router.callback_query(lambda c: c.data == "show_games")
 async def show_games_list(callback: CallbackQuery):
@@ -73,10 +82,10 @@ async def start_game(callback: CallbackQuery, bot: Bot):
         return
 
     try:
-        await callback.message.edit_text(f"Starting: {game.display_name}...")
+
         session = await game.start_game(bot, callback.from_user.id, callback.message)
         session_manager.start_session(session)
-        await callback.answer(f"{game.display_name} has started!")
+        await callback.answer()
     except Exception as e:
         await callback.answer(
             f"An error occurred while starting the game: {e}", show_alert=True
@@ -91,6 +100,7 @@ async def handle_cancel_command(message: Message, bot: Bot):
     response_text = await _cancel_game_logic(message.from_user.id, bot)
     await message.answer(response_text)
 
+
 @router.callback_query(lambda c: c.data == "cancel_game")
 async def handle_cancel_callback(callback: CallbackQuery, bot: Bot):
     """Handles the 'cancel' inline button."""
@@ -103,18 +113,23 @@ async def handle_cancel_callback(callback: CallbackQuery, bot: Bot):
     updated_keyboard = get_main_menu(session=None)
     final_text = f"{response_text}\n\n📋 Main menu:"
 
-    if hasattr(session, 'menu_message_id') and session.menu_message_id == callback.message.message_id:
-        await callback.message.edit_text(
-            text=final_text,
-            reply_markup=updated_keyboard
-        )
-    else:
-        await callback.message.answer(
-            text=final_text,
-            reply_markup=updated_keyboard
-        )
-    if hasattr(session, 'menu_message_id'):
-        session.menu_message_id = None
+    try:
+        if (
+            hasattr(session, "menu_message_id")
+            and session.menu_message_id == callback.message.message_id
+        ):
+            await callback.message.edit_text(
+                text=final_text, reply_markup=updated_keyboard
+            )
+        else:
+            await callback.message.answer(
+                text=final_text, reply_markup=updated_keyboard
+            )
+        if hasattr(session, "menu_message_id"):
+            session.menu_message_id = None
+    except Exception:
+        await callback.message.answer(text=final_text, reply_markup=updated_keyboard)
+
 
 @router.callback_query(lambda c: c.data == "continue_game")
 async def handle_continue_callback(callback: CallbackQuery, bot: Bot):
@@ -131,7 +146,7 @@ async def handle_continue_callback(callback: CallbackQuery, bot: Bot):
     else:
         await callback.answer("Error: Could not find the game logic.", show_alert=True)
         session_manager.end_session(callback.from_user.id)
-    
+
     await callback.answer()
 
 
@@ -141,9 +156,9 @@ async def handle_voice_message(message: Message, bot: Bot):
     session = session_manager.get_session(message.from_user.id)
     if session and session.status == GameStatus.IN_PROGRESS:
         game = game_registry.get_game(session.game_id)
-        if game and hasattr(game, 'handle_voice_message'):
+        if game and hasattr(game, "handle_voice_message"):
             updated_session = await game.handle_voice_message(bot, session, message)
-            
+
             if updated_session.status in [GameStatus.FINISHED, GameStatus.CANCELLED]:
                 session_manager.end_session(message.from_user.id)
             else:
@@ -151,7 +166,38 @@ async def handle_voice_message(message: Message, bot: Bot):
         else:
             await message.reply("This game doesn't support voice input.")
     else:
-        await message.reply("To practice your speech, please start a 'Speech Practice' game from the /menu.")
+        await message.reply(
+            "To practice your speech, please start a 'Speech Practice' game from the /menu."
+        )
+
+
+@router.message(F.text)
+async def handle_text_message(message: Message, bot: Bot):
+    """
+    Handles all text messages and routes them to the active game session if it exists.
+    This is the key handler for chat-based games like RussianTutorGame.
+    """
+    session = session_manager.get_session(message.from_user.id)
+
+    if session and session.status == GameStatus.IN_PROGRESS:
+        game = game_registry.get_game(session.game_id)
+
+        if game and hasattr(game, "handle_message"):
+
+            updated_session = await game.handle_message(bot, session, message)
+
+            if updated_session.status in [GameStatus.FINISHED, GameStatus.CANCELLED]:
+                session_manager.end_session(message.from_user.id)
+            else:
+                session_manager.update_session(message.from_user.id, updated_session)
+        else:
+
+            await message.reply(
+                "This game is controlled by buttons. To exit, use the /cancel command."
+            )
+    else:
+
+        pass
 
 
 @router.callback_query()
@@ -159,6 +205,10 @@ async def handle_game_callback(callback: CallbackQuery, bot: Bot):
     """Handle all callbacks during active games."""
     session = session_manager.get_session(callback.from_user.id)
     if not session:
+
+        await callback.message.edit_text(
+            "Your gaming session seems to have expired. Please start over from /menu."
+        )
         await callback.answer(
             "It seems your game session has expired. Please start a new one.",
             show_alert=True,

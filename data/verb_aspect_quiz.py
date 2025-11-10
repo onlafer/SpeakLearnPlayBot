@@ -84,7 +84,7 @@ VERB_ASPECT_QUESTIONS = [
         "explanation": "'Уже' (already) and a completion by a specific future moment ('К тому времени как ты придёшь') requires the perfective aspect."
     }
 ]
-# Звездочки не убирать они для выделения текста
+
 VERB_ASPECT_THEORY = """
 📝 **Quick Theory: Imperfective vs. Perfective Verbs**
 
