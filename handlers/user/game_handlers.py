@@ -16,7 +16,6 @@ from games import (
     verb_tense_quiz,
     verb_aspect_quiz,
     translator_game,
-    cases_quiz,
 )
 
 
