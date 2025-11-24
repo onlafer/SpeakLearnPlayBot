@@ -22,13 +22,35 @@ class BotConfig:
 
 
 @dataclass
+class DatabaseConfig:
+    host: str
+    port: int
+    user: str
+    password: str
+    database: str
+    
+    @property
+    def url(self) -> str:
+        """Возвращает URL для подключения к PostgreSQL."""
+        return f"postgresql+asyncpg://{self.user}:{self.password}@{self.host}:{self.port}/{self.database}"
+
+
+@dataclass
 class Config:
     bot: BotConfig
+    database: DatabaseConfig
 
 
 CONFIG = Config(
     bot=BotConfig(
         token=getenv("BOT_TOKEN"),
         admin_list=loads(getenv("ADMIN_LIST")),
+    ),
+    database=DatabaseConfig(
+        host=getenv("DB_HOST", "localhost"),
+        port=int(getenv("DB_PORT", "5432")),
+        user=getenv("DB_USER", "postgres"),
+        password=getenv("DB_PASSWORD", ""),
+        database=getenv("DB_NAME", "speaklearnplaybot"),
     ),
 )

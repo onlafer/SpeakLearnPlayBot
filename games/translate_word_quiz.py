@@ -8,22 +8,26 @@ from aiogram.types import (
 import random
 
 from data.translate_word_quiz import WORD_DICTIONARIES
-from data.positive_feedback import positive_feedbacks
 from .base import BaseGame, GameSession, GameStatus
 from .game_registry import game_registry
+from utils.bot_helpers import safe_edit_message
+from utils.localization import translator
+from database.user_manager import user_manager
 
-# Количество вопросов в одном раунде
 QUESTIONS_PER_ROUND = 8
 
 
 class TranslateWordQuiz(BaseGame):
     def __init__(self):
-        super().__init__(
-            game_id="translate_word_quiz", display_name="🌐 Translate the Word"
-        )
+        super().__init__(game_id="translate_word_quiz")
 
-    # Этап 1: Показываем категории
+    def get_display_name(self, lang: str) -> str:
+        return translator.get_text("game_tw_name", lang)
+
     async def start_game(self, bot: Bot, user_id: int, message: Message) -> GameSession:
+        user = await user_manager.get_user(user_id)
+        lang = user.language if user else "en"
+        
         session = GameSession(
             user_id=user_id,
             chat_id=message.chat.id,
@@ -32,11 +36,13 @@ class TranslateWordQuiz(BaseGame):
             status=GameStatus.IN_PROGRESS,
             current_question=-1,
             score=0,
+            game_state={"lang": lang}
         )
         await self._send_category_selection(bot, session)
         return session
 
     async def _send_category_selection(self, bot: Bot, session: GameSession):
+        lang = session.game_state.get("lang", "en")
         buttons = []
         row = []
         for index, dictionary in enumerate(WORD_DICTIONARIES):
@@ -51,12 +57,17 @@ class TranslateWordQuiz(BaseGame):
         if row:
             buttons.append(row)
         keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
-        await bot.edit_message_text(
+        
+        text = translator.get_text("game_tw_choose_category", lang)
+        
+        new_message_id = await safe_edit_message(
+            bot=bot,
             chat_id=session.chat_id,
             message_id=session.message_id,
-            text="Please choose a category:",
+            text=text,
             reply_markup=keyboard,
         )
+        session.message_id = new_message_id
 
     async def _start_quiz_round(self, bot: Bot, session: GameSession):
         category_index = session.game_state["category_index"]
@@ -69,59 +80,81 @@ class TranslateWordQuiz(BaseGame):
     async def _send_question(
         self, bot: Bot, session: GameSession, as_new_message: bool = False
     ):
+        lang = session.game_state.get("lang", "en")
         question_index = session.current_question
         word_pair = session.game_state["round_words"][question_index]
         category_index = session.game_state["category_index"]
-        translate_from_english = random.choice([True, False])
-        if translate_from_english:
-            question_word = word_pair["english_word"]
-            correct_answer = word_pair["russian_word"]
+        
+        # Получаем перевод категории
+        cat_key = WORD_DICTIONARIES[category_index]["category_key"]
+        category_name = translator.get_text(cat_key, lang)
+        
+        # Определяем слова
+        russian_word = word_pair["russian_word"]
+        # Берем перевод на язык пользователя, если нет - английский
+        user_word = word_pair["translations"].get(lang, word_pair["translations"].get("en"))
+
+        translate_to_russian = random.choice([True, False])
+        
+        if translate_to_russian:
+            question_word = user_word
+            correct_answer = russian_word
             session.game_state["correct_answer"] = correct_answer
-            prompt = "Translate this word to Russian:"
+            prompt = translator.get_text("game_tw_prompt_to_ru", lang)
         else:
-            question_word = word_pair["russian_word"]
-            correct_answer = word_pair["english_word"]
+            question_word = russian_word
+            correct_answer = user_word
             session.game_state["correct_answer"] = correct_answer
-            prompt = "Translate this word to English:"
+            prompt = translator.get_text("game_tw_prompt_from_ru", lang)
+
         all_words_in_category = WORD_DICTIONARIES[category_index]["words"]
         wrong_options = []
         while len(wrong_options) < 3:
             random_word_pair = random.choice(all_words_in_category)
-            wrong_word = random_word_pair[
-                "russian_word" if translate_from_english else "english_word"
-            ]
+            if translate_to_russian:
+                wrong_word = random_word_pair["russian_word"]
+            else:
+                wrong_word = random_word_pair["translations"].get(lang, random_word_pair["translations"].get("en"))
+                
             if wrong_word != correct_answer and wrong_word not in wrong_options:
                 wrong_options.append(wrong_word)
+                
         options = wrong_options + [correct_answer]
         random.shuffle(options)
+        
         buttons = []
         for option in options:
             buttons.append(
                 [InlineKeyboardButton(text=option, callback_data=f"answer:{option}")]
             )
         keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
-        question_text = f"**Category: {WORD_DICTIONARIES[category_index]['category_name']}**\n\n{prompt}\n\n**{question_word}**"
-        if question_index == 0 or as_new_message:
-            await bot.edit_message_text(
+        
+        cat_label = translator.get_text("game_tw_category_label", lang).format(category_name=category_name)
+        question_text = f"**{cat_label}**\n\n{prompt}\n\n**{question_word}**"
+        
+        if as_new_message:
+            sent_message = await bot.send_message(
                 chat_id=session.chat_id,
-                message_id=session.message_id,
                 text=question_text,
                 parse_mode="Markdown",
                 reply_markup=keyboard,
             )
+            session.message_id = sent_message.message_id
         else:
-            await bot.edit_message_text(
+            new_message_id = await safe_edit_message(
+                bot=bot,
                 chat_id=session.chat_id,
                 message_id=session.message_id,
                 text=question_text,
                 parse_mode="Markdown",
                 reply_markup=keyboard,
             )
+            session.message_id = new_message_id
 
-    # Обработка всех нажатий
     async def handle_callback(
         self, bot: Bot, session: GameSession, callback: CallbackQuery
     ) -> GameSession:
+        lang = session.game_state.get("lang", "en")
         action, *data = callback.data.split(":")
 
         if action == "select_category":
@@ -134,53 +167,44 @@ class TranslateWordQuiz(BaseGame):
             user_answer = data[0]
             correct_answer = session.game_state.get("correct_answer")
 
-            # --- КЛЮЧЕВОЕ ИЗМЕНЕНИЕ НАЧИНАЕТСЯ ЗДЕСЬ ---
-
-            # 1. Получаем всю пару слов для текущего вопроса из сессии
             question_index = session.current_question
             word_pair = session.game_state["round_words"][question_index]
-            full_translation = (
-                f"{word_pair['english_word']} - {word_pair['russian_word']}"
-            )
+            
+            w_ru = word_pair["russian_word"]
+            w_user = word_pair["translations"].get(lang, word_pair["translations"].get("en"))
+            full_translation = f"{w_user} - {w_ru}"
 
             if user_answer == correct_answer:
                 session.score += 1
-                # 2. Добавляем полную пару слов к сообщению о правильном ответе
-                feedback_text = f"✅ {random.choice(positive_feedbacks)} Correct!\n\n*{full_translation}*"
+                feedback_text = translator.get_text("game_tw_feedback_correct", lang).replace("{pair}", full_translation)
                 await callback.answer("Correct!", show_alert=False)
             else:
-                # 3. Меняем сообщение о неправильном ответе, чтобы оно сразу показывало правильную пару
-                feedback_text = (
-                    f"❌ Not quite. The correct translation is:\n\n*{full_translation}*"
-                )
+                feedback_text = translator.get_text("game_tw_feedback_incorrect", lang).replace("{pair}", full_translation)
                 await callback.answer("Incorrect.", show_alert=False)
 
-            # --- КЛЮЧЕВОЕ ИЗМЕНЕНИЕ ЗАКАНЧИВАЕТСЯ ЗДЕСЬ ---
-
             is_last_question = (session.current_question + 1) >= QUESTIONS_PER_ROUND
+            
+            btn_next = translator.get_text("game_tw_btn_next", lang)
+            btn_results = translator.get_text("game_tw_btn_results", lang)
+            btn_menu = translator.get_text("game_tw_btn_menu", lang)
+
             if is_last_question:
-                next_button = InlineKeyboardButton(
-                    text="🏁 See Results", callback_data="finish"
-                )
+                next_button = InlineKeyboardButton(text=btn_results, callback_data="finish")
             else:
-                next_button = InlineKeyboardButton(
-                    text="➡️ Next Word", callback_data="next_question"
-                )
+                next_button = InlineKeyboardButton(text=btn_next, callback_data="next_question")
 
-            menu_button = InlineKeyboardButton(
-                text="📋 Menu", callback_data="show_menu"
-            )
-            keyboard = InlineKeyboardMarkup(
-                inline_keyboard=[[menu_button, next_button]]
-            )
+            menu_button = InlineKeyboardButton(text=btn_menu, callback_data="show_menu")
+            keyboard = InlineKeyboardMarkup(inline_keyboard=[[menu_button, next_button]])
 
-            await bot.edit_message_text(
+            new_message_id = await safe_edit_message(
+                bot=bot,
                 chat_id=session.chat_id,
                 message_id=session.message_id,
                 text=callback.message.text + f"\n\n{feedback_text}",
                 parse_mode="Markdown",
                 reply_markup=keyboard,
             )
+            session.message_id = new_message_id
 
         elif action == "next_question":
             session.current_question += 1
@@ -195,33 +219,38 @@ class TranslateWordQuiz(BaseGame):
         return session
 
     async def end_game(self, bot: Bot, session: GameSession):
+        lang = session.game_state.get("lang", "en")
         category_index = session.game_state.get("category_index", 0)
-        category_name = WORD_DICTIONARIES[category_index]["category_name"]
-        final_text = (
-            f"🎉 **Round Complete!** 🎉\n\n"
-            f"Category: **{category_name}**\n"
-            f"Your score: **{session.score}** out of **{QUESTIONS_PER_ROUND}**.\n\n"
-            "Choose another category or game from the /menu."
+        
+        cat_key = WORD_DICTIONARIES[category_index]["category_key"]
+        category_name = translator.get_text(cat_key, lang)
+        
+        final_text = translator.get_text("game_tw_end_text", lang).format(
+            category=category_name,
+            score=session.score,
+            total=QUESTIONS_PER_ROUND
         )
-        await bot.edit_message_text(
+        
+        new_message_id = await safe_edit_message(
+            bot=bot,
             chat_id=session.chat_id,
             message_id=session.message_id,
             text=final_text,
             parse_mode="Markdown",
             reply_markup=None,
         )
+        session.message_id = new_message_id
 
     async def resume_game(self, bot: Bot, session: GameSession):
-        """Resumes the quiz from the last known state."""
-        await bot.send_message(session.chat_id, "Ok, let's continue translating words!")
+        lang = session.game_state.get("lang", "en")
+        resume_text = translator.get_text("game_tw_resume", lang)
+        await bot.send_message(session.chat_id, resume_text)
+        
         if session.current_question == -1:
             await self._send_category_selection(bot, session)
         else:
-            sent_message = await bot.send_message(
-                session.chat_id, "Loading your question..."
-            )
-            session.message_id = sent_message.message_id
+            loading_text = translator.get_text("game_tw_loading", lang)
+            await bot.send_message(session.chat_id, loading_text)
             await self._send_question(bot, session, as_new_message=True)
-
 
 game_registry.register(TranslateWordQuiz())

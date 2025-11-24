@@ -11,6 +11,7 @@ from common.config import CONFIG
 from handlers.shared import router as common_router
 from handlers.user import router as user_router
 from handlers.admin import router as admin_router
+from database import init_db
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -18,6 +19,11 @@ logger = logging.getLogger(__name__)
 
 async def main():
     """Main bot function."""
+    # Инициализируем БД
+    logger.info("Initializing database...")
+    await init_db()
+    logger.info("Database initialized successfully!")
+    
     bot = Bot(
         token=CONFIG.bot.token,
         default=DefaultBotProperties(parse_mode=ParseMode.HTML)

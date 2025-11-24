@@ -1,6 +1,6 @@
 SPEECH_PRACTICE_DATA = [
     {
-        "category_name": "Easy Words",
+        "category_key": "game_speech_practice_category_easy",
         "category_icon": "👶",
         "items": [
             "Привет", "Спасибо", "Пожалуйста", "Да", "Нет", "Хорошо",
@@ -11,7 +11,7 @@ SPEECH_PRACTICE_DATA = [
         ]
     },
     {
-        "category_name": "Common Phrases",
+        "category_key": "game_speech_practice_category_phrases",
         "category_icon": "🧑‍🦱",
         "items": [
             "Как дела?", "Меня зовут...", "Сколько это стоит?", "Где находится туалет?",
@@ -23,7 +23,7 @@ SPEECH_PRACTICE_DATA = [
         ]
     },
     {
-        "category_name": "Tongue Twisters",
+        "category_key": "game_speech_practice_category_tongue_twisters",
         "category_icon": "😈",
         "items": [
             "Шла Саша по шоссе и сосала сушку",

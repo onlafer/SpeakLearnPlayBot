@@ -24,9 +24,14 @@ class GameSession:
 class BaseGame(ABC):
     """Abstract base class for all games."""
     
-    def __init__(self, game_id: str, display_name: str):
+    def __init__(self, game_id: str):
         self.game_id = game_id
-        self.display_name = display_name
+        # self.display_name = display_name
+
+    @abstractmethod
+    async def get_display_name(self, lang: str) -> str:
+        """Returns the localized name of the game."""
+        pass
 
     @abstractmethod
     async def start_game(self, bot: Bot, user_id: int, message: Message) -> GameSession:
