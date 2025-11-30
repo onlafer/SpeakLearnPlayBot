@@ -66,8 +66,9 @@ class VerbTenseQuiz(BaseGame):
         
         # Перевод названия уровня (Level)
         level_text = translator.get_text(question["level"], lang)
+        menu_hint = translator.get_text("menu_hint", lang)
         
-        question_text = f"**{level_text}**\n\n{question['text']}"
+        question_text = f"**{level_text}**\n\n{question['text']}\n\n{menu_hint}"
 
         if as_new_message:
             sent_message = await bot.send_message(
@@ -163,24 +164,25 @@ class VerbTenseQuiz(BaseGame):
 
         return session
 
-    async def end_game(self, bot: Bot, session: GameSession):
+    async def end_game(self, bot: Bot, session: GameSession, send_message: bool = True):
         """Sends the final score message and cleans up."""
-        lang = session.game_state.get("lang", "en")
-        total_questions = len(VERB_TENSE_QUESTIONS)
-        
-        final_text = translator.get_text("game_vt_end_text", lang).format(
-            score=session.score, total=total_questions
-        )
-        
-        new_message_id = await safe_edit_message(
-            bot=bot,
-            chat_id=session.chat_id,
-            message_id=session.message_id,
-            text=final_text,
-            parse_mode="Markdown",
-            reply_markup=None,
-        )
-        session.message_id = new_message_id
+        if send_message:
+            lang = session.game_state.get("lang", "en")
+            total_questions = len(VERB_TENSE_QUESTIONS)
+            
+            final_text = translator.get_text("game_vt_end_text", lang).format(
+                score=session.score, total=total_questions
+            )
+            
+            new_message_id = await safe_edit_message(
+                bot=bot,
+                chat_id=session.chat_id,
+                message_id=session.message_id,
+                text=final_text,
+                parse_mode="Markdown",
+                reply_markup=None,
+            )
+            session.message_id = new_message_id
 
 
 game_registry.register(VerbTenseQuiz())

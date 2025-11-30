@@ -64,7 +64,8 @@ async def _cancel_game_logic(user_id: int, bot: Bot, lang: str):
         game = game_registry.get_game(session.game_id)
 
         if game:
-            await game.end_game(bot, session)
+            # ИЗМЕНЕНИЕ ЗДЕСЬ: передаем send_message=False
+            await game.end_game(bot, session, send_message=False)
 
         await session_manager.end_session(user_id)
         return translator.get_text("game_cancelled_success", lang)

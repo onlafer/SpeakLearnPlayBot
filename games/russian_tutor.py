@@ -87,11 +87,14 @@ class RussianTutorGame(BaseGame):
         await bot.send_message(chat_id=session.chat_id, text=ai_response)
         return session
 
-    async def end_game(self, bot: Bot, session: GameSession):
+    async def end_game(self, bot: Bot, session: GameSession, send_message: bool = True):
         """Ends the game session."""
-        lang = await get_user_language(session.user_id)
         session.status = GameStatus.FINISHED
-        final_text = translator.get_text("game_russian_tutor_end_text", lang)
-        await bot.send_message(chat_id=session.chat_id, text=final_text)
+        
+        # ОТПРАВЛЯЕМ СООБЩЕНИЕ ТОЛЬКО ЕСЛИ ФЛАГ TRUE
+        if send_message:
+            lang = await get_user_language(session.user_id)
+            final_text = translator.get_text("game_russian_tutor_end_text", lang)
+            await bot.send_message(chat_id=session.chat_id, text=final_text)
 
 game_registry.register(RussianTutorGame())

@@ -49,6 +49,6 @@ class BaseGame(ABC):
         pass
 
     @abstractmethod
-    async def end_game(self, bot: Bot, session: GameSession):
+    async def end_game(self, bot: Bot, session: GameSession, send_message: bool = True):
         """Cleans up and ends the game session."""
         pass

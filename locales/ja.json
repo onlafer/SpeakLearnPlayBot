@@ -37,7 +37,11 @@
   "game_speech_practice_category_label": "カテゴリ: {category_name}",
   "game_speech_practice_pronounce_prompt": "次のフレーズを発音してください:",
   "game_speech_practice_record_hint": "声を録音するには、🎙 マイクボタンを長押ししてください。",
-  "game_speech_practice_menu_hint": "別のゲームを選ぶには、/menu を送信してください。",
+
+  "game_speech_practice_feedback_perfect": "完璧です！🌟\n聞こえた言葉：\n`{recognized}`",
+  "game_speech_practice_feedback_close": "惜しい！👌\n正解：`{target}`\n聞こえた言葉：`{recognized}`",
+
+  "menu_hint": "別のゲームを選ぶには、/menu を送信してください。",
   "game_speech_practice_feedback_correct": "✅ すばらしい！完璧に発音できました。",
   "game_speech_practice_feedback_good_try": "🤔 いい挑戦でした！目標のフレーズ:\n`{target}`\n\n聞き取った内容:\n`{recognized}`",
   "game_speech_practice_feedback_unrecognized": "😕 ごめんなさい、うまく聞き取れませんでした。もう一度試してください。",

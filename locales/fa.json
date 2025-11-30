@@ -37,7 +37,11 @@
   "game_speech_practice_category_label": "دسته: {category_name}",
   "game_speech_practice_pronounce_prompt": "لطفاً عبارت زیر را تلفظ کنید:",
   "game_speech_practice_record_hint": "برای ضبط صدای خود دکمه 🎙 میکروفون را نگه دارید.",
-  "game_speech_practice_menu_hint": "برای انتخاب بازی دیگر، دستور /menu را ارسال کنید.",
+  "menu_hint": "برای انتخاب بازی دیگر، دستور /menu را ارسال کنید.",
+
+  "game_speech_practice_feedback_perfect": "عالی! 🌟\nمن شنیدم:\n`{recognized}`",
+  "game_speech_practice_feedback_close": "خیلی نزدیک بود! 👌\nهدف: `{target}`\nمن شنیدم: `{recognized}`",
+
   "game_speech_practice_feedback_correct": "✅ عالی! دقیقاً درست گفتی.",
   "game_speech_practice_feedback_good_try": "🤔 تلاش خوبی بود! عبارت هدف این است:\n`{target}`\n\nو من این را شنیدم:\n`{recognized}`",
   "game_speech_practice_feedback_unrecognized": "😕 متأسفم، نتوانستم حرفی که زدی را بفهمم. دوباره تلاش کن.",

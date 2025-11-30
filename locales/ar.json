@@ -37,7 +37,11 @@
   "game_speech_practice_category_label": "الفئة: {category_name}",
   "game_speech_practice_pronounce_prompt": "يرجى نطق ما يلي:",
   "game_speech_practice_record_hint": "اضغط مطولًا على زر 🎙 الميكروفون لتسجيل صوتك.",
-  "game_speech_practice_menu_hint": "لاختيار لعبة أخرى، أرسل الأمر /menu.",
+  "menu_hint": "لاختيار لعبة أخرى، أرسل الأمر /menu.",
+
+  "game_speech_practice_feedback_perfect": "ممتاز! 🌟\nلقد سمعت:\n`{recognized}`",
+  "game_speech_practice_feedback_close": "قريب جداً! 👌\nالهدف: `{target}`\nلقد سمعت: `{recognized}`",
+
   "game_speech_practice_feedback_correct": "✅ ممتاز! نطقت العبارة بإتقان.",
   "game_speech_practice_feedback_good_try": "🤔 محاولة جيدة! إليك الجملة المطلوبة:\n`{target}`\n\nوهذا ما سمعته:\n`{recognized}`",
   "game_speech_practice_feedback_unrecognized": "😕 عذرًا، لم أتمكن من فهم ما قلته. حاول مرة أخرى.",

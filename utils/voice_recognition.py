@@ -2,7 +2,7 @@ import speech_recognition as sr
 from pydub import AudioSegment
 import io
 
-async def recognize_speech_from_bytes(audio_bytes: io.BytesIO) -> str | None:
+async def recognize_speech_from_bytes(audio_bytes: io.BytesIO, language: str = "en-US") -> str | None:
     """
     Распознает речь из байтового потока аудио.
     """
@@ -19,7 +19,7 @@ async def recognize_speech_from_bytes(audio_bytes: io.BytesIO) -> str | None:
         with sr.AudioFile(wav_audio_bytes) as source:
             audio_data = recognizer.record(source)
 
-        text = recognizer.recognize_google(audio_data, language='ru-RU')
+        text = recognizer.recognize_google(audio_data, language=language)
         return text.lower()
     
     except sr.UnknownValueError:

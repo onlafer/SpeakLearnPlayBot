@@ -37,7 +37,11 @@
   "game_speech_practice_category_label": "类别：{category_name}",
   "game_speech_practice_pronounce_prompt": "请朗读以下内容：",
   "game_speech_practice_record_hint": "长按 🎙 麦克风按钮录制你的声音。",
-  "game_speech_practice_menu_hint": "想选择其他游戏，请发送 /menu。",
+  "menu_hint": "想选择其他游戏，请发送 /menu。",
+
+  "game_speech_practice_feedback_perfect": "完美！🌟\n我听到：\n`{recognized}`",
+  "game_speech_practice_feedback_close": "非常接近！👌\n目标：`{target}`\n我听到：`{recognized}`",
+
   "game_speech_practice_feedback_correct": "✅ 太棒了！你发音得非常完美。",
   "game_speech_practice_feedback_good_try": "🤔 不错的尝试！目标短语：\n`{target}`\n\n我听到的是：\n`{recognized}`",
   "game_speech_practice_feedback_unrecognized": "😕 抱歉，我没听清你说的内容。请再试一次。",

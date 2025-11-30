@@ -37,7 +37,11 @@
   "game_speech_practice_category_label": "Category: {category_name}",
   "game_speech_practice_pronounce_prompt": "Please pronounce the following:",
   "game_speech_practice_record_hint": "Press and hold the 🎙 microphone button to record your voice.",
-  "game_speech_practice_menu_hint": "To select a different game, send /menu.",
+  "menu_hint": "To select a different game, send /menu.",
+
+  "game_speech_practice_feedback_perfect": "Perfect! 🌟\nI heard:\n`{recognized}`",
+  "game_speech_practice_feedback_close": "Almost correct! 👌\nTarget: `{target}`\nI heard: `{recognized}`",
+
   "game_speech_practice_feedback_correct": "✅ Excellent! You said it perfectly.",
   "game_speech_practice_feedback_good_try": "🤔 Good try! Here's the target:\n`{target}`\n\nHere's what I heard:\n`{recognized}`",
   "game_speech_practice_feedback_unrecognized": "😕 Sorry, I couldn't understand what you said. Please try again.",

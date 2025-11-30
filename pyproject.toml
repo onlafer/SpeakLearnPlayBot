@@ -16,4 +16,5 @@ dependencies = [
     "sqlalchemy>=2.0.44",
     "asyncpg>=0.30.0",
     "deep-translator>=1.11.4",
+    "gtts>=2.5.4",
 ]

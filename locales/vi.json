@@ -37,7 +37,11 @@
   "game_speech_practice_category_label": "Chủ đề: {category_name}",
   "game_speech_practice_pronounce_prompt": "Hãy phát âm cụm từ sau:",
   "game_speech_practice_record_hint": "Nhấn và giữ nút 🎙 micro để ghi âm giọng nói.",
-  "game_speech_practice_menu_hint": "Để chọn trò chơi khác, hãy gửi /menu.",
+  "menu_hint": "Để chọn trò chơi khác, hãy gửi /menu.",
+
+  "game_speech_practice_feedback_perfect": "Hoàn hảo! 🌟\nTôi đã nghe:\n`{recognized}`",
+  "game_speech_practice_feedback_close": "Gần đúng! 👌\nMục tiêu: `{target}`\nTôi đã nghe: `{recognized}`",
+
   "game_speech_practice_feedback_correct": "✅ Tuyệt vời! Bạn đã phát âm hoàn hảo.",
   "game_speech_practice_feedback_good_try": "🤔 Cố gắng rất tốt! Mục tiêu là:\n`{target}`\n\nTôi nghe được:\n`{recognized}`",
   "game_speech_practice_feedback_unrecognized": "😕 Xin lỗi, tôi không nghe rõ bạn nói gì. Hãy thử lại nhé.",

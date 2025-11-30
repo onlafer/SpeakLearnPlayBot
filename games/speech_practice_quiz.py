@@ -1,15 +1,20 @@
+import html
+from difflib import SequenceMatcher
+
 from aiogram import Bot
 from aiogram.types import (
     Message,
     CallbackQuery,
     InlineKeyboardMarkup,
     InlineKeyboardButton,
+    BufferedInputFile,
 )
 import random
 import re
 
 from data.speech_practice_quiz import SPEECH_PRACTICE_DATA
 from utils.voice_recognition import recognize_speech_from_bytes
+from utils.text_to_speech import text_to_speech
 from utils.localization import translator
 from database.user_manager import user_manager
 from .base import BaseGame, GameSession, GameStatus
@@ -20,7 +25,6 @@ QUESTIONS_PER_ROUND = 5
 
 
 async def get_user_language(user_id: int) -> str:
-    """Gets user language with a fallback to 'en'."""
     user = await user_manager.get_user(user_id)
     return user.language if user else "en"
 
@@ -30,7 +34,6 @@ class SpeechPracticeQuiz(BaseGame):
         super().__init__(game_id="speech_practice_quiz")
 
     def get_display_name(self, lang: str) -> str:
-        """Returns the localized name of the game."""
         return translator.get_text("game_speech_practice_name", lang)
 
     async def start_game(self, bot: Bot, user_id: int, message: Message) -> GameSession:
@@ -43,7 +46,7 @@ class SpeechPracticeQuiz(BaseGame):
             status=GameStatus.IN_PROGRESS,
             current_question=-1,
             score=0,
-            game_state={"lang": lang},
+            game_state={"lang": lang, "last_voice_id": None},
         )
         await self._send_category_selection(bot, session)
         return session
@@ -55,12 +58,15 @@ class SpeechPracticeQuiz(BaseGame):
         if session.current_question == -1:
             await self._send_category_selection(bot, session, as_new_message=True)
         else:
-            await self._send_question(bot, session, as_new_message=True)
+            await self._send_question(bot, session, is_new_round_step=True)
 
     async def _send_category_selection(
         self, bot: Bot, session: GameSession, as_new_message: bool = False
     ):
         lang = await self._get_session_language(session)
+        
+        await self._cleanup_previous_voice(bot, session)
+
         buttons = []
         row = []
         for index, category in enumerate(SPEECH_PRACTICE_DATA):
@@ -75,6 +81,7 @@ class SpeechPracticeQuiz(BaseGame):
             buttons.append(row)
         keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
         text = translator.get_text("game_speech_practice_choose_category", lang)
+
         if as_new_message:
             sent_message = await bot.send_message(
                 chat_id=session.chat_id, text=text, reply_markup=keyboard
@@ -88,7 +95,13 @@ class SpeechPracticeQuiz(BaseGame):
                 text=text,
                 reply_markup=keyboard,
             )
-            session.message_id = new_message_id
+            if new_message_id:
+                session.message_id = new_message_id
+            else:
+                sent_message = await bot.send_message(
+                     chat_id=session.chat_id, text=text, reply_markup=keyboard
+                )
+                session.message_id = sent_message.message_id
 
     async def _start_quiz_round(self, bot: Bot, session: GameSession):
         category_index = session.game_state["category_index"]
@@ -96,10 +109,19 @@ class SpeechPracticeQuiz(BaseGame):
         random.shuffle(all_items)
         session.game_state["round_items"] = all_items[:QUESTIONS_PER_ROUND]
         session.current_question = 0
-        await self._send_question(bot, session)
+        await self._send_question(bot, session, is_new_round_step=True)
+
+    async def _cleanup_previous_voice(self, bot: Bot, session: GameSession):
+        last_voice_id = session.game_state.get("last_voice_id")
+        if last_voice_id:
+            try:
+                await bot.delete_message(chat_id=session.chat_id, message_id=last_voice_id)
+            except Exception:
+                pass
+            session.game_state["last_voice_id"] = None
 
     async def _send_question(
-        self, bot: Bot, session: GameSession, as_new_message: bool = False
+        self, bot: Bot, session: GameSession, is_new_round_step: bool = False
     ):
         item_index = session.current_question
         item_text = session.game_state["round_items"][item_index]
@@ -107,27 +129,55 @@ class SpeechPracticeQuiz(BaseGame):
         session.game_state["current_item"] = item_text
         lang = await self._get_session_language(session)
         category_name = self._get_category_name(category_index, lang)
+
         text = self._format_question_text(
             category_name=category_name,
             item_text=item_text,
             lang=lang,
             include_menu_hint=True,
         )
-        if as_new_message:
+
+        if is_new_round_step:
+            if session.message_id:
+                try:
+                    await bot.delete_message(chat_id=session.chat_id, message_id=session.message_id)
+                except Exception:
+                    pass
+            
+            await self._cleanup_previous_voice(bot, session)
+
+            tts_lang = "en" 
+            
+            await bot.send_chat_action(chat_id=session.chat_id, action="upload_voice")
+            
+            voice_bytes = await text_to_speech(item_text, lang="ru")
+            voice_msg = await bot.send_voice(
+                chat_id=session.chat_id,
+                voice=BufferedInputFile(voice_bytes.read(), filename="pronunciation.ogg")
+            )
+            session.game_state["last_voice_id"] = voice_msg.message_id
+
             sent_message = await bot.send_message(
-                chat_id=session.chat_id, text=text, parse_mode="Markdown"
+                chat_id=session.chat_id, 
+                text=text, 
+                parse_mode="Markdown"  # Changed to Markdown
             )
             session.message_id = sent_message.message_id
+
         else:
             new_message_id = await safe_edit_message(
                 bot=bot,
                 chat_id=session.chat_id,
                 message_id=session.message_id,
                 text=text,
-                parse_mode="Markdown",
+                parse_mode="Markdown",  # Changed to Markdown
                 reply_markup=None,
             )
-            session.message_id = new_message_id
+            if not new_message_id:
+                sent_msg = await bot.send_message(
+                    chat_id=session.chat_id, text=text, parse_mode="Markdown"  # Changed to Markdown
+                )
+                session.message_id = sent_msg.message_id
 
     async def handle_voice_message(
         self, bot: Bot, session: GameSession, message: Message
@@ -137,7 +187,7 @@ class SpeechPracticeQuiz(BaseGame):
 
         voice_file = await bot.get_file(message.voice.file_id)
         voice_bytes = await bot.download_file(voice_file.file_path)
-        recognized_text = await recognize_speech_from_bytes(voice_bytes)
+        recognized_text = await recognize_speech_from_bytes(voice_bytes, language="ru-RU") # Добавил language как обсуждали
         original_text = session.game_state.get("current_item", "")
 
         try:
@@ -145,20 +195,38 @@ class SpeechPracticeQuiz(BaseGame):
         except Exception:
             pass
 
-        clean_original = re.sub(r"[^\w\s]", "", original_text).lower()
-        clean_recognized = re.sub(r"[^\w\s]", "", recognized_text or "").lower()
+        clean_original = re.sub(r"[^\w\s]", "", original_text).lower().strip()
+        clean_recognized = re.sub(r"[^\w\s]", "", recognized_text or "").lower().strip()
 
-        if recognized_text and clean_recognized == clean_original:
+        similarity = 0.0
+        if clean_original and clean_recognized:
+            matcher = SequenceMatcher(None, clean_original, clean_recognized)
+            similarity = matcher.ratio()
+
+        # Для Markdown не нужно экранировать html
+        safe_original = original_text
+        safe_recognized = recognized_text or "..."
+
+        if recognized_text and similarity >= 0.95:
             session.score += 1
-            feedback_text = translator.get_text(
-                "game_speech_practice_feedback_correct", lang
-            )
-        elif recognized_text:
-            template = translator.get_text(
-                "game_speech_practice_feedback_good_try", lang
-            )
+            template = translator.get_text("game_speech_practice_feedback_perfect", lang)
             feedback_text = template.format(
-                target=original_text, recognized=recognized_text
+                recognized=safe_recognized
+            )
+
+        elif recognized_text and similarity >= 0.90:
+            session.score += 1
+            template = translator.get_text("game_speech_practice_feedback_close", lang)
+            feedback_text = template.format(
+                target=safe_original,
+                recognized=safe_recognized
+            )
+
+        elif recognized_text:
+            template = translator.get_text("game_speech_practice_feedback_good_try", lang)
+            feedback_text = template.format(
+                target=safe_original,
+                recognized=safe_recognized
             )
         else:
             feedback_text = translator.get_text(
@@ -166,12 +234,10 @@ class SpeechPracticeQuiz(BaseGame):
             )
 
         is_last_question = (session.current_question + 1) >= QUESTIONS_PER_ROUND
-
+        
         if is_last_question:
             next_button = InlineKeyboardButton(
-                text=translator.get_text(
-                    "game_speech_practice_button_results", lang
-                ),
+                text=translator.get_text("game_speech_practice_button_results", lang),
                 callback_data="finish_speech",
             )
         else:
@@ -193,7 +259,7 @@ class SpeechPracticeQuiz(BaseGame):
             category_name=category_name,
             item_text=original_text,
             lang=lang,
-            include_menu_hint=False,
+            include_menu_hint=True,
         )
 
         full_text = f"{question_text}\n\n{feedback_text}"
@@ -203,10 +269,20 @@ class SpeechPracticeQuiz(BaseGame):
             chat_id=session.chat_id,
             message_id=session.message_id,
             text=full_text,
-            parse_mode="Markdown",
+            parse_mode="Markdown", # Changed to Markdown
             reply_markup=keyboard,
         )
-        session.message_id = new_message_id
+        
+        if new_message_id:
+             session.message_id = new_message_id
+        else:
+             sent = await bot.send_message(
+                 chat_id=session.chat_id, 
+                 text=full_text, 
+                 parse_mode="Markdown", # Changed to Markdown
+                 reply_markup=keyboard
+             )
+             session.message_id = sent.message_id
 
         return session
 
@@ -223,7 +299,7 @@ class SpeechPracticeQuiz(BaseGame):
 
         elif action == "next_speech_item":
             session.current_question += 1
-            await self._send_question(bot, session)
+            await self._send_question(bot, session, is_new_round_step=True)
             await callback.answer()
 
         elif action == "finish_speech":
@@ -233,23 +309,24 @@ class SpeechPracticeQuiz(BaseGame):
 
         return session
 
-    async def end_game(self, bot: Bot, session: GameSession):
-        lang = await self._get_session_language(session)
-        final_text = translator.get_text("game_speech_practice_end_text", lang).format(
-            score=session.score, total=QUESTIONS_PER_ROUND
-        )
-        new_message_id = await safe_edit_message(
-            bot=bot,
-            chat_id=session.chat_id,
-            message_id=session.message_id,
-            text=final_text,
-            parse_mode="Markdown",
-            reply_markup=None,
-        )
-        session.message_id = new_message_id
+    async def end_game(self, bot: Bot, session: GameSession, send_message: bool = True):
+        await self._cleanup_previous_voice(bot, session)
+        
+        if send_message:
+            lang = await self._get_session_language(session)
+            final_text = translator.get_text("game_speech_practice_end_text", lang).format(
+                score=session.score, total=QUESTIONS_PER_ROUND
+            )
+            await safe_edit_message(
+                bot=bot,
+                chat_id=session.chat_id,
+                message_id=session.message_id,
+                text=final_text,
+                parse_mode="Markdown", # Changed to Markdown
+                reply_markup=None,
+            )
 
     async def _get_session_language(self, session: GameSession) -> str:
-        """Ensures the language is stored in the session."""
         lang = session.game_state.get("lang")
         if not lang:
             lang = await get_user_language(session.user_id)
@@ -263,18 +340,25 @@ class SpeechPracticeQuiz(BaseGame):
         lang: str,
         include_menu_hint: bool = True,
     ) -> str:
+        # Убрали html.escape
+        safe_category = category_name
+        safe_item = item_text
+
         category_label = translator.get_text(
             "game_speech_practice_category_label", lang
-        ).format(category_name=category_name)
+        ).format(category_name=safe_category)
+        
         pronounce_prompt = translator.get_text(
             "game_speech_practice_pronounce_prompt", lang
         )
         record_hint = translator.get_text("game_speech_practice_record_hint", lang)
-        menu_hint = translator.get_text("game_speech_practice_menu_hint", lang)
+        menu_hint = translator.get_text("menu_hint", lang)
+        
+        # Используем Markdown теги (*bold*, _italic_)
         parts = [
-            f"**{category_label}**",
+            f"*{category_label}*",
             pronounce_prompt,
-            f"**{item_text}**",
+            f"*{safe_item}*",
             f"_{record_hint}_",
         ]
         if include_menu_hint:
@@ -284,6 +368,5 @@ class SpeechPracticeQuiz(BaseGame):
     def _get_category_name(self, category_index: int, lang: str) -> str:
         category_key = SPEECH_PRACTICE_DATA[category_index]["category_key"]
         return translator.get_text(category_key, lang)
-
 
 game_registry.register(SpeechPracticeQuiz())

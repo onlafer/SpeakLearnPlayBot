@@ -29,7 +29,6 @@ SUPPORTED_LANGUAGES = [
     ("es", "lang_es"),
     ("vi", "lang_vi"),
     ("ja", "lang_ja"),
-    ("ru", "lang_ru"),
 ]
 
 
@@ -189,20 +188,21 @@ class TranslatorGame(BaseGame):
         return session
 
     # --- ВОТ МЕТОД, КОТОРОГО НЕ ХВАТАЛО ---
-    async def end_game(self, bot: Bot, session: GameSession):
+    async def end_game(self, bot: Bot, session: GameSession, send_message: bool = True):
         """Завершает сессию перевода."""
-        ui_lang = session.game_state.get("ui_lang", "en")
-        
-        end_text = translator.get_text("game_translator_end", ui_lang)
-        
-        await safe_edit_message(
-            bot=bot,
-            chat_id=session.chat_id,
-            message_id=session.message_id,
-            text=end_text,
-            parse_mode="Markdown",
-            reply_markup=None
-        )
+        if send_message:
+            ui_lang = session.game_state.get("ui_lang", "en")
+            
+            end_text = translator.get_text("game_translator_end", ui_lang)
+            
+            await safe_edit_message(
+                bot=bot,
+                chat_id=session.chat_id,
+                message_id=session.message_id,
+                text=end_text,
+                parse_mode="Markdown",
+                reply_markup=None
+            )
 
 
 game_registry.register(TranslatorGame())

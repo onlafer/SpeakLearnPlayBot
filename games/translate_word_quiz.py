@@ -93,6 +93,7 @@ class TranslateWordQuiz(BaseGame):
         russian_word = word_pair["russian_word"]
         # Берем перевод на язык пользователя, если нет - английский
         user_word = word_pair["translations"].get(lang, word_pair["translations"].get("en"))
+        menu_hint = translator.get_text("menu_hint", lang)
 
         translate_to_russian = random.choice([True, False])
         
@@ -130,7 +131,7 @@ class TranslateWordQuiz(BaseGame):
         keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
         
         cat_label = translator.get_text("game_tw_category_label", lang).format(category_name=category_name)
-        question_text = f"**{cat_label}**\n\n{prompt}\n\n**{question_word}**"
+        question_text = f"**{cat_label}**\n\n{prompt}\n\n**{question_word}**\n\n{menu_hint}"
         
         if as_new_message:
             sent_message = await bot.send_message(
@@ -218,28 +219,29 @@ class TranslateWordQuiz(BaseGame):
 
         return session
 
-    async def end_game(self, bot: Bot, session: GameSession):
-        lang = session.game_state.get("lang", "en")
-        category_index = session.game_state.get("category_index", 0)
-        
-        cat_key = WORD_DICTIONARIES[category_index]["category_key"]
-        category_name = translator.get_text(cat_key, lang)
-        
-        final_text = translator.get_text("game_tw_end_text", lang).format(
-            category=category_name,
-            score=session.score,
-            total=QUESTIONS_PER_ROUND
-        )
-        
-        new_message_id = await safe_edit_message(
-            bot=bot,
-            chat_id=session.chat_id,
-            message_id=session.message_id,
-            text=final_text,
-            parse_mode="Markdown",
-            reply_markup=None,
-        )
-        session.message_id = new_message_id
+    async def end_game(self, bot: Bot, session: GameSession, send_message: bool = True):
+        if send_message:
+            lang = session.game_state.get("lang", "en")
+            category_index = session.game_state.get("category_index", 0)
+            
+            cat_key = WORD_DICTIONARIES[category_index]["category_key"]
+            category_name = translator.get_text(cat_key, lang)
+            
+            final_text = translator.get_text("game_tw_end_text", lang).format(
+                category=category_name,
+                score=session.score,
+                total=QUESTIONS_PER_ROUND
+            )
+            
+            new_message_id = await safe_edit_message(
+                bot=bot,
+                chat_id=session.chat_id,
+                message_id=session.message_id,
+                text=final_text,
+                parse_mode="Markdown",
+                reply_markup=None,
+            )
+            session.message_id = new_message_id
 
     async def resume_game(self, bot: Bot, session: GameSession):
         lang = session.game_state.get("lang", "en")
