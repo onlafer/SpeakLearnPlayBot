@@ -119,5 +119,16 @@
   "lang_fa": "🇮🇷 Persian",
   "lang_es": "🇪🇸 Spanish",
   "lang_vi": "🇻🇳 Vietnamese",
-  "lang_ja": "🇯🇵 Japanese"
+  "lang_ja": "🇯🇵 Japanese",
+
+  "game_sa_name": "🎵 Sing Along",
+  "game_sa_resume": "Let's keep singing!",
+  "game_sa_caption": "🎵 Now playing: {title}\n\nUse buttons below to get lyrics or instrumental version.\n\n{menu_hint}",
+  "game_sa_btn_lyrics": "📄 Show Lyrics",
+  "game_sa_btn_minus": "🎹 Get Instrumental",
+  "game_sa_btn_next": "➡️ Next Song",
+  "game_sa_btn_menu": "📋 Menu",
+  "game_sa_lyrics_title": "Lyrics: {title}",
+  "game_sa_minus_caption": "🎹 Instrumental version: {title}",
+  "game_sa_end_text": "🎉 Karaoke session finished! Hope you enjoyed singing.\n\nChoose another game from the /menu."
 }

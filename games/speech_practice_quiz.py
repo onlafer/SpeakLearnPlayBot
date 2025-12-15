@@ -146,11 +146,11 @@ class SpeechPracticeQuiz(BaseGame):
             
             await self._cleanup_previous_voice(bot, session)
 
-            tts_lang = "en" 
+            tts_lang = "ru"
             
             await bot.send_chat_action(chat_id=session.chat_id, action="upload_voice")
             
-            voice_bytes = await text_to_speech(item_text, lang="ru")
+            voice_bytes = await text_to_speech(item_text, lang=tts_lang)
             voice_msg = await bot.send_voice(
                 chat_id=session.chat_id,
                 voice=BufferedInputFile(voice_bytes.read(), filename="pronunciation.ogg")
