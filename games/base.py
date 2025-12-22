@@ -26,7 +26,6 @@ class BaseGame(ABC):
     
     def __init__(self, game_id: str):
         self.game_id = game_id
-        # self.display_name = display_name
 
     @abstractmethod
     async def get_display_name(self, lang: str) -> str:

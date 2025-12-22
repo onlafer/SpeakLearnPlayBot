@@ -12,7 +12,7 @@ from aiogram.types import (
 import random
 import re
 
-from data.speech_practice_quiz import SPEECH_PRACTICE_DATA
+from data.speech_practice_quiz_data import SPEECH_PRACTICE_DATA
 from utils.voice_recognition import recognize_speech_from_bytes
 from utils.text_to_speech import text_to_speech
 from utils.localization import translator
@@ -160,7 +160,7 @@ class SpeechPracticeQuiz(BaseGame):
             sent_message = await bot.send_message(
                 chat_id=session.chat_id, 
                 text=text, 
-                parse_mode="Markdown"  # Changed to Markdown
+                parse_mode="Markdown"
             )
             session.message_id = sent_message.message_id
 
@@ -170,12 +170,12 @@ class SpeechPracticeQuiz(BaseGame):
                 chat_id=session.chat_id,
                 message_id=session.message_id,
                 text=text,
-                parse_mode="Markdown",  # Changed to Markdown
+                parse_mode="Markdown",
                 reply_markup=None,
             )
             if not new_message_id:
                 sent_msg = await bot.send_message(
-                    chat_id=session.chat_id, text=text, parse_mode="Markdown"  # Changed to Markdown
+                    chat_id=session.chat_id, text=text, parse_mode="Markdown"
                 )
                 session.message_id = sent_msg.message_id
 
@@ -187,7 +187,7 @@ class SpeechPracticeQuiz(BaseGame):
 
         voice_file = await bot.get_file(message.voice.file_id)
         voice_bytes = await bot.download_file(voice_file.file_path)
-        recognized_text = await recognize_speech_from_bytes(voice_bytes, language="ru-RU") # Добавил language как обсуждали
+        recognized_text = await recognize_speech_from_bytes(voice_bytes, language="ru-RU")
         original_text = session.game_state.get("current_item", "")
 
         try:
@@ -203,7 +203,6 @@ class SpeechPracticeQuiz(BaseGame):
             matcher = SequenceMatcher(None, clean_original, clean_recognized)
             similarity = matcher.ratio()
 
-        # Для Markdown не нужно экранировать html
         safe_original = original_text
         safe_recognized = recognized_text or "..."
 
@@ -269,7 +268,7 @@ class SpeechPracticeQuiz(BaseGame):
             chat_id=session.chat_id,
             message_id=session.message_id,
             text=full_text,
-            parse_mode="Markdown", # Changed to Markdown
+            parse_mode="Markdown",
             reply_markup=keyboard,
         )
         
@@ -279,7 +278,7 @@ class SpeechPracticeQuiz(BaseGame):
              sent = await bot.send_message(
                  chat_id=session.chat_id, 
                  text=full_text, 
-                 parse_mode="Markdown", # Changed to Markdown
+                 parse_mode="Markdown",
                  reply_markup=keyboard
              )
              session.message_id = sent.message_id
@@ -322,7 +321,7 @@ class SpeechPracticeQuiz(BaseGame):
                 chat_id=session.chat_id,
                 message_id=session.message_id,
                 text=final_text,
-                parse_mode="Markdown", # Changed to Markdown
+                parse_mode="Markdown",
                 reply_markup=None,
             )
 
@@ -340,7 +339,6 @@ class SpeechPracticeQuiz(BaseGame):
         lang: str,
         include_menu_hint: bool = True,
     ) -> str:
-        # Убрали html.escape
         safe_category = category_name
         safe_item = item_text
 
@@ -353,8 +351,7 @@ class SpeechPracticeQuiz(BaseGame):
         )
         record_hint = translator.get_text("game_speech_practice_record_hint", lang)
         menu_hint = translator.get_text("menu_hint", lang)
-        
-        # Используем Markdown теги (*bold*, _italic_)
+
         parts = [
             f"*{category_label}*",
             pronounce_prompt,

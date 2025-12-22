@@ -25,8 +25,7 @@ class UserManager:
         user = await self.get_user(user_id)
         if user:
             return user
-        
-        # Создаем нового пользователя
+
         async with async_session_maker() as db_session:
             new_user = UserModel(
                 user_id=user_id,
@@ -50,7 +49,6 @@ class UserManager:
                 user.language = language
                 await db_session.commit()
             else:
-                # Если пользователя нет, создаем его
                 import time
                 new_user = UserModel(
                     user_id=user_id,

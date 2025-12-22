@@ -119,5 +119,68 @@
   "lang_fa": "🇮🇷 فارسی",
   "lang_es": "🇪🇸 اسپانیایی",
   "lang_vi": "🇻🇳 ویتنامی",
-  "lang_ja": "🇯🇵 ژاپنی"
+  "lang_ja": "🇯🇵 ژاپنی",
+  "game_wv_name": "📺 تماشای ویدیوها",
+  "game_wv_resume": "بیایید به تماشا ادامه دهیم!",
+  "game_wv_caption": "🎬 در حال پخش: {title}\n\n{menu_hint}",
+  "game_wv_btn_next": "➡️ ویدیوی بعدی",
+  "game_wv_end_text": "🎉 شما همه ویدیوها را تماشا کردید!\n\nیک بازی دیگر از /menu انتخاب کنید.",
+
+  "case_nominative": "نهادی",
+  "case_genitive": "ملکی",
+  "case_dative": "ببخششی",
+  "case_accusative": "رایی",
+  "case_instrumental": "ابزاری",
+  "case_prepositional": "حرف اضافه‌ای",
+
+  "game_rc_name": "📖 آزمون: پادژهای روسی",
+  "game_rc_select_case": "لطفاً یک پادژ روسی را برای تمرین انتخاب کنید:",
+  "game_rc_resume": "بسیار خوب، بیایید آزمون پادژها را ادامه دهیم!",
+  "game_rc_already_answered": "به این سوال قبلاً پاسخ داده شده است.",
+  "game_rc_feedback_correct": "✅ {praise} پاسخ شما درست است.\n\n_{explanation}_",
+  "game_rc_feedback_incorrect": "❌ درست نیست. پاسخ صحیح *{correct}* است.\n\n_{explanation}_",
+  "game_rc_btn_next": "➡️ سوال بعدی",
+  "game_rc_btn_finish": "🏁 اتمام آزمون",
+  "game_rc_btn_menu": "📋 منو",
+  "game_rc_end_text": "🎉 **آزمون به پایان رسید!** 🎉\n\nامتیاز شما **{score}** از **{total}** است.\n\nبازی یا پادژ دیگری را از /menu انتخاب کنید.",
+
+  "game_ac_lvl_nouns": "رایی (مفعولی): اسم‌ها",
+  "game_ac_lvl_direction": "رایی: جهت",
+  "game_ac_lvl_time": "رایی: زمان",
+  "game_ac_lvl_similarity": "رایی: شباهت",
+  "game_ac_lvl_adjectives": "رایی: صفت‌ها",
+  "game_ac_lvl_pronouns": "رایی: ضمایر",
+  
+  "game_pc_lvl_nouns": "حرف اضافه‌ای: اسم‌ها",
+  "game_pc_lvl_where": "حرف اضافه‌ای: مکان",
+  "game_pc_lvl_exceptions": "حرف اضافه‌ای: استثناها",
+  "game_pc_lvl_adjectives": "حرف اضافه‌ای: صفت‌ها",
+  "game_pc_lvl_pronouns": "حرف اضافه‌ای: ضمایر",
+  
+  "game_dc_lvl_nouns": "ببخششی: اسم‌ها",
+  "game_dc_lvl_exceptions": "ببخششی: استثناها",
+  "game_dc_lvl_pronouns": "ببخششی: ضمایر",
+  "game_dc_lvl_demonstratives": "ببخششی: ضمایر اشاره",
+  "game_dc_lvl_possessives": "ببخششی: ضمایر ملکی",
+  "game_dc_lvl_verbs": "ببخششی: افعال",
+  "game_dc_lvl_adjectives": "ببخششی: صفت‌ها",
+  
+  "game_gn_lvl_nouns": "ملکی (اضافه): اسم‌ها",
+  "game_gn_lvl_adjectives": "ملکی: صفت‌ها",
+  "game_gn_lvl_pronouns": "ملکی: ضمایر",
+  "game_gn_lvl_counting": "ملکی: شمارش",
+  "game_gn_lvl_dates": "ملکی: تاریخ‌ها",
+  
+  "game_it_lvl_nouns": "ابزاری: اسم‌ها",
+  "game_it_lvl_verbs": "ابزاری: افعال",
+  "game_it_lvl_adjectives": "ابزاری: صفت‌ها",
+  "game_it_lvl_pronouns": "ابزاری: ضمایر",
+  "game_it_lvl_prepositions": "ابزاری: حروف اضافه",
+  
+  "game_nm_lvl_basics": "نهادی: پایه",
+  "game_nm_lvl_adjectives": "نهادی: صفت‌ها",
+  "game_nm_lvl_plural": "نهادی: جمع",
+  "game_nm_lvl_pronouns": "نهادی: ضمایر",
+  "game_nm_lvl_questions": "نهادی: سوالات",
+  "game_nm_lvl_advanced": "نهادی: پیشرفته"
 }

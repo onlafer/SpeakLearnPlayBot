@@ -17,8 +17,10 @@ from games import (
     translate_word_quiz,
     speech_practice_quiz,
     sing_along,
+    watch_video,
     verb_tense_quiz,
     verb_aspect_quiz,
+    russian_cases_quiz,
     translator_game,
 )
 
@@ -43,7 +45,6 @@ async def _get_dynamic_keyboard(lang: str):
         buttons.append(
             [
                 InlineKeyboardButton(
-                    # Получаем переведенное имя у каждого объекта игры
                     text=game.get_display_name(lang),
                     callback_data=f"start_game_{game_id}",
                 )
@@ -114,12 +115,10 @@ async def start_game(callback: CallbackQuery, bot: Bot):
         await session_manager.start_session(session)
         await callback.answer()
     except Exception as e:
-        # Логируем полную ошибку в консоль разработчика
         print(f"CRITICAL ERROR starting game {game_id}:")
         traceback.print_exc()
-        
-        # Пользователю отправляем короткое сообщение, чтобы не вызвать MESSAGE_TOO_LONG
-        short_error = str(e)[:100] # Берем только первые 100 символов ошибки
+
+        short_error = str(e)[:100]
         error_text = translator.get_text("game_start_error", lang).format(error=short_error)
         
         await callback.answer(error_text, show_alert=True)
@@ -165,6 +164,16 @@ async def get_audio_id(message: Message):
     print("ВАШ НОВЫЙ AUDIO ID:", message.audio.file_id)
     await message.answer(f"ID аудио: `{message.audio.file_id}`", parse_mode="Markdown")
 
+@router.message(F.video | F.document)
+async def get_video_id(message: Message):
+    if message.video:
+        file_id = message.video.file_id
+        print("ВАШ НОВЫЙ VIDEO ID (Video):", file_id)
+        await message.answer(f"ID video: `{file_id}`", parse_mode="Markdown")
+    elif message.document:
+        file_id = message.document.file_id
+        print("ВАШ НОВЫЙ VIDEO ID (Document):", file_id)
+        await message.answer(f"ID document (video): `{file_id}`", parse_mode="Markdown")
 
 @router.callback_query(lambda c: c.data == "continue_game")
 async def handle_continue_callback(callback: CallbackQuery, bot: Bot):

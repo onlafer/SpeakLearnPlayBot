@@ -2,7 +2,6 @@
 
 from aiogram import Router
 
-# Create admin router
 router = Router()
 
 __all__ = ["router"]

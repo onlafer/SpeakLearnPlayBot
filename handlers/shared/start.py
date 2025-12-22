@@ -112,6 +112,10 @@ async def handle_language_selection(callback: CallbackQuery):
     await callback.answer(translator.get_text("language_selected_notice", lang))
 
     session = await session_manager.get_session(callback.from_user.id)
+    if session:
+        session.game_state.update({"lang": lang})
+        await session_manager.update_session(callback.from_user.id, session)
+
     text = translator.get_text("start_existing_user_welcome", lang)
 
     await safe_edit_message(

@@ -35,14 +35,12 @@ class SingAlongGame(BaseGame):
             score=0,
             game_state={"lang": lang}
         )
-        
-        # Удаляем сообщение, из которого запустили игру (Меню), чтобы не было дублей
+
         try:
             await bot.delete_message(chat_id=session.chat_id, message_id=session.message_id)
         except Exception:
             pass
 
-        # Отправляем первую песню
         await self._send_song(bot, session)
         return session
 
@@ -68,7 +66,6 @@ class SingAlongGame(BaseGame):
                 InlineKeyboardButton(text=btn_minus, callback_data=f"get_minus:{song_index}")
             ],
             [
-                # InlineKeyboardButton(text=btn_menu, callback_data="show_menu"),
                 InlineKeyboardButton(text=btn_next, callback_data="next_song"),
             ]
         ]
@@ -84,8 +81,6 @@ class SingAlongGame(BaseGame):
 
         audio_id = song_data["full_audio_id"]
 
-        # Пытаемся удалить предыдущее сообщение (будь то текст или другое аудио)
-        # Это создает эффект "обновления" сообщения, даже если мы меняем тип медиа
         try:
             await bot.delete_message(chat_id=session.chat_id, message_id=session.message_id)
         except Exception:
@@ -98,14 +93,12 @@ class SingAlongGame(BaseGame):
                 caption=caption_text,
                 reply_markup=keyboard
             )
-            # ВАЖНО: Обновляем message_id в сессии! Иначе кнопка Menu не найдет сообщение.
             session.message_id = sent_message.message_id
             
         except Exception as e:
             error_msg = f"⚠️ Audio Error: {str(e)[:100]}"
             print(f"CRITICAL AUDIO ERROR: {e}")
-            
-            # Если аудио не отправилось, отправляем текст (тут safe_edit_message может не сработать, если старое уже удалено)
+
             sent_message = await bot.send_message(
                 chat_id=session.chat_id,
                 text=error_msg,
@@ -124,20 +117,17 @@ class SingAlongGame(BaseGame):
             song_data = SING_ALONG_SONGS[song_index]
             header = translator.get_text("game_sa_lyrics_title", lang).format(title=song_data["title"])
             text = f"**{header}**\n\n{song_data['lyrics']}"
-            
-            # Кнопка "Назад к песне", чтобы не застрять в тексте
+
             btn_back = translator.get_text("back_button", lang) or "🔙 Back"
             keyboard = InlineKeyboardMarkup(inline_keyboard=[
                 [InlineKeyboardButton(text=btn_back, callback_data="back_to_song")]
             ])
 
-            # Удаляем аудио сообщение
             try:
                 await bot.delete_message(chat_id=session.chat_id, message_id=session.message_id)
             except Exception:
                 pass
-            
-            # Отправляем текст с лирикой
+
             sent_message = await bot.send_message(
                 chat_id=session.chat_id, 
                 text=text, 
@@ -148,9 +138,6 @@ class SingAlongGame(BaseGame):
             await callback.answer()
 
         elif action == "get_minus":
-            # Минусовку отправляем просто как новый файл, не удаляя основное управление, 
-            # или можно сделать так же через удаление/обновление.
-            # В данном примере просто отправляем файл, чтобы не сбивать основной плеер.
             song_index = int(data[0])
             song_data = SING_ALONG_SONGS[song_index]
             caption = translator.get_text("game_sa_minus_caption", lang).format(title=song_data["title"])
@@ -172,7 +159,6 @@ class SingAlongGame(BaseGame):
             await callback.answer()
             
         elif action == "back_to_song":
-            # Возвращаемся к текущему треку (из режима текста)
             await self._send_song(bot, session)
             await callback.answer()
 
@@ -188,7 +174,6 @@ class SingAlongGame(BaseGame):
             lang = session.game_state.get("lang", "en")
             final_text = translator.get_text("game_sa_end_text", lang)
 
-            # Поскольку предыдущее сообщение могло быть аудио, используем delete + send
             try:
                 await bot.delete_message(chat_id=session.chat_id, message_id=session.message_id)
             except Exception:
@@ -203,7 +188,6 @@ class SingAlongGame(BaseGame):
             session.message_id = sent_message.message_id
 
     async def resume_game(self, bot: Bot, session: GameSession):
-        # При возобновлении отправляем новое сообщение
         lang = session.game_state.get("lang", "en")
         resume_text = translator.get_text("game_sa_resume", lang)
         

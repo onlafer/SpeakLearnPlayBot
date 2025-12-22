@@ -19,7 +19,6 @@ logger = logging.getLogger(__name__)
 
 async def main():
     """Main bot function."""
-    # Инициализируем БД
     logger.info("Initializing database...")
     await init_db()
     logger.info("Database initialized successfully!")

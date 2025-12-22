@@ -4,7 +4,7 @@ SING_ALONG_SONGS = [
         "artist": "Russian Folk",
         "full_audio_id": "CQACAgIAAxkBAAIF5mk2FIDFn79B0mX5h1FSooEFAyzbAALokQACkoSwScQFbUBc7MHwNgQ", 
         "minus_audio_id": "CQACAgIAAxkBAAIF5Gk2FFzt9GTAegnyY_QBb50eMUwUAALnkQACkoSwSQWSL_wftFXiNgQ",
-        
+
         "lyrics": (
             "В траве сидел кузнечик,\n"
             "В траве сидел кузнечик,\n"
@@ -48,16 +48,4 @@ SING_ALONG_SONGS = [
             "Такого вот конца."
         )
     },
-    # {
-    #     "title": "Katyusha",
-    #     "artist": "Russian Folk",
-    #     "full_audio_id": "CQACAgIAAxkBAA...",
-    #     "minus_audio_id": "CQACAgIAAxkBAA...",
-    #     "lyrics": (
-    #         "Расцветали яблони и груши,\n"
-    #         "Поплыли туманы над рекой.\n"
-    #         "Выходила на берег Катюша,\n"
-    #         "На высокий берег на крутой."
-    #     )
-    # }
 ]

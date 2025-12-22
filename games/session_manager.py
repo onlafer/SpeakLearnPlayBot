@@ -37,7 +37,6 @@ class SessionManager:
     async def start_session(self, session: GameSession):
         """Создает новую сессию в БД."""
         async with async_session_maker() as db_session:
-            # Проверяем, есть ли уже активная сессия для этого пользователя
             existing = await db_session.execute(
                 select(GameSessionModel).where(
                     GameSessionModel.user_id == session.user_id,
@@ -47,11 +46,9 @@ class SessionManager:
             existing_session = existing.scalar_one_or_none()
             
             if existing_session:
-                # Обновляем существующую сессию
                 for key, value in self._session_to_model(session).items():
                     setattr(existing_session, key, value)
             else:
-                # Создаем новую сессию
                 db_session.add(GameSessionModel(**self._session_to_model(session)))
             
             await db_session.commit()

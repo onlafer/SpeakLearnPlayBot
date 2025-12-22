@@ -27,7 +27,7 @@ class RussianTutorGame(BaseGame):
 
     async def start_game(self, bot: Bot, user_id: int, message: Message) -> GameSession:
         """Starts a new game session."""
-        lang = await get_user_language(user_id) # Получаем язык
+        lang = await get_user_language(user_id)
         session = GameSession(
             user_id=user_id,
             chat_id=message.chat.id,
@@ -58,7 +58,7 @@ class RussianTutorGame(BaseGame):
 
     async def resume_game(self, bot: Bot, session: GameSession):
         """Resumes an interrupted session."""
-        lang = await get_user_language(session.user_id) # Получаем язык
+        lang = await get_user_language(session.user_id)
         resume_text = translator.get_text("game_russian_tutor_resume_text", lang)
         await bot.send_message(session.chat_id, resume_text)
 
@@ -90,8 +90,7 @@ class RussianTutorGame(BaseGame):
     async def end_game(self, bot: Bot, session: GameSession, send_message: bool = True):
         """Ends the game session."""
         session.status = GameStatus.FINISHED
-        
-        # ОТПРАВЛЯЕМ СООБЩЕНИЕ ТОЛЬКО ЕСЛИ ФЛАГ TRUE
+
         if send_message:
             lang = await get_user_language(session.user_id)
             final_text = translator.get_text("game_russian_tutor_end_text", lang)

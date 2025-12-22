@@ -6,7 +6,6 @@ from aiogram.types import (
     InlineKeyboardMarkup,
 )
 
-# Пробуем импортировать библиотеку перевода
 try:
     from deep_translator import GoogleTranslator
     HAS_TRANSLATOR_LIB = True
@@ -19,7 +18,6 @@ from utils.bot_helpers import safe_edit_message
 from utils.localization import translator
 from database.user_manager import user_manager
 
-# Список поддерживаемых языков
 SUPPORTED_LANGUAGES = [
     ("ar", "lang_ar"),
     ("zh-CN", "lang_zh"),
@@ -52,8 +50,6 @@ class TranslatorGame(BaseGame):
             status=GameStatus.IN_PROGRESS,
             current_question=0,
             score=0,
-            # ui_lang - язык интерфейса бота
-            # target_lang - язык, НА который переводим
             game_state={"ui_lang": lang, "target_lang": None}
         )
         
@@ -79,11 +75,9 @@ class TranslatorGame(BaseGame):
             buttons.append([
                 InlineKeyboardButton(text=label, callback_data=f"set_trans_lang:{code}")
             ])
-            
-        # Кнопка выхода в меню (используем существующий ключ или тот, что есть в вашем проекте)
-        # Если ключа 'game_speech_practice_button_menu' нет, замените на 'back_button' или свой
+
         btn_menu_text = translator.get_text("game_speech_practice_button_menu", ui_lang) 
-        if not btn_menu_text or btn_menu_text.startswith("game_"): # Fallback если ключа нет
+        if not btn_menu_text or btn_menu_text.startswith("game_"):
             btn_menu_text = "Menu"
             
         buttons.append([InlineKeyboardButton(text=btn_menu_text, callback_data="finish_translation")])
@@ -158,7 +152,6 @@ class TranslatorGame(BaseGame):
         
         if HAS_TRANSLATOR_LIB:
             try:
-                # Переводим с авто-определения на целевой язык
                 translator_service = GoogleTranslator(source='auto', target=target_lang)
                 translation_result = translator_service.translate(message.text)
             except Exception as e:
@@ -187,7 +180,6 @@ class TranslatorGame(BaseGame):
 
         return session
 
-    # --- ВОТ МЕТОД, КОТОРОГО НЕ ХВАТАЛО ---
     async def end_game(self, bot: Bot, session: GameSession, send_message: bool = True):
         """Завершает сессию перевода."""
         if send_message:

@@ -8,14 +8,12 @@ class Base(DeclarativeBase):
     pass
 
 
-# Создаем движок для async подключения к PostgreSQL
 engine = create_async_engine(
     CONFIG.database.url,
-    echo=False,  # Установите True для отладки SQL запросов
+    echo=False,
     future=True,
 )
 
-# Создаем фабрику сессий
 async_session_maker = async_sessionmaker(
     engine,
     class_=AsyncSession,
@@ -31,8 +29,7 @@ async def get_session() -> AsyncSession:
 
 async def init_db():
     """Инициализировать БД - создать все таблицы."""
-    # Импортируем модели, чтобы они были зарегистрированы в Base.metadata
-    from database.models import GameSessionModel, UserModel  # noqa: F401
+    from database.models import GameSessionModel, UserModel
     
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)

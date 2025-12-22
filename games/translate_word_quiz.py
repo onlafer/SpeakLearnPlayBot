@@ -84,14 +84,11 @@ class TranslateWordQuiz(BaseGame):
         question_index = session.current_question
         word_pair = session.game_state["round_words"][question_index]
         category_index = session.game_state["category_index"]
-        
-        # Получаем перевод категории
+
         cat_key = WORD_DICTIONARIES[category_index]["category_key"]
         category_name = translator.get_text(cat_key, lang)
-        
-        # Определяем слова
+
         russian_word = word_pair["russian_word"]
-        # Берем перевод на язык пользователя, если нет - английский
         user_word = word_pair["translations"].get(lang, word_pair["translations"].get("en"))
         menu_hint = translator.get_text("menu_hint", lang)
 

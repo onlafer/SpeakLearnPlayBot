@@ -63,8 +63,7 @@ class VerbTenseQuiz(BaseGame):
             )
 
         keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
-        
-        # Перевод названия уровня (Level)
+
         level_text = translator.get_text(question["level"], lang)
         menu_hint = translator.get_text("menu_hint", lang)
         
@@ -104,13 +103,12 @@ class VerbTenseQuiz(BaseGame):
 
             question = VERB_TENSE_QUESTIONS[question_index]
             correct_answer = question["correct_answer"]
-            
-            # Объяснение на языке пользователя
+
             explanation = question["explanation"].get(lang, question["explanation"].get("en"))
 
             if user_answer == correct_answer:
                 session.score += 1
-                random_praise = random.choice(POSITIVE_FEEDBACKS.get(lang, [])) # Можно перевести при желании
+                random_praise = random.choice(POSITIVE_FEEDBACKS.get(lang, []))
                 
                 feedback_template = translator.get_text("game_vt_feedback_correct", lang)
                 feedback_text = feedback_template.format(praise=random_praise, explanation=explanation)
