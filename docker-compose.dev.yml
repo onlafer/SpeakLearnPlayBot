@@ -1,0 +1,38 @@
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    env_file:
+      - config/.env
+    environment:
+      - DB_HOST=db
+    volumes:
+      # Монтируем код — правки сразу в контейнере
+      - .:/app
+      # Исключаем venv из монтирования, если он есть локально
+      - /app/__pycache__
+    depends_on:
+      db:
+        condition: service_healthy
+    stdin_open: true
+    tty: true
+
+  db:
+    image: postgres:16-alpine
+    env_file:
+      - config/.env
+    environment:
+      POSTGRES_USER: ${DB_USER:-root}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-root}
+      POSTGRES_DB: ${DB_NAME:-speaklearnplaybot}
+    volumes:
+      - pgdata_dev:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-root} -d ${DB_NAME:-speaklearnplaybot}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata_dev:

@@ -1,0 +1,37 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+env
+venv
+.venv
+ENV
+*.egg-info
+.eggs
+*.egg
+
+# Секреты и локальные настройки
+.env
+.env.local
+config/.env
+config/.env.local
+
+# IDE и временные файлы
+.vscode
+.idea
+*.log
+temp
+*.tmp
+.DS_Store
+
+# Документация и лишнее
+README.md
+.pylintrc
+uv.lock
+pyproject.toml
