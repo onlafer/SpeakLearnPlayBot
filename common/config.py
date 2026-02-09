@@ -36,9 +36,16 @@ class DatabaseConfig:
 
 
 @dataclass
+class StorageConfig:
+    """Локальное хранилище файлов (бесплатно, без облаков)."""
+    root: str  # корневая папка (напр. storage или /app/storage)
+
+
+@dataclass
 class Config:
     bot: BotConfig
     database: DatabaseConfig
+    storage: StorageConfig
 
 
 CONFIG = Config(
@@ -52,5 +59,8 @@ CONFIG = Config(
         user=getenv("DB_USER", "postgres"),
         password=getenv("DB_PASSWORD", ""),
         database=getenv("DB_NAME", "speaklearnplaybot"),
+    ),
+    storage=StorageConfig(
+        root=normpath(getenv("STORAGE_PATH", "storage")),
     ),
 )

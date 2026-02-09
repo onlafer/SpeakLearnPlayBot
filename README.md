@@ -5,22 +5,26 @@
 ## Установка
 
 1. Установка uv (если не установлен):
+
 ```bash
 pip install uv
 ```
 
 2. Установка зависимостей:
+
 ```bash
 uv sync
 ```
 
 2. Создайте файл `.env` по пути `/config/.env`:
+
 ```env
 BOT_TOKEN=your_telegram_bot_token
 ADMIN_LIST=[123456789]
 ```
 
 3. Запустите бота:
+
 ```bash
 uv run main.py
 ```
@@ -28,12 +32,14 @@ uv run main.py
 ## Docker
 
 **Запуск (production):**
+
 ```bash
 cp config/.env.example config/.env   # заполнить BOT_TOKEN, DB_*, ADMIN_LIST, GIGACHAT_CREDENTIALS
 docker-compose up -d
 ```
 
 **Разработка** (код монтируется в контейнер, можно править локально):
+
 ```bash
 git clone <repo> && cd SpeakLearnPlayBot
 cp config/.env.example config/.env   # заполнить переменные

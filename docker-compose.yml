@@ -7,6 +7,9 @@ services:
       - config/.env
     environment:
       - DB_HOST=db
+      - STORAGE_PATH=/app/storage
+    volumes:
+      - storage_data:/app/storage
     depends_on:
       db:
         condition: service_healthy
@@ -30,3 +33,4 @@ services:
 
 volumes:
   pgdata:
+  storage_data:

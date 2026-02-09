@@ -29,7 +29,22 @@ async def get_session() -> AsyncSession:
 
 async def init_db():
     """Инициализировать БД - создать все таблицы."""
-    from database.models import GameSessionModel, UserModel
+    from database.models import (
+    FileModel,
+    GameSessionModel,
+    PositiveFeedbackModel,
+    RussianCaseQuestionModel,
+    RussianTutorPromptModel,
+    SingAlongSongModel,
+    SpeechPracticeCategoryModel,
+    SpeechPracticeItemModel,
+    TranslateWordCategoryModel,
+    TranslateWordModel,
+    UserModel,
+    VerbAspectQuestionModel,
+    VerbTenseQuestionModel,
+    WatchVideoModel,
+)
     
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
