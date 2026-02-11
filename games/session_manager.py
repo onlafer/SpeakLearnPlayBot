@@ -6,7 +6,7 @@ from database.base import async_session_maker
 
 
 class SessionManager:
-    """Менеджер сессий с хранением в PostgreSQL."""
+    """Менеджер сессий с хранением в SQLite."""
     
     def _model_to_session(self, model: GameSessionModel) -> GameSession:
         """Преобразует модель БД в объект GameSession."""

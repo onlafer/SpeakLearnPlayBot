@@ -31,6 +31,9 @@ wheels/
 .installed.cfg
 *.egg
 
+# SQLite database
+data/*.sqlite
+
 # File storage (contents ignored, folder kept via .gitkeep)
 storage/*
 !storage/.gitkeep

@@ -23,16 +23,14 @@ class BotConfig:
 
 @dataclass
 class DatabaseConfig:
-    host: str
-    port: int
-    user: str
-    password: str
-    database: str
-    
+    """Путь к файлу SQLite (например data/bot.sqlite или /app/data/bot.sqlite в Docker)."""
+    path: str
+
     @property
     def url(self) -> str:
-        """Возвращает URL для подключения к PostgreSQL."""
-        return f"postgresql+asyncpg://{self.user}:{self.password}@{self.host}:{self.port}/{self.database}"
+        """Возвращает URL для подключения к SQLite (async через aiosqlite)."""
+        p = normpath(self.path).replace("\\", "/")
+        return f"sqlite+aiosqlite:///{p}"
 
 
 @dataclass
@@ -54,11 +52,7 @@ CONFIG = Config(
         admin_list=loads(getenv("ADMIN_LIST")),
     ),
     database=DatabaseConfig(
-        host=getenv("DB_HOST", "localhost"),
-        port=int(getenv("DB_PORT", "5432")),
-        user=getenv("DB_USER", "postgres"),
-        password=getenv("DB_PASSWORD", ""),
-        database=getenv("DB_NAME", "speaklearnplaybot"),
+        path=normpath(getenv("DB_PATH", "data/bot.sqlite")),
     ),
     storage=StorageConfig(
         root=normpath(getenv("STORAGE_PATH", "storage")),
