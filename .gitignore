@@ -2,6 +2,10 @@
 .env
 .env.local
 
+# Telethon session (авторизация пользователя)
+config/*.session
+config/*.session-journal
+
 # Python
 __pycache__/
 *.py[cod]
@@ -26,6 +30,13 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# SQLite database
+data/*.sqlite
+
+# File storage (contents ignored, folder kept via .gitkeep)
+storage/*
+!storage/.gitkeep
 
 # Temporary files
 temp/
