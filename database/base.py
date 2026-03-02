@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase
 
@@ -7,6 +9,10 @@ from common.config import CONFIG
 class Base(DeclarativeBase):
     pass
 
+
+# Для SQLite: создать директорию файла БД, если её нет
+_db_path = Path(CONFIG.database.path)
+_db_path.parent.mkdir(parents=True, exist_ok=True)
 
 engine = create_async_engine(
     CONFIG.database.url,
