@@ -6,27 +6,13 @@ services:
     env_file:
       - config/.env
     environment:
-      - DB_HOST=db
-    depends_on:
-      db:
-        condition: service_healthy
+      - DB_PATH=/app/data/bot.sqlite
+      - STORAGE_PATH=/app/storage
+    volumes:
+      - storage_data:/app/storage
+      - bot_data:/app/data
     restart: unless-stopped
 
-  db:
-    image: postgres:16-alpine
-    env_file:
-      - config/.env
-    environment:
-      POSTGRES_USER: ${DB_USER:-root}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-root}
-      POSTGRES_DB: ${DB_NAME:-speaklearnplaybot}
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-root} -d ${DB_NAME:-speaklearnplaybot}"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-
 volumes:
-  pgdata:
+  bot_data:
+  storage_data:

@@ -14,7 +14,9 @@ dependencies = [
     "opuslib>=3.0.1",
     "gigachat>=0.1.42.post2",
     "sqlalchemy>=2.0.44",
-    "asyncpg>=0.30.0",
+    "aiosqlite>=0.20.0",
     "deep-translator>=1.11.4",
     "gtts>=2.5.4",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
 ]

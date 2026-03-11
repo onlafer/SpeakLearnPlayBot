@@ -21,6 +21,7 @@ from games import (
     verb_tense_quiz,
     verb_aspect_quiz,
     russian_cases_quiz,
+    sentence_builder,
     translator_game,
 )
 
@@ -82,7 +83,6 @@ async def _cancel_game_logic(user_id: int, bot: Bot, lang: str):
 async def show_games_list(callback: CallbackQuery):
     """Show list of available games."""
     lang = await get_user_language(callback.from_user.id)
-    # Передаем язык в обновленную функцию
     keyboard = await _get_dynamic_keyboard(lang)
     await callback.message.edit_text(
         translator.get_text("choose_game_prompt", lang), reply_markup=keyboard
