@@ -182,5 +182,12 @@
   "game_nm_lvl_plural": "Nominativo: Plural",
   "game_nm_lvl_pronouns": "Nominativo: Pronombres",
   "game_nm_lvl_questions": "Nominativo: Preguntas",
-  "game_nm_lvl_advanced": "Nominativo: Avanzado"
+  "game_nm_lvl_advanced": "Nominativo: Avanzado",
+
+  "game_ooo_name": "🎯 Intruso",
+  "game_ooo_select_level": "Encuentra la palabra que no pertenece al grupo.\n\nSelecciona un nivel de dificultad:",
+  "game_ooo_question_text": "Pregunta {num} de {total}:\n¿Qué palabra es la intrusa?",
+
+  "game_sb_name": "🧩 Construye la Frase",
+  "game_sb_end_text": "🎉 **¡Juego Completado!** 🎉\n\nTu puntuación: **{score}**\n\nPara seleccionar otro juego, envía /menu."
 }

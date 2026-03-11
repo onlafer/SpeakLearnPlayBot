@@ -182,5 +182,12 @@
   "game_nm_lvl_plural": "Cách 1: Số nhiều",
   "game_nm_lvl_pronouns": "Cách 1: Đại từ",
   "game_nm_lvl_questions": "Cách 1: Câu hỏi",
-  "game_nm_lvl_advanced": "Cách 1: Nâng cao"
+  "game_nm_lvl_advanced": "Cách 1: Nâng cao",
+
+  "game_ooo_name": "🎯 Tìm từ khác loại",
+  "game_ooo_select_level": "Tìm từ không thuộc về nhóm.\n\nChọn mức độ khó:",
+  "game_ooo_question_text": "Câu {num}/{total}:\nTừ nào là khác loại?",
+
+  "game_sb_name": "🧩 Xây Dựng Câu",
+  "game_sb_end_text": "🎉 **Hoàn Thành Trò Chơi!** 🎉\n\nĐiểm của bạn: **{score}**\n\nĐể chọn trò chơi khác, gửi /menu."
 }

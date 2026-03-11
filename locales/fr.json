@@ -182,5 +182,12 @@
   "game_nm_lvl_plural": "Nominatif : Pluriel",
   "game_nm_lvl_pronouns": "Nominatif : Pronoms",
   "game_nm_lvl_questions": "Nominatif : Questions",
-  "game_nm_lvl_advanced": "Nominatif : Avancé"
+  "game_nm_lvl_advanced": "Nominatif : Avancé",
+
+  "game_ooo_name": "🎯 L'intrus",
+  "game_ooo_select_level": "Trouve le mot qui n'appartient pas au groupe.\n\nSélectionne un niveau de difficulté:",
+  "game_ooo_question_text": "Question {num} sur {total}:\nQuel mot est l'intrus?",
+
+  "game_sb_name": "🧩 Construire la Phrase",
+  "game_sb_end_text": "🎉 **Jeu Terminé!** 🎉\n\nTon score: **{score}**\n\nPour sélectionner un autre jeu, envoie /menu."
 }

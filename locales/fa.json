@@ -182,5 +182,12 @@
   "game_nm_lvl_plural": "نهادی: جمع",
   "game_nm_lvl_pronouns": "نهادی: ضمایر",
   "game_nm_lvl_questions": "نهادی: سوالات",
-  "game_nm_lvl_advanced": "نهادی: پیشرفته"
+  "game_nm_lvl_advanced": "نهادی: پیشرفته",
+
+  "game_ooo_name": "🎯 متفاوت",
+  "game_ooo_select_level": "کلمه‌ای را پیدا کنید که به گروه تعلق ندارد.\n\nسطح دشواری را انتخاب کنید:",
+  "game_ooo_question_text": "سوال {num} از {total}:\nکدام کلمه متفاوت است?",
+
+  "game_sb_name": "🧩 سازنده جمله",
+  "game_sb_end_text": "🎉 **بازی تمام شد!** 🎉\n\nامتیاز شما: **{score}**\n\nبرای انتخاب بازی دیگر، /menu را بفرستید."
 }

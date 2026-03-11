@@ -16,7 +16,7 @@ class PhraseConstructorGame(BaseGame):
         super().__init__(game_id="phrase_constructor")
 
     def get_display_name(self, lang: str) -> str:
-        return "🧩 Составь фразу" if lang == "ru" else "🧩 Sentence Builder"
+        return translator.get_text("game_sb_name", lang)
 
     async def start_game(self, bot: Bot, user_id: int, message: Message) -> GameSession:
         user = await user_manager.get_user(user_id)
@@ -61,6 +61,7 @@ class PhraseConstructorGame(BaseGame):
         lang = session.game_state["lang"]
         ui_text = SENTENCE_BUILDER_UI.get(lang, SENTENCE_BUILDER_UI.get("en", {}))
         level_title = session.game_state.get("level_title", "Уровень A1")
+        menu_hint = translator.get_text("menu_hint", lang)
 
         current_build = " ".join(session.game_state["current_phrase"])
         display_phrase = current_build if current_build else "..."
@@ -68,7 +69,8 @@ class PhraseConstructorGame(BaseGame):
         text = (
             f"*{level_title}*\n\n"
             f"{ui_text.get('build_phrase', 'Build the phrase:')}\n`{display_phrase}`\n\n"
-            f"{ui_text.get('choose_word', 'Choose a word:')}"
+            f"{ui_text.get('choose_word', 'Choose a word:')}\n\n"
+            f"{menu_hint}"
         )
 
         buttons = []
@@ -98,6 +100,9 @@ class PhraseConstructorGame(BaseGame):
             session.message_id = new_message_id
 
     async def handle_callback(self, bot: Bot, session: GameSession, callback: CallbackQuery) -> GameSession:
+        # Синхронизируем ID сообщения из колбэка
+        session.message_id = callback.message.message_id
+        
         if callback.data.startswith("add_word:"):
             idx = int(callback.data.split(":")[1])
             available = session.game_state["available_words"]
@@ -158,8 +163,12 @@ class PhraseConstructorGame(BaseGame):
         await self._send_question(bot, session, as_new_message=True)
 
     async def end_game(self, bot: Bot, session: GameSession, send_message: bool = True):
+        session.status = GameStatus.FINISHED
         if send_message:
-            await bot.send_message(session.chat_id, f"Игра окончена! Счет: {session.score}")
+            lang = session.game_state.get("lang", "en")
+            end_text = translator.get_text("game_sb_end_text", lang)
+            await safe_edit_message(bot, session.chat_id, session.message_id, end_text.format(score=session.score),
+                                    reply_markup=None, parse_mode="Markdown")
 
 
 game_registry.register(PhraseConstructorGame())

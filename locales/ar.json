@@ -182,5 +182,12 @@
   "game_nm_lvl_plural": "حالة المبتدأ: الجمع",
   "game_nm_lvl_pronouns": "حالة المبتدأ: الضمائر",
   "game_nm_lvl_questions": "حالة المبتدأ: الأسئلة",
-  "game_nm_lvl_advanced": "حالة المبتدأ: متقدم"
+  "game_nm_lvl_advanced": "حالة المبتدأ: متقدم",
+
+  "game_ooo_name": "🎯 العكس",
+  "game_ooo_select_level": "ابحث عن الكلمة التي لا تنتمي للمجموعة.\n\nاختر مستوى الصعوبة:",
+  "game_ooo_question_text": "سؤال {num} من {total}:\nأي كلمة هي العكس?",
+
+  "game_sb_name": "🧩 بناء الجملة",
+  "game_sb_end_text": "🎉 **اكتملت اللعبة!** 🎉\n\nنتيجتك: **{score}**\n\nلاختيار لعبة مختلفة، أرسل /menu."
 }

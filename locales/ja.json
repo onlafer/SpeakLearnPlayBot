@@ -182,5 +182,12 @@
   "game_nm_lvl_plural": "主格：複数形",
   "game_nm_lvl_pronouns": "主格：代名詞",
   "game_nm_lvl_questions": "主格：疑問詞",
-  "game_nm_lvl_advanced": "主格：応用"
+  "game_nm_lvl_advanced": "主格：応用",
+
+  "game_ooo_name": "🎯 違うもの探し",
+  "game_ooo_select_level": "グループに属さない言葉を見つけてください。\n\n難易度を選択してください:",
+  "game_ooo_question_text": "質問 {num}/{total}:\nどの言葉が違いますか?",
+
+  "game_sb_name": "🧩 文章作成",
+  "game_sb_end_text": "🎉 **ゲーム完了!** 🎉\n\nスコア: **{score}**\n\n別のゲームを選択するには、/menu を送信してください。"
 }

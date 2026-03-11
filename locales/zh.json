@@ -182,5 +182,12 @@
   "game_nm_lvl_plural": "第一格：复数",
   "game_nm_lvl_pronouns": "第一格：代词",
   "game_nm_lvl_questions": "第一格：疑问词",
-  "game_nm_lvl_advanced": "第一格：进阶"
+  "game_nm_lvl_advanced": "第一格：进阶",
+
+  "game_ooo_name": "🎯 找不同",
+  "game_ooo_select_level": "找出不属于该组的词。\n\n选择难度等级:",
+  "game_ooo_question_text": "第 {num}/{total} 题:\n哪个词是不同的?",
+
+  "game_sb_name": "🧩 造句游戏",
+  "game_sb_end_text": "🎉 **游戏完成!** 🎉\n\n你的得分: **{score}**\n\n要选择其他游戏，请发送 /menu。"
 }

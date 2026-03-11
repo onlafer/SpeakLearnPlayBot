@@ -192,5 +192,12 @@
   "game_nm_lvl_plural": "Nominative: Plural",
   "game_nm_lvl_pronouns": "Nominative: Pronouns",
   "game_nm_lvl_questions": "Nominative: Questions",
-  "game_nm_lvl_advanced": "Nominative: Advanced"
+  "game_nm_lvl_advanced": "Nominative: Advanced",
+
+  "game_ooo_name": "🎯 Odd One Out",
+  "game_ooo_select_level": "Find the word that doesn't belong to the group.\n\nSelect a difficulty level:",
+  "game_ooo_question_text": "Question {num} of {total}:\nWhich word is the odd one out?",
+
+  "game_sb_name": "🧩 Sentence Builder",
+  "game_sb_end_text": "🎉 **Game Complete!** 🎉\n\nYour score: **{score}**\n\nTo select a different game, send /menu."
 }

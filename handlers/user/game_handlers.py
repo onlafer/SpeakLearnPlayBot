@@ -22,6 +22,7 @@ from games import (
     verb_aspect_quiz,
     russian_cases_quiz,
     sentence_builder,
+    odd_one_out,
     translator_game,
 )
 
@@ -190,6 +191,7 @@ async def handle_continue_callback(callback: CallbackQuery, bot: Bot):
     if game:
         await callback.message.delete()
         await game.resume_game(bot, session)
+        await session_manager.update_session(callback.from_user.id, session)
     else:
         await callback.answer(
             translator.get_text("game_logic_not_found_error", lang), show_alert=True
