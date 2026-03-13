@@ -30,6 +30,7 @@
   "game_russian_tutor_start_text": "你好！我是你的个人 AI 俄语导师。\n\n你可以问我任何关于语法的问题，让我检查你的文本，或者只是聊天练习。\n\n输入你的第一条消息开始。要结束课程，请发送 /menu 命令。",
   "game_russian_tutor_resume_text": "让我们继续我们的俄语课！我准备好回答你的问题了。",
   "game_russian_tutor_callback_text": "此游戏通过短信控制。",
+  "game_russian_tutor_thinking": "思考中",
   "game_russian_tutor_end_text": "课程结束！希望你学到了新东西。随时回来多加练习！\n\n要选择另一个游戏，请使用 /menu 命令。",
   "game_speech_practice_name": "🎤 口语练习",
   "game_speech_practice_resume_text": "好的，我们继续你的口语练习！",

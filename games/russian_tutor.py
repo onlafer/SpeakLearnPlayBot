@@ -1,6 +1,7 @@
 from aiogram import Bot
 from aiogram.types import Message, CallbackQuery
-from gigachat.models import MessagesRole
+import re
+import asyncio
 
 from utils.localization import translator
 from database.user_manager import user_manager
@@ -8,8 +9,40 @@ from database.user_manager import user_manager
 from .base import BaseGame, GameSession, GameStatus
 from .game_registry import game_registry
 from data.russian_tutor import SYSTEM_PROMPT
-from utils.gigachat_ai import get_ai_tutor_response
+from utils.ollama_ai import get_ollama_response
 from utils.bot_helpers import safe_edit_message
+
+
+async def animate_loading(bot: Bot, chat_id: int, message_id: int, loading_text: str):
+    """Animate loading message with cycling emojis while waiting for AI."""
+    loading_emojis = ["⏳", "🔄", "✨", "🤔", "📚"]
+    emoji_index = 0
+    
+    while True:
+        try:
+            await bot.edit_message_text(
+                chat_id=chat_id,
+                message_id=message_id,
+                text=f"{loading_emojis[emoji_index]} {loading_text}..."
+            )
+        except:
+            pass
+        
+        emoji_index = (emoji_index + 1) % len(loading_emojis)
+        await asyncio.sleep(0.8)
+
+
+def markdown_to_html(text: str) -> str:
+    """Convert markdown formatting to Telegram HTML."""
+    # Bold: **text** -> <b>text</b>
+    text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
+    # Italic: *text* -> <i>text</i> (single asterisks)
+    text = re.sub(r'(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)', r'<i>\1</i>', text)
+    # Code: `text` -> <code>text</code>
+    text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
+    # Strikethrough: ~~text~~ -> <s>text</s>
+    text = re.sub(r'~~(.+?)~~', r'<s>\1</s>', text)
+    return text
 
 async def get_user_language(user_id: int) -> str:
     """Gets user language with a fallback to 'en'."""
@@ -35,7 +68,7 @@ class RussianTutorGame(BaseGame):
             game_id=self.game_id,
             status=GameStatus.IN_PROGRESS,
             game_state={
-                "history": [{"role": MessagesRole.SYSTEM, "content": SYSTEM_PROMPT}]
+                "history": [{"role": "system", "content": SYSTEM_PROMPT}]
             },
         )
 
@@ -77,14 +110,48 @@ class RussianTutorGame(BaseGame):
         """Handles a text message from the user."""
         user_text = message.text
         session.game_state["history"].append(
-            {"role": MessagesRole.USER, "content": user_text}
+            {"role": "user", "content": user_text}
         )
-        await bot.send_chat_action(chat_id=session.chat_id, action="typing")
-        ai_response = await get_ai_tutor_response(session.game_state["history"])
+        
+        # Animated loading message
+        loading_text = translator.get_text("game_russian_tutor_thinking", await get_user_language(session.user_id))
+        
+        loading_msg = await bot.send_message(
+            chat_id=session.chat_id,
+            text=f"⏳ {loading_text}..."
+        )
+        
+        # Start animation in background
+        animation_task = asyncio.create_task(
+            animate_loading(bot, session.chat_id, loading_msg.message_id, loading_text)
+        )
+        
+        # Get AI response (animation runs in parallel)
+        ai_response = await get_ollama_response(session.game_state["history"])
+        
+        # Stop animation
+        animation_task.cancel()
+        try:
+            await animation_task
+        except asyncio.CancelledError:
+            pass
+        
+        # Delete loading message and send actual response
+        try:
+            await bot.delete_message(session.chat_id, loading_msg.message_id)
+        except:
+            pass
+        
+        # Convert markdown to HTML for proper formatting in Telegram
+        formatted_response = markdown_to_html(ai_response)
         session.game_state["history"].append(
-            {"role": MessagesRole.ASSISTANT, "content": ai_response}
+            {"role": "assistant", "content": ai_response}
         )
-        await bot.send_message(chat_id=session.chat_id, text=ai_response)
+        await bot.send_message(
+            chat_id=session.chat_id,
+            text=formatted_response,
+            parse_mode="HTML"
+        )
         return session
 
     async def end_game(self, bot: Bot, session: GameSession, send_message: bool = True):

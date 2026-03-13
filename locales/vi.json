@@ -30,6 +30,7 @@
   "game_russian_tutor_start_text": "Xin chào! Tôi là gia sư AI cá nhân của bạn cho tiếng Nga.\n\nBạn có thể hỏi tôi bất kỳ câu hỏi nào về ngữ pháp, yêu cầu tôi kiểm tra văn bản của bạn, hoặc chỉ trò chuyện để luyện tập.\n\nNhập tin nhắn đầu tiên của bạn để bắt đầu. Để kết thúc bài học, hãy gửi lệnh /menu.",
   "game_russian_tutor_resume_text": "Hãy tiếp tục bài học tiếng Nga của chúng ta! Tôi sẵn sàng cho các câu hỏi của bạn.",
   "game_russian_tutor_callback_text": "Trò chơi này được điều khiển bằng tin nhắn văn bản.",
+  "game_russian_tutor_thinking": "Đang suy nghĩ",
   "game_russian_tutor_end_text": "Bài học kết thúc! Tôi hy vọng bạn đã học được điều gì đó mới. Hãy quay lại bất cứ khi nào bạn muốn luyện tập thêm!\n\nĐể chọn một trò chơi khác, hãy sử dụng lệnh /menu.",
   "game_speech_practice_name": "🎤 Luyện nói",
   "game_speech_practice_resume_text": "Được rồi, hãy tiếp tục bài luyện nói của bạn nhé!",

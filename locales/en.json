@@ -30,6 +30,7 @@
   "game_russian_tutor_start_text": "Hello! I am your personal AI tutor for the Russian language.\n\nYou can ask me any questions about grammar, ask me to check your text, or just chat for practice.\n\nType your first message to begin. To end the lesson, send the /menu command.",
   "game_russian_tutor_resume_text": "Let's continue our Russian lesson! I'm ready for your questions.",
   "game_russian_tutor_callback_text": "This game is controlled by text messages.",
+  "game_russian_tutor_thinking": "Thinking",
   "game_russian_tutor_end_text": "Lesson finished! I hope you've learned something new. Come back whenever you want to practice more!\n\nTo choose another game, use the /menu command.",
   "game_speech_practice_name": "🎤 Speech Practice",
   "game_speech_practice_resume_text": "Ok, let's continue your speech practice!",
