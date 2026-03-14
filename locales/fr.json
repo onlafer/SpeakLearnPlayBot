@@ -30,6 +30,7 @@
   "game_russian_tutor_start_text": "Bonjour ! Je suis votre tuteur personnel IA pour la langue russe.\n\nVous pouvez me poser toutes vos questions de grammaire, me demander de vérifier votre texte, ou simplement discuter pour vous entraîner.\n\nÉcrivez votre premier message pour commencer. Pour terminer la leçon, envoyez la commande /menu.",
   "game_russian_tutor_resume_text": "Continuons notre leçon de russe ! Je suis prêt pour vos questions.",
   "game_russian_tutor_callback_text": "Ce jeu est contrôlé par des messages texte.",
+  "game_russian_tutor_thinking": "Réflexion",
   "game_russian_tutor_end_text": "Leçon terminée ! J'espère que vous avez appris quelque chose de nouveau. Revenez quand vous voulez pour vous entraîner davantage !\n\nPour choisir un autre jeu, utilisez la commande /menu.",
   "game_speech_practice_name": "🎤 Entraînement de prononciation",
   "game_speech_practice_resume_text": "D'accord, poursuivons ton entraînement de prononciation !",
