@@ -190,5 +190,26 @@
   "game_ooo_question_text": "質問 {num}/{total}:\nどの言葉が違いますか?",
 
   "game_sb_name": "🧩 文章作成",
-  "game_sb_end_text": "🎉 **ゲーム完了!** 🎉\n\nスコア: **{score}**\n\n別のゲームを選択するには、/menu を送信してください。"
+  "game_sb_end_text": "🎉 **ゲーム完了!** 🎉\n\nスコア: **{score}**\n\n別のゲームを選択するには、/menu を送信してください。",
+
+  "game_texts_name": "📝 テキスト",
+  "game_texts_start_text": "テキストへようこそ！文章を読み、「読みました」を押してから質問に答えてください。",
+  "game_texts_reply_text": "このゲームではインラインボタンを使用してください。",
+  "game_texts_resume_text": "テキストゲームを再開しています...",
+  "game_texts_end_text": "🎉 テキスト完了！\n\n完了したテキスト: {completed}/{total}\n✅ 正解: {total_correct}\n❌ 不正解: {total_wrong}\n\nよくできました！",
+  "game_texts_finish_button": "🏁 終了",
+  "game_texts_unknown_action": "テキストゲームで不明な操作です。",
+  "game_texts_back_button": "⬅️ 戻る",
+  "game_texts_skip_button": "⏭ スキップ",
+  "game_texts_read_button": "✅ 読みました",
+  "game_texts_use_buttons": "テキストの下にあるインラインボタンを使用してください。",
+  "game_texts_reading_screen": "📘 テキスト {current}/{total}: {title}\n\n{text}\n\n文章を読んで「読みました」を押すと質問が始まります。",
+  "game_texts_question_screen": "❓ テキスト {text_number}/{total_texts}\n質問 {question_number}/{total_questions}\n\n{question}",
+  "game_texts_feedback_correct": "✅ 正解",
+  "game_texts_feedback_wrong": "❌ 不正解",
+  "game_texts_answer_result": "📝 テキスト {text_number}、質問 {question_number}\n\n{question}\n\n正しい答え: {correct}",
+  "game_texts_next_question_button": "➡️ 次の質問",
+  "game_texts_text_summary": "📊 テキスト {current}/{total} 完了\n\n✅ 正解: {correct}\n❌ 不正解: {wrong}\n\n次のテキストに進みますか？",
+  "game_texts_next_text_button": "➡️ 次のテキスト",
+  "game_texts_finish_all_button": "🏁 ゲーム終了"
 }

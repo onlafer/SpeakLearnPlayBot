@@ -200,5 +200,26 @@
   "game_ooo_question_text": "Question {num} of {total}:\nWhich word is the odd one out?",
 
   "game_sb_name": "🧩 Sentence Builder",
-  "game_sb_end_text": "🎉 **Game Complete!** 🎉\n\nYour score: **{score}**\n\nTo select a different game, send /menu."
+  "game_sb_end_text": "🎉 **Game Complete!** 🎉\n\nYour score: **{score}**\n\nTo select a different game, send /menu.",
+
+  "game_texts_name": "📝 Texts",
+  "game_texts_start_text": "Welcome to Texts! Read the text, then press 'I have read' and answer the questions.",
+  "game_texts_reply_text": "Use inline buttons in this game.",
+  "game_texts_resume_text": "Resuming Texts game...",
+  "game_texts_end_text": "🎉 Texts completed!\n\nTexts passed: {completed}/{total}\n✅ Correct answers: {total_correct}\n❌ Wrong answers: {total_wrong}\n\nGreat work!",
+  "game_texts_finish_button": "🏁 Finish",
+  "game_texts_unknown_action": "Unknown action in Texts game.",
+  "game_texts_back_button": "⬅️ Back",
+  "game_texts_skip_button": "⏭ Skip",
+  "game_texts_read_button": "✅ I have read",
+  "game_texts_use_buttons": "Use inline buttons under the text.",
+  "game_texts_reading_screen": "📘 Text {current}/{total}: {title}\n\n{text}\n\nRead the text and press 'I have read' to start questions.",
+  "game_texts_question_screen": "❓ Text {text_number}/{total_texts}\nQuestion {question_number}/{total_questions}\n\n{question}",
+  "game_texts_feedback_correct": "✅ Correct",
+  "game_texts_feedback_wrong": "❌ Wrong",
+  "game_texts_answer_result": "📝 Text {text_number}, question {question_number}\n\n{question}\n\nCorrect answer: {correct}",
+  "game_texts_next_question_button": "➡️ Next question",
+  "game_texts_text_summary": "📊 Text {current}/{total} completed\n\n✅ Correct: {correct}\n❌ Wrong: {wrong}\n\nProceed to the next text?",
+  "game_texts_next_text_button": "➡️ Next text",
+  "game_texts_finish_all_button": "🏁 Finish game"
 }

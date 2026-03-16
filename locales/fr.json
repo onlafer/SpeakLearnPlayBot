@@ -190,5 +190,26 @@
   "game_ooo_question_text": "Question {num} sur {total}:\nQuel mot est l'intrus?",
 
   "game_sb_name": "🧩 Construire la Phrase",
-  "game_sb_end_text": "🎉 **Jeu Terminé!** 🎉\n\nTon score: **{score}**\n\nPour sélectionner un autre jeu, envoie /menu."
+  "game_sb_end_text": "🎉 **Jeu Terminé!** 🎉\n\nTon score: **{score}**\n\nPour sélectionner un autre jeu, envoie /menu.",
+
+  "game_texts_name": "📝 Textes",
+  "game_texts_start_text": "Bienvenue dans Textes ! Lisez le texte, puis appuyez sur « J’ai lu » et répondez aux questions.",
+  "game_texts_reply_text": "Utilisez les boutons intégrés dans ce jeu.",
+  "game_texts_resume_text": "Reprise du jeu Textes...",
+  "game_texts_end_text": "🎉 Textes terminés !\n\nTextes complétés : {completed}/{total}\n✅ Réponses correctes : {total_correct}\n❌ Réponses incorrectes : {total_wrong}\n\nExcellent travail !",
+  "game_texts_finish_button": "🏁 Terminer",
+  "game_texts_unknown_action": "Action inconnue dans le jeu Textes.",
+  "game_texts_back_button": "⬅️ Retour",
+  "game_texts_skip_button": "⏭ Passer",
+  "game_texts_read_button": "✅ J’ai lu",
+  "game_texts_use_buttons": "Utilisez les boutons sous le texte.",
+  "game_texts_reading_screen": "📘 Texte {current}/{total} : {title}\n\n{text}\n\nLisez le texte et appuyez sur « J’ai lu » pour commencer les questions.",
+  "game_texts_question_screen": "❓ Texte {text_number}/{total_texts}\nQuestion {question_number}/{total_questions}\n\n{question}",
+  "game_texts_feedback_correct": "✅ Correct",
+  "game_texts_feedback_wrong": "❌ Incorrect",
+  "game_texts_answer_result": "📝 Texte {text_number}, question {question_number}\n\n{question}\n\nBonne réponse : {correct}",
+  "game_texts_next_question_button": "➡️ Question suivante",
+  "game_texts_text_summary": "📊 Texte {current}/{total} terminé\n\n✅ Correct : {correct}\n❌ Incorrect : {wrong}\n\nPasser au texte suivant ?",
+  "game_texts_next_text_button": "➡️ Texte suivant",
+  "game_texts_finish_all_button": "🏁 Terminer le jeu"
 }

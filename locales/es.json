@@ -190,5 +190,26 @@
   "game_ooo_question_text": "Pregunta {num} de {total}:\n¿Qué palabra es la intrusa?",
 
   "game_sb_name": "🧩 Construye la Frase",
-  "game_sb_end_text": "🎉 **¡Juego Completado!** 🎉\n\nTu puntuación: **{score}**\n\nPara seleccionar otro juego, envía /menu."
+  "game_sb_end_text": "🎉 **¡Juego Completado!** 🎉\n\nTu puntuación: **{score}**\n\nPara seleccionar otro juego, envía /menu.",
+
+  "game_texts_name": "📝 Textos",
+  "game_texts_start_text": "¡Bienvenido a Textos! Lee el texto, luego presiona «He leído» y responde a las preguntas.",
+  "game_texts_reply_text": "Usa los botones debajo del texto en este juego.",
+  "game_texts_resume_text": "Reanudando el juego de Textos...",
+  "game_texts_end_text": "🎉 ¡Textos completados!\n\nTextos completados: {completed}/{total}\n✅ Respuestas correctas: {total_correct}\n❌ Respuestas incorrectas: {total_wrong}\n\n¡Buen trabajo!",
+  "game_texts_finish_button": "🏁 Finalizar",
+  "game_texts_unknown_action": "Acción desconocida en el juego de Textos.",
+  "game_texts_back_button": "⬅️ Volver",
+  "game_texts_skip_button": "⏭ Saltar",
+  "game_texts_read_button": "✅ He leído",
+  "game_texts_use_buttons": "Usa los botones debajo del texto.",
+  "game_texts_reading_screen": "📘 Texto {current}/{total}: {title}\n\n{text}\n\nLee el texto y presiona «He leído» para comenzar las preguntas.",
+  "game_texts_question_screen": "❓ Texto {text_number}/{total_texts}\nPregunta {question_number}/{total_questions}\n\n{question}",
+  "game_texts_feedback_correct": "✅ Correcto",
+  "game_texts_feedback_wrong": "❌ Incorrecto",
+  "game_texts_answer_result": "📝 Texto {text_number}, pregunta {question_number}\n\n{question}\n\nRespuesta correcta: {correct}",
+  "game_texts_next_question_button": "➡️ Siguiente pregunta",
+  "game_texts_text_summary": "📊 Texto {current}/{total} completado\n\n✅ Correctas: {correct}\n❌ Incorrectas: {wrong}\n\n¿Continuar al siguiente texto?",
+  "game_texts_next_text_button": "➡️ Siguiente texto",
+  "game_texts_finish_all_button": "🏁 Terminar juego"
 }
