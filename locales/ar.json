@@ -190,5 +190,26 @@
   "game_ooo_question_text": "سؤال {num} من {total}:\nأي كلمة هي العكس?",
 
   "game_sb_name": "🧩 بناء الجملة",
-  "game_sb_end_text": "🎉 **اكتملت اللعبة!** 🎉\n\nنتيجتك: **{score}**\n\nلاختيار لعبة مختلفة، أرسل /menu."
+  "game_sb_end_text": "🎉 **اكتملت اللعبة!** 🎉\n\nنتيجتك: **{score}**\n\nلاختيار لعبة مختلفة، أرسل /menu.",
+
+  "game_texts_name": "📝 النصوص",
+  "game_texts_start_text": "مرحبًا بك في قسم النصوص! اقرأ النص ثم اضغط «لقد قرأت» وأجب عن الأسئلة.",
+  "game_texts_reply_text": "استخدم الأزرار أسفل النص في هذه اللعبة.",
+  "game_texts_resume_text": "جارٍ استئناف لعبة النصوص...",
+  "game_texts_end_text": "🎉 تم إكمال النصوص!\n\nالنصوص المكتملة: {completed}/{total}\n✅ الإجابات الصحيحة: {total_correct}\n❌ الإجابات الخاطئة: {total_wrong}\n\nعمل رائع!",
+  "game_texts_finish_button": "🏁 إنهاء",
+  "game_texts_unknown_action": "إجراء غير معروف في لعبة النصوص.",
+  "game_texts_back_button": "⬅️ رجوع",
+  "game_texts_skip_button": "⏭ تخطي",
+  "game_texts_read_button": "✅ لقد قرأت",
+  "game_texts_use_buttons": "استخدم الأزرار أسفل النص.",
+  "game_texts_reading_screen": "📘 النص {current}/{total}: {title}\n\n{text}\n\nاقرأ النص واضغط «لقد قرأت» لبدء الأسئلة.",
+  "game_texts_question_screen": "❓ النص {text_number}/{total_texts}\nالسؤال {question_number}/{total_questions}\n\n{question}",
+  "game_texts_feedback_correct": "✅ صحيح",
+  "game_texts_feedback_wrong": "❌ خطأ",
+  "game_texts_answer_result": "📝 النص {text_number}، السؤال {question_number}\n\n{question}\n\nالإجابة الصحيحة: {correct}",
+  "game_texts_next_question_button": "➡️ السؤال التالي",
+  "game_texts_text_summary": "📊 تم إكمال النص {current}/{total}\n\n✅ صحيح: {correct}\n❌ خطأ: {wrong}\n\nالانتقال إلى النص التالي؟",
+  "game_texts_next_text_button": "➡️ النص التالي",
+  "game_texts_finish_all_button": "🏁 إنهاء اللعبة"
 }

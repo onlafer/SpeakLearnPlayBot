@@ -190,5 +190,26 @@
   "game_ooo_question_text": "سوال {num} از {total}:\nکدام کلمه متفاوت است?",
 
   "game_sb_name": "🧩 سازنده جمله",
-  "game_sb_end_text": "🎉 **بازی تمام شد!** 🎉\n\nامتیاز شما: **{score}**\n\nبرای انتخاب بازی دیگر، /menu را بفرستید."
+  "game_sb_end_text": "🎉 **بازی تمام شد!** 🎉\n\nامتیاز شما: **{score}**\n\nبرای انتخاب بازی دیگر، /menu را بفرستید.",
+
+  "game_texts_name": "📝 متن‌ها",
+  "game_texts_start_text": "به بخش متن‌ها خوش آمدید! متن را بخوانید، سپس روی «خواندم» بزنید و به سوال‌ها پاسخ دهید.",
+  "game_texts_reply_text": "در این بازی از دکمه‌های زیر متن استفاده کنید.",
+  "game_texts_resume_text": "در حال ادامه بازی متن‌ها...",
+  "game_texts_end_text": "🎉 متن‌ها به پایان رسید!\n\nمتن‌های تکمیل‌شده: {completed}/{total}\n✅ پاسخ‌های درست: {total_correct}\n❌ پاسخ‌های نادرست: {total_wrong}\n\nآفرین!",
+  "game_texts_finish_button": "🏁 پایان",
+  "game_texts_unknown_action": "عمل ناشناخته در بازی متن‌ها.",
+  "game_texts_back_button": "⬅️ بازگشت",
+  "game_texts_skip_button": "⏭ رد کردن",
+  "game_texts_read_button": "✅ خواندم",
+  "game_texts_use_buttons": "از دکمه‌های زیر متن استفاده کنید.",
+  "game_texts_reading_screen": "📘 متن {current}/{total}: {title}\n\n{text}\n\nمتن را بخوانید و روی «خواندم» بزنید تا سوال‌ها شروع شوند.",
+  "game_texts_question_screen": "❓ متن {text_number}/{total_texts}\nسوال {question_number}/{total_questions}\n\n{question}",
+  "game_texts_feedback_correct": "✅ درست",
+  "game_texts_feedback_wrong": "❌ نادرست",
+  "game_texts_answer_result": "📝 متن {text_number}، سوال {question_number}\n\n{question}\n\nپاسخ درست: {correct}",
+  "game_texts_next_question_button": "➡️ سوال بعدی",
+  "game_texts_text_summary": "📊 متن {current}/{total} تکمیل شد\n\n✅ درست: {correct}\n❌ نادرست: {wrong}\n\nبه متن بعدی برویم؟",
+  "game_texts_next_text_button": "➡️ متن بعدی",
+  "game_texts_finish_all_button": "🏁 پایان بازی"
 }

@@ -190,5 +190,26 @@
   "game_ooo_question_text": "第 {num}/{total} 题:\n哪个词是不同的?",
 
   "game_sb_name": "🧩 造句游戏",
-  "game_sb_end_text": "🎉 **游戏完成!** 🎉\n\n你的得分: **{score}**\n\n要选择其他游戏，请发送 /menu。"
+  "game_sb_end_text": "🎉 **游戏完成!** 🎉\n\n你的得分: **{score}**\n\n要选择其他游戏，请发送 /menu。",
+
+  "game_texts_name": "📝 文本",
+  "game_texts_start_text": "欢迎来到文本游戏！阅读文本，然后点击“我已阅读”，并回答问题。",
+  "game_texts_reply_text": "请在此游戏中使用内联按钮。",
+  "game_texts_resume_text": "正在继续文本游戏...",
+  "game_texts_end_text": "🎉 文本完成！\n\n已完成文本: {completed}/{total}\n✅ 正确答案: {total_correct}\n❌ 错误答案: {total_wrong}\n\n干得好！",
+  "game_texts_finish_button": "🏁 完成",
+  "game_texts_unknown_action": "文本游戏中的未知操作。",
+  "game_texts_back_button": "⬅️ 返回",
+  "game_texts_skip_button": "⏭ 跳过",
+  "game_texts_read_button": "✅ 我已阅读",
+  "game_texts_use_buttons": "请使用文本下方的内联按钮。",
+  "game_texts_reading_screen": "📘 文本 {current}/{total}: {title}\n\n{text}\n\n阅读文本并点击“我已阅读”开始回答问题。",
+  "game_texts_question_screen": "❓ 文本 {text_number}/{total_texts}\n问题 {question_number}/{total_questions}\n\n{question}",
+  "game_texts_feedback_correct": "✅ 正确",
+  "game_texts_feedback_wrong": "❌ 错误",
+  "game_texts_answer_result": "📝 文本 {text_number}，问题 {question_number}\n\n{question}\n\n正确答案: {correct}",
+  "game_texts_next_question_button": "➡️ 下一个问题",
+  "game_texts_text_summary": "📊 文本 {current}/{total} 完成\n\n✅ 正确: {correct}\n❌ 错误: {wrong}\n\n继续下一个文本？",
+  "game_texts_next_text_button": "➡️ 下一个文本",
+  "game_texts_finish_all_button": "🏁 结束游戏"
 }
