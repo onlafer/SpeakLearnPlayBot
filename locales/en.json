@@ -39,10 +39,8 @@
   "game_speech_practice_pronounce_prompt": "Please pronounce the following:",
   "game_speech_practice_record_hint": "Press and hold the 🎙 microphone button to record your voice.",
   "menu_hint": "To select a different game, send /menu.",
-
   "game_speech_practice_feedback_perfect": "Perfect! 🌟\nI heard:\n`{recognized}`",
   "game_speech_practice_feedback_close": "Almost correct! 👌\nTarget: `{target}`\nI heard: `{recognized}`",
-
   "game_speech_practice_feedback_correct": "✅ Excellent! You said it perfectly.",
   "game_speech_practice_feedback_good_try": "🤔 Good try! Here's the target:\n`{target}`\n\nHere's what I heard:\n`{recognized}`",
   "game_speech_practice_feedback_unrecognized": "😕 Sorry, I couldn't understand what you said. Please try again.",
@@ -136,14 +134,12 @@
   "game_wv_caption": "🎬 Playing: {title}\n\n{menu_hint}",
   "game_wv_btn_next": "➡️ Next Video",
   "game_wv_end_text": "🎉 You have watched all videos!\n\nChoose another game from the /menu.",
-
   "case_nominative": "Nominative",
   "case_genitive": "Genitive",
   "case_dative": "Dative",
   "case_accusative": "Accusative",
   "case_instrumental": "Instrumental",
   "case_prepositional": "Prepositional",
-
   "game_rc_name": "📖 Test: Russian Cases",
   "game_rc_select_case": "Please select a Russian Case to practice:",
   "game_rc_resume": "Ok, let's continue with the Cases test!",
@@ -154,20 +150,17 @@
   "game_rc_btn_finish": "🏁 Finish Test",
   "game_rc_btn_menu": "📋 Menu",
   "game_rc_end_text": "🎉 **Test Complete!** 🎉\n\nYou scored **{score}** out of **{total}**.\n\nSelect another game or case from the /menu.",
-
   "game_ac_lvl_nouns": "Accusative: Nouns",
   "game_ac_lvl_direction": "Accusative: Direction",
   "game_ac_lvl_time": "Accusative: Time",
   "game_ac_lvl_similarity": "Accusative: Similarity",
   "game_ac_lvl_adjectives": "Accusative: Adjectives",
   "game_ac_lvl_pronouns": "Accusative: Pronouns",
-  
   "game_pc_lvl_nouns": "Prepositional: Nouns",
   "game_pc_lvl_where": "Prepositional: Location",
   "game_pc_lvl_exceptions": "Prepositional: Exceptions",
   "game_pc_lvl_adjectives": "Prepositional: Adjectives",
   "game_pc_lvl_pronouns": "Prepositional: Pronouns",
-  
   "game_dc_lvl_nouns": "Dative: Nouns",
   "game_dc_lvl_exceptions": "Dative: Exceptions",
   "game_dc_lvl_pronouns": "Dative: Pronouns",
@@ -175,33 +168,27 @@
   "game_dc_lvl_possessives": "Dative: Possessives",
   "game_dc_lvl_verbs": "Dative: Verbs",
   "game_dc_lvl_adjectives": "Dative: Adjectives",
-  
   "game_gn_lvl_nouns": "Genitive: Nouns",
   "game_gn_lvl_adjectives": "Genitive: Adjectives",
   "game_gn_lvl_pronouns": "Genitive: Pronouns",
   "game_gn_lvl_counting": "Genitive: Counting",
   "game_gn_lvl_dates": "Genitive: Dates",
-  
   "game_it_lvl_nouns": "Instrumental: Nouns",
   "game_it_lvl_verbs": "Instrumental: Verbs",
   "game_it_lvl_adjectives": "Instrumental: Adjectives",
   "game_it_lvl_pronouns": "Instrumental: Pronouns",
   "game_it_lvl_prepositions": "Instrumental: Prepositions",
-  
   "game_nm_lvl_basics": "Nominative: Basics",
   "game_nm_lvl_adjectives": "Nominative: Adjectives",
   "game_nm_lvl_plural": "Nominative: Plural",
   "game_nm_lvl_pronouns": "Nominative: Pronouns",
   "game_nm_lvl_questions": "Nominative: Questions",
   "game_nm_lvl_advanced": "Nominative: Advanced",
-
   "game_ooo_name": "🎯 Odd One Out",
   "game_ooo_select_level": "Find the word that doesn't belong to the group.\n\nSelect a difficulty level:",
   "game_ooo_question_text": "Question {num} of {total}:\nWhich word is the odd one out?",
-
   "game_sb_name": "🧩 Sentence Builder",
   "game_sb_end_text": "🎉 **Game Complete!** 🎉\n\nYour score: **{score}**\n\nTo select a different game, send /menu.",
-
   "game_texts_name": "📝 Texts",
   "game_texts_start_text": "Welcome to Texts! Read the text, then press 'I have read' and answer the questions.",
   "game_texts_reply_text": "Use inline buttons in this game.",
@@ -221,5 +208,17 @@
   "game_texts_next_question_button": "➡️ Next question",
   "game_texts_text_summary": "📊 Text {current}/{total} completed\n\n✅ Correct: {correct}\n❌ Wrong: {wrong}\n\nProceed to the next text?",
   "game_texts_next_text_button": "➡️ Next text",
-  "game_texts_finish_all_button": "🏁 Finish game"
+  "game_texts_finish_all_button": "🏁 Finish game",
+  "game_verb_tests_name": "📚 Verb Tests",
+  "game_verb_tests_already_answered": "You have already answered this question.",
+  "game_verb_tests_correct": "✅ Correct!",
+  "game_verb_tests_incorrect": "❌ Incorrect. The correct answer is: {correct}",
+  "game_verb_tests_next": "➡️ Next",
+  "game_verb_tests_finish": "🏁 Results",
+  "game_verb_tests_menu": "📋 Menu",
+  "game_verb_tests_resume": "Let's continue the Verb Tests!",
+  "game_verb_tests_end": "🎉 Test completed! Your score: {score}/{total}",
+  "game_texts_confirm_exit": "Are you sure you want to cancel the test? Your progress will be reset.",
+  "game_texts_confirm_yes": "✅ Yes, cancel",
+  "game_texts_confirm_no": "❌ No, continue test"
 }

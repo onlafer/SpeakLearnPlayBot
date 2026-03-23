@@ -25,6 +25,7 @@ from games import (
     odd_one_out,
     translator_game,
     texts,
+    verb_tests_quiz,
 )
 
 
@@ -37,14 +38,23 @@ async def get_user_language(user_id: int) -> str:
     return user.language if user else "en"
 
 
-async def _get_dynamic_keyboard(lang: str):
+async def _get_dynamic_keyboard(lang: str, page: int = 0):
     """Generate keyboard with localized game names."""
     from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-    games = game_registry.get_all_games()
+    games_dict = game_registry.get_all_games()
+    games_list = list(games_dict.items())
+    
+    items_per_page = 10
+    total_pages = max(1, (len(games_list) + items_per_page - 1) // items_per_page)
+    
+    start_idx = page * items_per_page
+    end_idx = start_idx + items_per_page
+    current_games = games_list[start_idx:end_idx]
+
     buttons = []
 
-    for game_id, game in games.items():
+    for game_id, game in current_games:
         buttons.append(
             [
                 InlineKeyboardButton(
@@ -53,6 +63,16 @@ async def _get_dynamic_keyboard(lang: str):
                 )
             ]
         )
+
+    nav_buttons = []
+    if page > 0:
+        nav_buttons.append(InlineKeyboardButton(text="⬅️", callback_data=f"games_page_{page - 1}"))
+    if page < total_pages - 1:
+        nav_buttons.append(InlineKeyboardButton(text="➡️", callback_data=f"games_page_{page + 1}"))
+        
+    if nav_buttons:
+        buttons.append(nav_buttons)
+
     buttons.append(
         [
             InlineKeyboardButton(
@@ -85,7 +105,19 @@ async def _cancel_game_logic(user_id: int, bot: Bot, lang: str):
 async def show_games_list(callback: CallbackQuery):
     """Show list of available games."""
     lang = await get_user_language(callback.from_user.id)
-    keyboard = await _get_dynamic_keyboard(lang)
+    keyboard = await _get_dynamic_keyboard(lang, page=0)
+    await callback.message.edit_text(
+        translator.get_text("choose_game_prompt", lang), reply_markup=keyboard
+    )
+    await callback.answer()
+
+
+@router.callback_query(lambda c: c.data and c.data.startswith("games_page_"))
+async def show_games_page(callback: CallbackQuery):
+    """Show specific page of games list."""
+    lang = await get_user_language(callback.from_user.id)
+    page = int(callback.data.split("games_page_")[-1])
+    keyboard = await _get_dynamic_keyboard(lang, page=page)
     await callback.message.edit_text(
         translator.get_text("choose_game_prompt", lang), reply_markup=keyboard
     )

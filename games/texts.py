@@ -114,6 +114,8 @@ class TextsGame(BaseGame):
             "texts_next_question": self._on_next_question,
             "texts_show_results": self._on_show_results,
             "texts_back_to_texts": self._on_back_to_texts,
+            "texts_confirm_exit_prompt": self._on_confirm_exit_prompt,
+            "texts_cancel_exit": self._on_cancel_exit,
         }
         handler = handlers.get(action)
         if handler:
@@ -180,6 +182,24 @@ class TextsGame(BaseGame):
         s.game_state["answered_current"] = False
         await self._render_reading(bot, s)
 
+    async def _on_confirm_exit_prompt(self, bot: Bot, s: GameSession):
+        # We don't change phase because we want to be able to return to quiz unchanged if they cancel
+        # Actually it's safer to just set 'confirm_exit' phase or keep it
+        s.game_state["phase"] = "confirm_exit"
+        await self._render_confirm_exit(bot, s)
+
+    async def _on_cancel_exit(self, bot: Bot, s: GameSession):
+        s.game_state["phase"] = "quiz"
+        if s.game_state.get("answered_current"):
+            q_idx = s.game_state.get("question_index", 0)
+            content = self._content(s)
+            if q_idx < len(content["questions"]):
+                question = content["questions"][q_idx]
+                correct = question["correct_index"]
+                await self._render_question_result(bot, s, question, correct, as_new=False)
+        else:
+            await self._render_question(bot, s, as_new=False)
+
     async def end_game(self, bot: Bot, s: GameSession, send_message: bool = True):
         if not send_message:
             return
@@ -234,6 +254,14 @@ class TextsGame(BaseGame):
             return
         question = content["questions"][q_idx]
         buttons = [[InlineKeyboardButton(text=opt, callback_data=f"texts_answer:{i}")] for i, opt in enumerate(question["options"])]
+        
+        buttons.append([
+            InlineKeyboardButton(
+                text=translator.get_text("game_texts_back_button", lang),
+                callback_data="texts_confirm_exit_prompt",
+            )
+        ])
+
         text = translator.get_text("game_texts_question_screen", lang).format(
             text_number=idx + 1,
             total_texts=len(TEXTS_GAME_CONTENT),
@@ -260,15 +288,22 @@ class TextsGame(BaseGame):
 
         if is_last_question:
             button = self._results_button(lang)
+            keyboard = InlineKeyboardMarkup(
+                inline_keyboard=[[button]]
+            )
         else:
             button = InlineKeyboardButton(
                 text=translator.get_text("game_texts_next_question_button", lang),
                 callback_data="texts_next_question",
             )
+            cancel_button = InlineKeyboardButton(
+                text=translator.get_text("game_texts_back_button", lang),
+                callback_data="texts_confirm_exit_prompt",
+            )
+            keyboard = InlineKeyboardMarkup(
+                inline_keyboard=[[button], [cancel_button]]
+            )
 
-        keyboard = InlineKeyboardMarkup(
-            inline_keyboard=[[button]]
-        )
         await self._show(bot, s, text, keyboard, as_new=as_new)
 
     async def _render_text_summary(self, bot: Bot, s: GameSession, as_new: bool = False):
@@ -309,5 +344,25 @@ class TextsGame(BaseGame):
         )
         await self._show(bot, s, text, keyboard, as_new)
 
+    async def _render_confirm_exit(self, bot: Bot, s: GameSession, as_new: bool = False):
+        lang = self._lang(s)
+        text = translator.get_text("game_texts_confirm_exit", lang)
+        keyboard = InlineKeyboardMarkup(
+            inline_keyboard=[
+                [
+                    InlineKeyboardButton(
+                        text=translator.get_text("game_texts_confirm_yes", lang),
+                        callback_data="texts_back_to_texts",
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        text=translator.get_text("game_texts_confirm_no", lang),
+                        callback_data="texts_cancel_exit",
+                    )
+                ]
+            ]
+        )
+        await self._show(bot, s, text, keyboard, as_new)
 
 game_registry.register(TextsGame())
