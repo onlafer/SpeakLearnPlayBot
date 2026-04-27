@@ -178,7 +178,7 @@ class RussianCasesQuiz(BaseGame):
 
             if user_answer == correct_answer:
                 session.score += 1
-                random_praise = random.choice(POSITIVE_FEEDBACKS.get(lang, ["Great!"]))
+                random_praise = random.choice(POSITIVE_FEEDBACKS.get(lang, POSITIVE_FEEDBACKS["en"]))
                 
                 feedback_template = translator.get_text("game_rc_feedback_correct", lang)
                 feedback_text = feedback_template.format(praise=random_praise, explanation=explanation)
