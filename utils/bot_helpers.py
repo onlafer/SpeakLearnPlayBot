@@ -29,7 +29,10 @@ async def safe_edit_message(
         )
         return message_id
     except TelegramBadRequest as e:
-        if "message to edit not found" in str(e).lower() or "message can't be edited" in str(e).lower():
+        error_msg = str(e).lower()
+        if "message is not modified" in error_msg:
+            return message_id
+        if "message to edit not found" in error_msg or "message can't be edited" in error_msg:
             sent_message = await bot.send_message(
                 chat_id=chat_id,
                 text=text,

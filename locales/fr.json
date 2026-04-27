@@ -9,6 +9,7 @@
   "cancel_game_button": "❌ Annuler le jeu",
   "select_game_button": "🎮 Sélectionner un jeu",
   "settings_button": "⚙️ Paramètres",
+  "streak_button": "Ma série",
   "change_language_button": "🌐 Changer de langue",
   "back_button": "⬅️ Retour",
   "choose_game_prompt": "🎮 Choisissez un jeu pour commencer :",

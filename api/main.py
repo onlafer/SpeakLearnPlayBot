@@ -7,6 +7,8 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 from database import init_db
 from api.routes import router
@@ -30,6 +32,13 @@ app = FastAPI(
     docs_url="/docs",   # Swagger UI
     redoc_url="/redoc", # ReDoc
 )
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.get("/streak")
+async def streak_page():
+    """Открыть Mini App со стриком."""
+    return FileResponse("static/streak/index.html")
 
 app.add_middleware(
     CORSMiddleware,

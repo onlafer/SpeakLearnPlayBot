@@ -1,5 +1,6 @@
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 from games.base import GameStatus
+from common.config import CONFIG
 from utils.localization import translator
 
 def get_main_menu(lang: str, session=None) -> InlineKeyboardMarkup:
@@ -25,12 +26,20 @@ def get_main_menu(lang: str, session=None) -> InlineKeyboardMarkup:
                 callback_data="show_games"
             )
         ])
-    
+
+    buttons.append([
+        InlineKeyboardButton(
+            text="🔥 " + translator.get_text("streak_button", lang),
+            web_app=WebAppInfo(url=CONFIG.bot.webapp_url)
+        )
+    ])
+
     buttons.append([
         InlineKeyboardButton(
             text=translator.get_text("settings_button", lang),
             callback_data="show_settings"
         )
     ])
-        
+
+
     return InlineKeyboardMarkup(inline_keyboard=buttons)

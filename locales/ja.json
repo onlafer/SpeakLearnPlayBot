@@ -9,6 +9,7 @@
   "cancel_game_button": "❌ ゲームをキャンセル",
   "select_game_button": "🎮 ゲームを選択",
   "settings_button": "⚙️ 設定",
+  "streak_button": "継続日数",
   "change_language_button": "🌐 言語を変更",
   "back_button": "⬅️ 戻る",
   "choose_game_prompt": "🎮 開始するゲームを選択してください：",

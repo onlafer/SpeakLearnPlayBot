@@ -104,31 +104,41 @@ class TextsGame(BaseGame):
         return s
 
     async def handle_callback(self, bot: Bot, s: GameSession, callback: CallbackQuery) -> GameSession:
-        await callback.answer()
         data = callback.data
-        if data == "texts_read":
-            await self._on_read(bot, s)
-        elif data == "texts_voiceover":
-            await self._on_voiceover(bot, s)
+        if data == "texts_prev":
+            await callback.answer()
+            await self._on_prev(bot, s)
         elif data == "texts_next":
+            await callback.answer()
             await self._on_next(bot, s)
-        elif data == "texts_next_text":
-            await self._on_next_text(bot, s)
-        elif data == "texts_back":
-            await self._on_back(bot, s)
-        elif data == "texts_skip":
-            await self._on_skip(bot, s)
-        elif data == "texts_finish":
-            await self._on_finish(bot, s)
-        elif data.startswith("texts_ans_"):
-            ans_idx = int(data.split("_")[-1])
-            await self._on_answer(bot, s, ans_idx)
-        elif data == "texts_exit_confirm":
-            await self._on_exit_confirm(bot, s)
-        elif data == "texts_exit_no":
-            await self._on_resume_after_exit_no(bot, s)
+        elif data == "texts_voiceover":
+            await callback.answer()
+            await self._on_voiceover(bot, s)
+        elif data == "texts_read":
+            await callback.answer()
+            await self._on_read(bot, s)
+        elif data.startswith("texts_answer:"):
+            await self._on_answer(bot, s, callback)
+        elif data == "texts_confirm_exit_prompt":
+            await callback.answer()
+            await self._on_confirm_exit_prompt(bot, s)
+        elif data == "texts_show_results":
+            await callback.answer()
+            await self._on_show_results(bot, s)
+        elif data == "texts_next_question":
+            await callback.answer()
+            await self._on_next_question(bot, s)
+        elif data == "texts_back_to_texts":
+            await callback.answer()
+            await self._on_back_to_texts(bot, s)
+        elif data == "texts_cancel_exit":
+            await callback.answer()
+            await self._on_cancel_exit(bot, s)
         else:
+            await callback.answer()
             print(f"Warning: Unknown action in texts game: {data}")
+
+        return s
 
         return s
 

@@ -19,6 +19,7 @@ load_dotenv(find_dotenv(DEFAULT_ENV_PATH))
 class BotConfig:
     token: str
     admin_list: Union[List[int], str]
+    webapp_url: str
 
 
 @dataclass
@@ -50,6 +51,7 @@ CONFIG = Config(
     bot=BotConfig(
         token=getenv("BOT_TOKEN"),
         admin_list=loads(getenv("ADMIN_LIST")),
+        webapp_url=getenv("WEBAPP_URL", "http://127.0.0.1:8001/streak"),
     ),
     database=DatabaseConfig(
         path=normpath(getenv("DB_PATH", "data/bot.sqlite")),

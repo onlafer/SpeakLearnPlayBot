@@ -30,9 +30,27 @@ from api.schemas import (
     ActionResponse,
     CancelSessionRequest,
     CurrentSessionResponse,
+    StreakResponse,
 )
+from database.user_manager import user_manager
 
 router = APIRouter(prefix="/api", tags=["games"])
+
+
+@router.get("/streak/{user_id}", response_model=StreakResponse)
+async def get_streak(user_id: int):
+    """Получить данные о стрике пользователя."""
+    user = await user_manager.get_user(user_id)
+    if not user:
+        # Если пользователя нет, создаём его (или возвращаем 0)
+        user = await user_manager.get_or_create_user(user_id)
+    
+    return StreakResponse(
+        user_id=user.user_id,
+        streak_count=user.streak_count,
+        last_activity_date=user.last_activity_date,
+        activity_history=user.activity_history,
+    )
 
 
 def _state_from_session(session) -> GameStateSchema | None:
