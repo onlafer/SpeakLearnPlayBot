@@ -19,4 +19,17 @@ dependencies = [
     "gtts>=2.5.4",
     "fastapi>=0.115.0",
     "uvicorn[standard]>=0.32.0",
+    "f5-tts>=1.1.18",
+    "torch>=2.5.1",
+    "torchaudio>=2.5.1",
+    "ruaccent>=1.4.0",
 ]
+
+[[tool.uv.index]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch" }
+torchaudio = { index = "pytorch" }

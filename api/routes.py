@@ -19,6 +19,7 @@ from games import (
     translator_game,
 )
 from api.fake_bot import FakeBot, FakeMessage, FakeCallbackQuery
+from utils.localization import translator
 from api.schemas import (
     GameInfoSchema,
     GameStateSchema,
@@ -43,6 +44,12 @@ def _state_from_session(session) -> GameStateSchema | None:
         text=last["text"],
         buttons=[ButtonSchema(**b) for b in last["buttons"]],
     )
+
+
+@router.get("/languages", response_model=list[str])
+async def list_languages():
+    """Список всех доступных языков (коды: en, ru, ...)."""
+    return list(translator.translations.keys())
 
 
 @router.get("/games", response_model=list[GameInfoSchema])
@@ -111,9 +118,19 @@ async def session_action(body: ActionRequest):
         raise HTTPException(status_code=404, detail="Игра не найдена.")
 
     fake_bot = FakeBot(session)
+    
+    # Достаём текст последнего экрана, чтобы передать его в FakeMessage
+    # Это нужно играм, которые обращаются к callback.message.text
+    last_screen = session.game_state.get("_api_last_screen", {})
+    last_text = last_screen.get("text", "")
+
     fake_callback = FakeCallbackQuery(
         data=body.callback_data,
-        message=FakeMessage(chat_id=session.chat_id, message_id=session.message_id),
+        message=FakeMessage(
+            chat_id=session.chat_id, 
+            message_id=session.message_id,
+            text=last_text
+        ),
     )
     updated = await game.handle_callback(fake_bot, session, fake_callback)
 

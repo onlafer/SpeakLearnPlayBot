@@ -1,10 +1,13 @@
-from aiogram import Bot
-from aiogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, Message
+import os
+import hashlib
+from aiogram import Bot, F
+from aiogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, Message, BufferedInputFile, FSInputFile
 
 from data.texts_game_data import TEXTS_GAME_CONTENT
 from database.user_manager import user_manager
 from utils.bot_helpers import safe_edit_message
 from utils.localization import translator
+from utils.hf_tts import async_text_to_speech_f5
 
 from .base import BaseGame, GameSession, GameStatus
 from .game_registry import game_registry
@@ -101,32 +104,96 @@ class TextsGame(BaseGame):
         return s
 
     async def handle_callback(self, bot: Bot, s: GameSession, callback: CallbackQuery) -> GameSession:
-        s.message_id = callback.message.message_id
-        action = callback.data or ""
-        if action.startswith("texts_answer:"):
-            await self._on_answer(bot, s, callback)
-            return s
-
-        handlers = {
-            "texts_prev": self._on_prev,
-            "texts_next": self._on_next,
-            "texts_read": self._on_read,
-            "texts_next_question": self._on_next_question,
-            "texts_show_results": self._on_show_results,
-            "texts_back_to_texts": self._on_back_to_texts,
-            "texts_confirm_exit_prompt": self._on_confirm_exit_prompt,
-            "texts_cancel_exit": self._on_cancel_exit,
-        }
-        handler = handlers.get(action)
-        if handler:
-            await handler(bot, s)
         await callback.answer()
+        data = callback.data
+        if data == "texts_read":
+            await self._on_read(bot, s)
+        elif data == "texts_voiceover":
+            await self._on_voiceover(bot, s)
+        elif data == "texts_next":
+            await self._on_next(bot, s)
+        elif data == "texts_next_text":
+            await self._on_next_text(bot, s)
+        elif data == "texts_back":
+            await self._on_back(bot, s)
+        elif data == "texts_skip":
+            await self._on_skip(bot, s)
+        elif data == "texts_finish":
+            await self._on_finish(bot, s)
+        elif data.startswith("texts_ans_"):
+            ans_idx = int(data.split("_")[-1])
+            await self._on_answer(bot, s, ans_idx)
+        elif data == "texts_exit_confirm":
+            await self._on_exit_confirm(bot, s)
+        elif data == "texts_exit_no":
+            await self._on_resume_after_exit_no(bot, s)
+        else:
+            print(f"Warning: Unknown action in texts game: {data}")
+
         return s
 
     async def _on_prev(self, bot: Bot, s: GameSession):
         if s.game_state["phase"] == "reading" and self._idx(s) > 0:
             s.game_state["current_text_index"] -= 1
+        s.game_state["answered_current"] = False # Reset flag for voiceover if needed
         await self._render_reading(bot, s)
+
+    async def _on_voiceover(self, bot: Bot, s: GameSession):
+        lang, content = self._lang(s), self._content(s)
+        text_to_speak = content["text"]
+        
+        # 1. Check cache
+        text_hash = hashlib.md5(text_to_speak.encode('utf-8')).hexdigest()
+        cache_dir = os.path.join("storage", "voiceover_cache", "texts")
+        os.makedirs(cache_dir, exist_ok=True)
+        cache_path = os.path.join(cache_dir, f"{text_hash}.ogg")
+
+        if os.path.exists(cache_path):
+            voice_file = FSInputFile(cache_path, filename="text_voiceover.ogg")
+            await bot.send_voice(
+                chat_id=s.chat_id,
+                voice=voice_file,
+                caption=f"🔊 {content['title']}"
+            )
+            return
+
+        # 2. Generate if not cached
+        await bot.send_chat_action(chat_id=s.chat_id, action="record_voice")
+        
+        # 2.1 Use pre-processed text if available, otherwise process on the fly
+        use_accent = True
+        if "voiceover_text" in content:
+            text_to_speak = content["voiceover_text"]
+            use_accent = False
+        else:
+            # Use Gemma to expand dates/numbers and improve stress marks
+            try:
+                from utils.ollama_ai import preprocess_russian_text_for_tts
+                text_to_speak = await preprocess_russian_text_for_tts(text_to_speak)
+            except Exception as e:
+                print(f"Gemma preprocessing error: {e}")
+                # Fallback to original text if Gemma fails
+
+        # We use female voice as it often sounds clearer for learning
+        audio_stream = await async_text_to_speech_f5(text_to_speak, voice="female", use_accent=use_accent)
+        
+        if audio_stream:
+            # Save to cache for future use
+            try:
+                with open(cache_path, "wb") as f:
+                    f.write(audio_stream.getvalue())
+            except Exception as e:
+                print(f"Error saving voiceover cache: {e}")
+
+            voice_file = BufferedInputFile(audio_stream.getvalue(), filename="text_voiceover.ogg")
+            await bot.send_voice(
+                chat_id=s.chat_id,
+                voice=voice_file,
+                caption=f"🔊 {content['title']}"
+            )
+        else:
+            error_msg = translator.get_text("game_texts_voiceover_error", lang) or "😕 Sorry, I couldn't generate the voiceover for this text."
+            await bot.send_message(s.chat_id, error_msg)
 
     async def _on_next(self, bot: Bot, s: GameSession):
         if s.game_state["phase"] != "reading":
@@ -222,6 +289,14 @@ class TextsGame(BaseGame):
         rows = []
         if top:
             rows.append(top)
+        rows.append(
+            [
+                InlineKeyboardButton(
+                    text=translator.get_text("game_texts_voiceover_button", lang) or "🔊 Listen",
+                    callback_data="texts_voiceover",
+                )
+            ]
+        )
         rows.append(
             [
                 InlineKeyboardButton(

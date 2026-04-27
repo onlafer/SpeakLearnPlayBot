@@ -288,23 +288,21 @@ class SpeechPracticeQuiz(BaseGame):
     async def handle_callback(
         self, bot: Bot, session: GameSession, callback: CallbackQuery
     ) -> GameSession:
+        await callback.answer()
         action, *data = callback.data.split(":")
 
         if action == "select_category":
             category_index = int(data[0])
             session.game_state["category_index"] = category_index
             await self._start_quiz_round(bot, session)
-            await callback.answer()
 
         elif action == "next_speech_item":
             session.current_question += 1
             await self._send_question(bot, session, is_new_round_step=True)
-            await callback.answer()
 
         elif action == "finish_speech":
             session.status = GameStatus.FINISHED
             await self.end_game(bot, session)
-            await callback.answer()
 
         return session
 

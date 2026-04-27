@@ -1,6 +1,10 @@
 # Environment
 .env
 .env.local
+.venv/
+env/
+venv/
+ENV/
 
 # Telethon session (авторизация пользователя)
 config/*.session
@@ -12,9 +16,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
-venv/
-ENV/
 build/
 develop-eggs/
 dist/
@@ -32,11 +33,29 @@ wheels/
 *.egg
 
 # SQLite database
+*.sqlite
+*.sqlite3
+*.db
 data/*.sqlite
 
 # File storage (contents ignored, folder kept via .gitkeep)
 storage/*
 !storage/.gitkeep
+
+# Models and Large Assets
+models/*
+!models/ref_audio/
+!models/ref_audio/README.md
+!models/ref_audio/ref_text.txt
+!models/ref_audio/*.wav
+models/**/.cache/
+**/__pycache__/
+
+# Audio artifacts (from tests or runs)
+*.ogg
+*.wav
+*.mp3
+!models/ref_audio/*.wav
 
 # Temporary files
 temp/
@@ -52,3 +71,6 @@ temp/
 # OS
 .DS_Store
 Thumbs.db
+
+# uv
+.python-version

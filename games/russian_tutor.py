@@ -8,6 +8,7 @@ from database.user_manager import user_manager
 
 from .base import BaseGame, GameSession, GameStatus
 from .game_registry import game_registry
+from .session_manager import session_manager
 from data.russian_tutor import SYSTEM_PROMPT
 from utils.ollama_ai import get_ollama_response
 from utils.bot_helpers import safe_edit_message
@@ -109,6 +110,13 @@ class RussianTutorGame(BaseGame):
     ) -> GameSession:
         """Handles a text message from the user."""
         user_text = message.text
+        
+        if session.game_state.get("is_thinking"):
+            lang = await get_user_language(session.user_id)
+            wait_text = translator.get_text("wait_thinking", lang) or "⏳ Please wait, I'm still processing the previous message!"
+            await message.reply(wait_text)
+            return session
+
         session.game_state["history"].append(
             {"role": "user", "content": user_text}
         )
@@ -121,37 +129,46 @@ class RussianTutorGame(BaseGame):
             text=f"⏳ {loading_text}..."
         )
         
-        # Start animation in background
-        animation_task = asyncio.create_task(
-            animate_loading(bot, session.chat_id, loading_msg.message_id, loading_text)
-        )
-        
-        # Get AI response (animation runs in parallel)
-        ai_response = await get_ollama_response(session.game_state["history"])
-        
-        # Stop animation
-        animation_task.cancel()
+        session.game_state["is_thinking"] = True
+        await session_manager.update_session(session.user_id, session)
+
         try:
-            await animation_task
-        except asyncio.CancelledError:
-            pass
-        
-        # Delete loading message and send actual response
-        try:
-            await bot.delete_message(session.chat_id, loading_msg.message_id)
-        except:
-            pass
-        
-        # Convert markdown to HTML for proper formatting in Telegram
-        formatted_response = markdown_to_html(ai_response)
-        session.game_state["history"].append(
-            {"role": "assistant", "content": ai_response}
-        )
-        await bot.send_message(
-            chat_id=session.chat_id,
-            text=formatted_response,
-            parse_mode="HTML"
-        )
+            # Start animation in background
+            animation_task = asyncio.create_task(
+                animate_loading(bot, session.chat_id, loading_msg.message_id, loading_text)
+            )
+            
+            # Get AI response (animation runs in parallel)
+            ai_response = await get_ollama_response(session.game_state["history"])
+            
+            # Stop animation
+            animation_task.cancel()
+            try:
+                await animation_task
+            except asyncio.CancelledError:
+                pass
+            
+            # Delete loading message and send actual response
+            try:
+                await bot.delete_message(session.chat_id, loading_msg.message_id)
+            except:
+                pass
+            
+            # Convert markdown to HTML for proper formatting in Telegram
+            formatted_response = markdown_to_html(ai_response)
+            session.game_state["history"].append(
+                {"role": "assistant", "content": ai_response}
+            )
+            await bot.send_message(
+                chat_id=session.chat_id,
+                text=formatted_response,
+                parse_mode="HTML"
+            )
+
+        finally:
+            session.game_state["is_thinking"] = False
+            await session_manager.update_session(session.user_id, session)
+
         return session
 
     async def end_game(self, bot: Bot, session: GameSession, send_message: bool = True):

@@ -26,6 +26,7 @@ from games import (
     translator_game,
     texts,
     verb_tests_quiz,
+    roleplay_game,
 )
 
 
@@ -66,9 +67,11 @@ async def _get_dynamic_keyboard(lang: str, page: int = 0):
 
     nav_buttons = []
     if page > 0:
-        nav_buttons.append(InlineKeyboardButton(text="⬅️", callback_data=f"games_page_{page - 1}"))
+        prev_text = translator.get_text("nav_prev", lang) or "⬅️"
+        nav_buttons.append(InlineKeyboardButton(text=prev_text, callback_data=f"games_page_{page - 1}"))
     if page < total_pages - 1:
-        nav_buttons.append(InlineKeyboardButton(text="➡️", callback_data=f"games_page_{page + 1}"))
+        next_text = translator.get_text("nav_next", lang) or "➡️"
+        nav_buttons.append(InlineKeyboardButton(text=next_text, callback_data=f"games_page_{page + 1}"))
         
     if nav_buttons:
         buttons.append(nav_buttons)
@@ -76,7 +79,7 @@ async def _get_dynamic_keyboard(lang: str, page: int = 0):
     buttons.append(
         [
             InlineKeyboardButton(
-                text=translator.get_text("back_button", lang), callback_data="show_menu"
+                text=translator.get_text("nav_menu", lang) or "📋 Menu", callback_data="show_menu"
             )
         ]
     )
