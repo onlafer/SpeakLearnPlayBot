@@ -11,9 +11,25 @@ import type { GameStateSchema, CurrentSessionResponse } from './types/api';
 type Screen = 'MENU' | 'GAME_LIST' | 'GAME' | 'SETTINGS' | 'STREAK';
 
 const App: React.FC = () => {
-  const { user, expand } = useTelegram();
-  const [screen, setScreen] = useState<Screen>('MENU');
-  const [lang, setLang] = useState<string>(localStorage.getItem('lang') || 'en');
+  const { user, expand, tg } = useTelegram();
+  
+  // Set initial screen based on URL path (e.g. show STREAK screen directly on /streak path)
+  const [screen, setScreen] = useState<Screen>(() => {
+    const path = window.location.pathname;
+    if (path.endsWith('/streak') || path.includes('/streak')) {
+      return 'STREAK';
+    }
+    return 'MENU';
+  });
+
+  // Auto-detect language from localStorage, falling back to Telegram user language or English
+  const [lang, setLang] = useState<string>(() => {
+    const saved = localStorage.getItem('lang');
+    if (saved) return saved;
+    const tgLang = tg?.initDataUnsafe?.user?.language_code;
+    return tgLang === 'ru' ? 'ru' : 'en';
+  });
+
   const [currentGameId, setCurrentGameId] = useState<string | null>(null);
   const [initialGameState, setInitialGameState] = useState<GameStateSchema | null>(null);
 

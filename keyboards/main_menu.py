@@ -38,7 +38,7 @@ def get_main_menu(lang: str, session=None) -> InlineKeyboardMarkup:
     base_url = CONFIG.bot.webapp_url.replace("/streak", "")
     buttons.append([
         InlineKeyboardButton(
-            text="🎮 " + (translator.get_text("play_webapp_button", lang) or "Play in Web App"),
+            text=translator.get_text("play_webapp_button", lang) or "🌐 Web Version",
             web_app=WebAppInfo(url=base_url)
         )
     ])

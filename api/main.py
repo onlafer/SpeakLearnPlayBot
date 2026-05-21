@@ -38,6 +38,9 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 @app.get("/streak")
 async def streak_page():
     """Открыть Mini App со стриком."""
+    react_index = "frontend/dist/index.html"
+    if os.path.exists(react_index):
+        return FileResponse(react_index)
     return FileResponse("static/streak/index.html")
 
 app.add_middleware(
