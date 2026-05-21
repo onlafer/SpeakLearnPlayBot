@@ -29,6 +29,10 @@ async def main():
     )
 
     dp = Dispatcher(storage=MemoryStorage())
+    
+    from utils.middlewares import ActivityMiddleware
+    dp.message.middleware(ActivityMiddleware())
+    dp.callback_query.middleware(ActivityMiddleware())
 
     dp.include_router(common_router)
     dp.include_router(user_router)

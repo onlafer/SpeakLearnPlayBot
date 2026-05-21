@@ -6,6 +6,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "врач",
         "explanation": {
             "en": "Profession, others are family members.",
+            "ru": "Профессия, остальные — члены семьи.",
             "es": "Profesión, los otros son miembros de la familia.",
             "fr": "Profession, les autres sont des membres de la famille.",
             "ar": "مهنة، والآخرون أفراد عائلة.",
@@ -21,6 +22,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "хлеб",
         "explanation": {
             "en": "Bakery product, others are fruits.",
+            "ru": "Выпечка, остальные — фрукты.",
             "es": "Producto de panadería, los otros son frutas.",
             "fr": "Produit de boulangerie, les autres sont des fruits.",
             "ar": "منتج مخبوزات، والآخرون فواكه.",
@@ -36,6 +38,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "книга",
         "explanation": {
             "en": "Object, others are colors.",
+            "ru": "Предмет, остальные — цвета.",
             "es": "Objeto, los otros son colores.",
             "fr": "Objet, les autres sont des couleurs.",
             "ar": "شيء، والآخرون ألوان.",
@@ -51,6 +54,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "метро",
         "explanation": {
             "en": "Transport, others are furniture.",
+            "ru": "Транспорт, остальные — мебель.",
             "es": "Transporte, los otros son muebles.",
             "fr": "Transport, les autres sont des meubles.",
             "ar": "وسيلة نقل، والآخرون أثاث.",
@@ -66,6 +70,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "завтрак",
         "explanation": {
             "en": "Noun/Meal, others are verbs.",
+            "ru": "Существительное/приём пищи, остальные — глаголы.",
             "es": "Sustantivo/Comida, los otros son verbos.",
             "fr": "Nom/Repas, les autres sont des verbes.",
             "ar": "اسم/وجبة، والآخرون أفعال.",
@@ -81,6 +86,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "окно",
         "explanation": {
             "en": "Inanimate object, others are animals.",
+            "ru": "Неодушевленный предмет, остальные — животные.",
             "es": "Objeto inanimado, los otros son animales.",
             "fr": "Objet inanimé, les autres sont des animaux.",
             "ar": "شيء غير حي، والآخرون حيوانات.",
@@ -96,6 +102,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "утро",
         "explanation": {
             "en": "Time of day, others are days of the week.",
+            "ru": "Время суток, остальные — дни недели.",
             "es": "Momento del día, los otros son días de la semana.",
             "fr": "Moment de la journée, les autres sont des jours de la semaine.",
             "ar": "وقت من اليوم، والآخرون أيام الأسبوع.",
@@ -111,6 +118,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "холодно",
         "explanation": {
             "en": "Adverb/State, others are clothing items.",
+            "ru": "Наречие/состояние, остальные — одежда.",
             "es": "Adverbio/Estado, los otros son prendas de vestir.",
             "fr": "Adverbe/État, les autres sont des vêtements.",
             "ar": "ظرف/حالة، والآخرون قطع ملابس.",
@@ -126,6 +134,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "тарелка",
         "explanation": {
             "en": "Dishes, others are drinks.",
+            "ru": "Посуда, остальные — напитки.",
             "es": "Vajilla, los otros son bebidas.",
             "fr": "Vaisselle, les autres sont des boissons.",
             "ar": "أواني، والآخرون مشروبات.",
@@ -141,6 +150,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "Россия",
         "explanation": {
             "en": "Country, others are cities.",
+            "ru": "Страна, остальные — города.",
             "es": "País, los otros son ciudades.",
             "fr": "Pays, les autres sont des villes.",
             "ar": "دولة، والآخرون مدن.",
@@ -158,6 +168,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "велосипедист",
         "explanation": {
             "en": "A person, others are vehicles.",
+            "ru": "Человек, остальные — транспортные средства.",
             "es": "Una persona, los otros son vehículos.",
             "fr": "Une personne, les autres sont des véhicules.",
             "ar": "شخص، والآخرون وسائل نقل.",
@@ -173,6 +184,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "очки",
         "explanation": {
             "en": "Accessory, others are body parts.",
+            "ru": "Аксессуар, остальные — части тела.",
             "es": "Accesorio, los otros son partes del cuerpo.",
             "fr": "Accessoire, les autres sont des parties du corps.",
             "ar": "إكسسوار، والآخرون أجزاء جسم.",
@@ -188,6 +200,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "кофе",
         "explanation": {
             "en": "Drink, others are kitchen utensils.",
+            "ru": "Напиток, остальные — кухонные принадлежности.",
             "es": "Bebida, los otros son utensilios de cocina.",
             "fr": "Boisson, les autres sont des ustensiles de cuisine.",
             "ar": "مشروب، والآخرون أواني مطبخ.",
@@ -203,6 +216,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "январь",
         "explanation": {
             "en": "Month, others are seasons.",
+            "ru": "Месяц, остальные — времена года.",
             "es": "Mes, los otros son estaciones.",
             "fr": "Mois, les autres sont des saisons.",
             "ar": "شهر، والآخرون فصول السنة.",
@@ -218,6 +232,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "работа",
         "explanation": {
             "en": "Abstract concept, others are professions.",
+            "ru": "Абстрактное понятие, остальные — профессии.",
             "es": "Concepto abstracto, los otros son profesiones.",
             "fr": "Concept abstrait, les autres sont des professions.",
             "ar": "مفهوم مجرد، والآخرون مهن.",
@@ -233,6 +248,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "город",
         "explanation": {
             "en": "Man-made object, others are nature.",
+            "ru": "Рукотворный объект, остальные — природа.",
             "es": "Objeto hecho por el hombre, los otros son naturaleza.",
             "fr": "Objet créé par l'homme, les autres font partie de la nature.",
             "ar": "شيء من صنع الإنسان، والآخرون طبيعة.",
@@ -248,6 +264,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "умный",
         "explanation": {
             "en": "Character trait, others are emotions/moods.",
+            "ru": "Черта характера, остальные — эмоции/настроение.",
             "es": "Rasgo de carácter, los otros son emociones/estados de ánimo.",
             "fr": "Trait de caractère, les autres sont des émotions/humeurs.",
             "ar": "سمة شخصية، والآخرون مشاعر/أمزجة.",
@@ -263,6 +280,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "вчера",
         "explanation": {
             "en": "Adverb of time, others are time units.",
+            "ru": "Наречие времени, остальные — единицы времени.",
             "es": "Adverbio de tiempo, los otros son unidades de tiempo.",
             "fr": "Adverbe de temps, les autres sont des unités de temps.",
             "ar": "ظرف زمان، والآخرون وحدات زمنية.",
@@ -278,6 +296,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "стена",
         "explanation": {
             "en": "Part of a building, others are furniture.",
+            "ru": "Часть здания, остальные — мебель.",
             "es": "Parte de un edificio, los otros son muebles.",
             "fr": "Partie d'un bâtiment, les autres sont des meubles.",
             "ar": "جزء من مبنى، والآخرون أثاث.",
@@ -293,6 +312,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "зонт",
         "explanation": {
             "en": "Object, others are weather phenomena.",
+            "ru": "Предмет, остальные — погодные явления.",
             "es": "Objeto, los otros son fenómenos meteorológicos.",
             "fr": "Objet, les autres sont des phénomènes météorologiques.",
             "ar": "شيء، والآخرون ظواهر جوية.",
@@ -310,6 +330,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "красота",
         "explanation": {
             "en": "External quality, others are moral/internal traits.",
+            "ru": "Внешнее качество, остальные — моральные/внутренние черты.",
             "es": "Cualidad externa, los otros son rasgos morales/internos.",
             "fr": "Qualité externe, les autres sont des traits moraux/internes.",
             "ar": "صفة خارجية، والآخرون سمات أخلاقية/داخلية.",
@@ -325,6 +346,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "скидка",
         "explanation": {
             "en": "Retail term, others are macroeconomics.",
+            "ru": "Торговый термин, остальные — макроэкономика.",
             "es": "Término comercial, los otros son macroeconomía.",
             "fr": "Terme commercial, les autres relèvent de la macroéconomie.",
             "ar": "مصطلح تجاري، والآخرون اقتصاد كلي.",
@@ -340,6 +362,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "мнение",
         "explanation": {
             "en": "Subjective judgment, others are scientific processes.",
+            "ru": "Субъективное суждение, остальные — научные процессы.",
             "es": "Juicio subjetivo, los otros son procesos científicos.",
             "fr": "Jugement subjectif, les autres sont des processus scientifiques.",
             "ar": "حكم شخصي، والآخرون عمليات علمية.",
@@ -355,6 +378,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "информация",
         "explanation": {
             "en": "Content, others are media carriers.",
+            "ru": "Контент/содержимое, остальные — носители информации.",
             "es": "Contenido, los otros son medios de comunicación.",
             "fr": "Contenu, les autres sont des supports médiatiques.",
             "ar": "محتوى، والآخرون ناقلات إعلامية.",
@@ -370,6 +394,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "читатель",
         "explanation": {
             "en": "Person, others are literary genres.",
+            "ru": "Человек, остальные — литературные жанры.",
             "es": "Persona, los otros son géneros literarios.",
             "fr": "Personne, les autres sont des genres littéraires.",
             "ar": "شخص، والآخرون أنواع أدبية.",
@@ -385,6 +410,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "сосед",
         "explanation": {
             "en": "Private person, others are political terms.",
+            "ru": "Частное лицо, остальные — политические термины.",
             "es": "Persona privada, los otros son términos políticos.",
             "fr": "Personne privée, les autres sont des termes politiques.",
             "ar": "شخص عادي، والآخرون مصطلحات سياسية.",
@@ -400,6 +426,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "забывать",
         "explanation": {
             "en": "Antonym of thinking processes.",
+            "ru": "Антоним мыслительных процессов.",
             "es": "Antónimo de procesos de pensamiento.",
             "fr": "Antonyme des processus de pensée.",
             "ar": "ضد لعمليات التفكير.",
@@ -415,6 +442,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "здание",
         "explanation": {
             "en": "The final structure, others are building materials.",
+            "ru": "Конечная постройка, остальные — строительные материалы.",
             "es": "La estructura final, los otros son materiales de construcción.",
             "fr": "La structure finale, les autres sont des matériaux de construction.",
             "ar": "الهيكل النهائي، والآخرون مواد بناء.",
@@ -430,6 +458,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "радость",
         "explanation": {
             "en": "Emotion, others are physiological states.",
+            "ru": "Эмоция, остальные — физиологические состояния.",
             "es": "Emoción, los otros son estados fisiológicos.",
             "fr": "Émotion, les autres sont des états physiologiques.",
             "ar": "عاطفة، والآخرون حالات فسيولوجية.",
@@ -445,6 +474,7 @@ ODD_ONE_OUT_QUESTIONS = [
         "correct_answer": "тишина",
         "explanation": {
             "en": "Absence of communication, others are types of interaction.",
+            "ru": "Отсутствие общения, остальные — виды взаимодействия.",
             "es": "Ausencia de comunicación, los otros son tipos de interacción.",
             "fr": "Absence de communication, les autres sont des types d'interaction.",
             "ar": "غياب التواصل، والآخرون أنواع تفاعل.",

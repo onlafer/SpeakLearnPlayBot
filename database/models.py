@@ -13,6 +13,9 @@ class UserModel(Base):
     user_id: Mapped[int] = mapped_column(BIGINT, primary_key=True)
     language: Mapped[str] = mapped_column(String, nullable=False, default="en")
     created_at: Mapped[int] = mapped_column(Integer, nullable=False)
+    streak_count: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+    last_activity_date: Mapped[str | None] = mapped_column(String, nullable=True) # "YYYY-MM-DD"
+    activity_history: Mapped[list] = mapped_column(JSON, default=list, nullable=False) # ["2026-04-25", ...]
 
 
 class GameSessionModel(Base):

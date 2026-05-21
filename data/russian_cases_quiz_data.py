@@ -6,6 +6,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "книгу",
         "explanation": {
             "en": "The verb 'читать' (to read) requires the Accusative case for the direct object. Feminine nouns ending in -а change to -у.",
+            "ru": "Глагол «читать» требует винительного падежа для прямого дополнения. Существительные женского рода на -а меняют окончание на -у.",
             "es": "El verbo 'читать' (leer) requiere el caso acusativo para el objeto directo. Los sustantivos femeninos que terminan en -а cambian a -у.",
             "fr": "Le verbe 'читать' (lire) requiert l'accusatif pour l'objet direct. Les noms féminins se terminant par -а deviennent -у.",
             "ar": "الفعل 'читать' (يقرأ) يتطلب حالة النصب للمفعول به المباشر. الأسماء المؤنثة التي تنتهي بـ -а تتغير إلى -у.",
@@ -22,6 +23,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "работу",
         "explanation": {
             "en": "The direct object of the verb 'любить' (to love) uses the Accusative case. Feminine nouns in -а change to -у.",
+            "ru": "Прямое дополнение глагола «любить» требует винительного падежа. Существительные женского рода на -а меняют окончание на -у.",
             "es": "El objeto directo del verbo 'любить' (amar) usa el caso acusativo. Los sustantivos femeninos en -а cambian a -у.",
             "fr": "L'objet direct du verbe 'любить' (aimer) utilise l'accusatif. Les noms féminins en -а changent en -у.",
             "ar": "المفعول به المباشر للفعل 'любить' (يحب) يستخدم حالة النصب. الأسماء المؤنثة التي تنتهي بـ -а تتغير إلى -у.",
@@ -38,6 +40,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "гостей",
         "explanation": {
             "en": "For animate plural nouns, the Accusative case matches the Genitive case ending (-ей).",
+            "ru": "Для одушевленных существительных во множественном числе окончание винительного падежа совпадает с родительным (-ей).",
             "es": "Para sustantivos animados en plural, el caso acusativo coincide con la terminación del genitivo (-ей).",
             "fr": "Pour les noms animés au pluriel, l'accusatif correspond à la terminaison du génitif (-ей).",
             "ar": "بالنسبة للأسماء العاقلة في حالة الجمع، تطابق نهاية حالة النصب نهاية حالة الجر (-ей).",
@@ -54,6 +57,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "дом",
         "explanation": {
             "en": "For inanimate masculine nouns, the Accusative case is the same as the Nominative case.",
+            "ru": "Для неодушевленных существительных мужского рода форма винительного падежа совпадает с именительным.",
             "es": "Para sustantivos masculinos inanimados, el caso acusativo es el mismo que el nominativo.",
             "fr": "Pour les noms masculins inanimés, l'accusatif est identique au nominatif.",
             "ar": "بالنسبة للأسماء المذكرة غير العاقلة، تكون حالة النصب هي نفسها حالة الرفع.",
@@ -70,6 +74,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "сказку",
         "explanation": {
             "en": "Direct object 'what?': feminine 'сказка' changes -а to -у in the Accusative.",
+            "ru": "Прямое дополнение (что?): существительное женского рода «сказка» меняет окончание -а на -у в винительном падеже.",
             "es": "Objeto directo '¿qué?': el femenino 'сказка' cambia -а por -у en acusativo.",
             "fr": "Objet direct 'quoi ?' : le féminin 'сказка' change -а en -у à l'accusatif.",
             "ar": "المفعول به المباشر 'ماذا؟': الاسم المؤنث 'сказка' يغير -а إلى -у في حالة النصب.",
@@ -86,6 +91,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "человека",
         "explanation": {
             "en": "For animate masculine nouns, the Accusative case ending is the same as the Genitive case (-а).",
+            "ru": "Для одушевленных существительных мужского рода окончание винительного падежа совпадает с родительным (-а).",
             "es": "Para los sustantivos masculinos animados, la terminación del caso acusativo es la misma que la del genitivo (-а).",
             "fr": "Pour les noms masculins animés, la terminaison de l'accusatif est la même que celle du génitif (-а).",
             "ar": "بالنسبة للأسماء المذكرة العاقلة، تكون نهاية حالة النصب هي نفسها نهاية حالة الجر (-а).",
@@ -103,6 +109,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "в сумку",
         "explanation": {
             "en": "The question 'Куда?' (Where to?) requires the preposition 'в/на' followed by the Accusative case.",
+            "ru": "Вопрос «Куда?» требует использования предлогов «в/на» с винительным падежом.",
             "es": "La pregunta '¿Adónde?' (¿Куда?) requiere la preposición 'в/на' seguida del caso acusativo.",
             "fr": "La question 'Où ?' (direction - Куда?) requiert la préposition 'в/на' suivie de l'accusatif.",
             "ar": "السؤال 'إلى أين؟' (Куدا?) يتطلب حرف الجر 'в/на' متبوعاً بحالة النصب.",
@@ -119,6 +126,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "в тетрадь",
         "explanation": {
             "en": "Feminine nouns ending in -ь (3rd declension) do not change their ending in the Accusative case.",
+            "ru": "Существительные женского рода на -ь (3-е склонение) не меняют свое окончание в винительном падеже.",
             "es": "Los sustantivos femeninos que terminan en -ь (3ª declinación) no cambian su terminación en el caso acusativo.",
             "fr": "Les noms féminins se terminant par -ь (3e déclinaison) ne changent pas de terminaison à l'accusatif.",
             "ar": "الأسماء المؤنثة التي تنتهي بـ -ь (التصريف الثالث) لا تغير نهايتها في حالة النصب.",
@@ -135,6 +143,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "в магазин",
         "explanation": {
             "en": "To express 'to the shop', we use 'в' + Accusative (masculine inanimate stays the same).",
+            "ru": "Для выражения направления «в магазин» используется предлог «в» + винительный падеж (неодушевленные мужского рода не меняются).",
             "es": "Para expresar 'a la tienda', usamos 'в' + acusativo (el masculino inanimado no cambia).",
             "fr": "Pour exprimer 'au magasin', on utilise 'в' + accusatif (le masculin inanimé reste identique).",
             "ar": "للتعبير عن 'إلى المتجر'، نستخدم 'в' + حالة النصب (المذكر غير العاقل يبقى كما هو).",
@@ -151,6 +160,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "на стол",
         "explanation": {
             "en": "Surface destination: 'на' + Accusative ('стол').",
+            "ru": "Направление на поверхность: «на» + винительный падеж («стол»).",
             "es": "Destino en una superficie: 'на' + acusativo ('стол').",
             "fr": "Destination sur une surface : 'на' + accusatif ('стол').",
             "ar": "الوجهة على سطح: 'на' + حالة النصب ('стол').",
@@ -167,6 +177,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "в Москву",
         "explanation": {
             "en": "Indicating destination to a city: 'в' + Accusative ('Москву').",
+            "ru": "Указание направления движения в город: «в» + винительный падеж («Москву»).",
             "es": "Indicación de destino a una ciudad: 'в' + acusativo ('Москву').",
             "fr": "Indiquer la destination vers une ville : 'в' + accusatif ('Москву').",
             "ar": "الإشارة إلى الوجهة إلى مدينة: 'в' + حالة النصب ('Москву').",
@@ -184,6 +195,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "каждый вечер",
         "explanation": {
             "en": "Expressions of time frequency with 'каждый' (every) are used in the Accusative case.",
+            "ru": "Выражения частоты времени со словом «каждый» используются в винительном падеже.",
             "es": "Las expresiones de frecuencia temporal con 'каждый' (cada) se usan en el caso acusativo.",
             "fr": "Les expressions de fréquence temporelle avec 'каждый' (chaque) s'utilisent à l'accusatif.",
             "ar": "تعبيرات التكرار الزمني مع 'каждый' (كل) تُستخدم في حالة النصب.",
@@ -200,6 +212,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "каждое утро",
         "explanation": {
             "en": "Neuter time expressions like 'каждое утро' remain the same in the Accusative.",
+            "ru": "Временные выражения среднего рода, такие как «каждое утро», в винительном падеже остаются без изменений.",
             "es": "Las expresiones temporales neutras como 'каждое утро' no cambian en acusativo.",
             "fr": "Les expressions de temps neutres comme 'каждое утро' restent identiques à l'accusatif.",
             "ar": "تعبيرات الوقت المحايدة مثل 'каждое утро' تبقى كما هي في حالة النصب.",
@@ -216,6 +229,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "каждую субботу",
         "explanation": {
             "en": "Feminine 'каждая суббота' changes to 'каждую субботу' in the Accusative case.",
+            "ru": "Женский род «каждая суббота» меняется на «каждую субботу» в винительном падеже.",
             "es": "El femenino 'каждая суббота' cambia a 'каждую субботу' en el caso acusativo.",
             "fr": "Le féminin 'каждая суббота' devient 'каждую субботу' à l'accusatif.",
             "ar": "الاسم المؤنث 'каждая суббота' يتغير إلى 'каждую субботу' في حالة النصب.",
@@ -233,6 +247,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "соседа",
         "explanation": {
             "en": "The construction 'похож на' (looks like) takes the Accusative case. For animate nouns, it matches the Genitive ('соседа').",
+            "ru": "Конструкция «похож на» требует винительного падежа. Для одушевленных существительных форма совпадает с родительным («соседа»).",
             "es": "La construcción 'похож на' (parecido a) toma el caso acusativo. Para sustantivos animados, coincide con el genitivo ('соседа').",
             "fr": "La construction 'похож на' (ressemble à) prend l'accusatif. Pour les noms animés, il correspond au génitif ('соседа').",
             "ar": "التعبير 'похож на' (يشبه) يأخذ حالة النصب. بالنسبة للأسماء العاقلة، يطابق حالة الجر ('соседа').",
@@ -249,6 +264,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "старую песню",
         "explanation": {
             "en": "Adjectives describing feminine objects in the Accusative end in -ую.",
+            "ru": "Прилагательные, описывающие женский род в винительном падеже, оканчиваются на -ую.",
             "es": "Los adjetivos que describen objetos femeninos en acusativo terminan en -ую.",
             "fr": "Les adjectifs décrivant des objets féminins à l'accusatif se terminent par -ую.",
             "ar": "الصفات التي تصف الأشياء المؤنثة في حالة النصب تنتهي بـ -ую.",
@@ -266,6 +282,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "свой чёрный портфель",
         "explanation": {
             "en": "Masculine inanimate adjectives and nouns in the Accusative look like the Nominative.",
+            "ru": "Прилагательные и неодушевленные существительные мужского рода в винительном падеже совпадают по форме с именительным.",
             "es": "Los adjetivos y sustantivos masculinos inanimados en acusativo son iguales al nominativo.",
             "fr": "Les adjectifs et noms masculins inanimés à l'accusatif sont identiques au nominatif.",
             "ar": "الصفات والأسماء المذكرة غير العاقلة في حالة النصب تشبه حالة الرفع.",
@@ -282,6 +299,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "мою двоюродную сестру",
         "explanation": {
             "en": "For feminine adjectives and nouns in the Accusative, the endings change to -ую/-юю and -у/-ю.",
+            "ru": "Для прилагательных и существительных женского рода в винительном падеже окончания меняются на -ую/-юю и -у/-ю.",
             "es": "Para los adjetivos y sustantivos femeninos en acusativo, las terminaciones cambian a -ую/-юю y -у/-ю.",
             "fr": "Pour les adjectifs et les noms féminins à l'accusatif, les terminaisons deviennent -ую/-юю et -у/-ю.",
             "ar": "بالنسبة للصفات والأسماء المؤنثة في حالة النصب، تتغير النهايات إلى -ую/-юю و -у/-ю.",
@@ -299,6 +317,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "её",
         "explanation": {
             "en": "The personal pronoun 'она' (she) changes to 'её' (her) in the Accusative case.",
+            "ru": "Личное местоимение «она» меняется на «её» в винительном падеже.",
             "es": "El pronombre personal 'она' (ella) cambia a 'её' (la/a ella) en el caso acusativo.",
             "fr": "Le pronom personnel 'она' (elle) devient 'её' (la/elle) à l'accusatif.",
             "ar": "الضمير الشخصي 'она' (هي) يتغير إلى 'её' (ها/إياها) في حالة النصب.",
@@ -315,6 +334,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
         "correct_answer": "меня",
         "explanation": {
             "en": "The pronoun 'я' (I) changes to 'меня' (me) in the Accusative case.",
+            "ru": "Личное местоимение «я» меняется на «меня» в винительном падеже.",
             "es": "El pronombre 'я' (yo) cambia a 'меня' (me/a mí) en el caso acusativo.",
             "fr": "Le pronom 'я' (je) devient 'меня' (me/moi) à l'accusatif.",
             "ar": "الضمير 'я' (أنا) يتغير إلى 'меня' (ني/إياي) في حالة النصب.",
@@ -334,6 +354,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
         "correct_answer": "о семье",
         "explanation": {
             "en": "The Prepositional case (about what?) for feminine nouns ending in -я/-а changes to -е.",
+            "ru": "В предложном падеже (о чём?) окончание существительных женского рода на -я/-а меняется на -е.",
             "es": "El caso preposicional (¿sobre qué?) para sustantivos femeninos que terminan en -я/-а cambia a -е.",
             "fr": "Le cas prépositionnel (à propos de quoi ?) pour les noms féminins se terminant par -я/-а change en -е.",
             "ar": "حالة الجر (عن ماذا؟) للأسماء المؤنثة التي تنتهي بـ -я/-а تتغير إلى -е.",
@@ -350,6 +371,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
         "correct_answer": "о работе",
         "explanation": {
             "en": "Feminine nouns in -а change to -е in the Prepositional case when talking 'about' something.",
+            "ru": "Существительные женского рода на -а меняют окончание на -е в предложном падеже, когда речь идет «о» чем-то.",
             "es": "Los sustantivos femeninos en -а cambian a -е en el caso preposicional al hablar 'sobre' algo.",
             "fr": "Les noms féminins en -а changent en -е au cas prépositionnel lorsqu'on parle 'de' quelque chose.",
             "ar": "الأسماء المؤنثة التي تنتهي بـ -а تتغير إلى -е في حالة الجر عند الحديث 'عن' شيء ما.",
@@ -366,6 +388,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
         "correct_answer": "о путешествии",
         "explanation": {
             "en": "Nouns ending in -ие change to -ии in the Prepositional case.",
+            "ru": "Существительные на -ие меняют окончание на -ии в предложном падеже.",
             "es": "Los sustantivos que terminan en -ие cambian a -ии en el caso preposicional.",
             "fr": "Les noms se terminant par -ие deviennent -ии au cas prépositionnel.",
             "ar": "الأسماء التي تنتهي بـ -ие تتغير إلى -иي في حالة الجر.",
@@ -382,6 +405,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
         "correct_answer": "о друзьях",
         "explanation": {
             "en": "Plural nouns in the Prepositional case typically end in -ах/-ях.",
+            "ru": "Существительные во множественном числе в предложном падеже обычно оканчиваются на -ах/-ях.",
             "es": "Los sustantivos plurales en el caso preposicional suelen terminar en -ах/-ях.",
             "fr": "Les noms au pluriel au cas prépositionnel se terminent généralement par -ах/-ях.",
             "ar": "الأسماء في حالة الجمع في حالة الجر تنتهي عادةً بـ -ах/-ях.",
@@ -399,6 +423,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
         "correct_answer": "в библиотеке",
         "explanation": {
             "en": "To answer 'Where?' (Где?), use the preposition 'в' with the Prepositional case ending -е.",
+            "ru": "Для ответа на вопрос «Где?» используется предлог «в» с предложным падежом на -е.",
             "es": "Para responder '¿Dónde?' (Где?), usa la preposición 'в' con la terminación -е del caso preposicional.",
             "fr": "Pour répondre à 'Où ?' (Где?), utilisez la préposition 'в' avec la terminaison -е du cas prépositionnel.",
             "ar": "للإجابة على السؤال 'أين؟' (Где?)، استخدم حرف الجر 'в' مع نهاية حالة الجر -е.",
@@ -415,6 +440,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
         "correct_answer": "в Санкт-Петербурге",
         "explanation": {
             "en": "Masculine nouns (cities) add -е when indicating location with 'в'.",
+            "ru": "Существительные мужского рода (города) принимают окончание -е при указании местонахождения с предлогом «в».",
             "es": "Los sustantivos masculinos (ciudades) añaden -е al indicar ubicación con 'в'.",
             "fr": "Les noms masculins (villes) ajoutent -е pour indiquer le lieu avec 'в'.",
             "ar": "الأسماء المذكرة (المدن) يضاف إليها -е عند الإشارة إلى الموقع بـ 'в'.",
@@ -431,6 +457,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
         "correct_answer": "на работе",
         "explanation": {
             "en": "Certain locations like 'работа' (work) use the preposition 'на' instead of 'в'.",
+            "ru": "Некоторые существительные, например «работа», требуют предлога «на» вместо «в».",
             "es": "Ciertas ubicaciones como 'работа' (trabajo) usan la preposición 'на' en lugar de 'в'.",
             "fr": "Certains lieux comme 'работа' (travail) utilisent la préposition 'на' au lieu de 'в'.",
             "ar": "بعض المواقع مثل 'работа' (عمل) تستخدم حرف الجر 'на' بدلاً من 'в'.",
@@ -448,6 +475,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
         "correct_answer": "в шкафу",
         "explanation": {
             "en": "Some masculine nouns take the ending -у when indicating location inside/on something.",
+            "ru": "Некоторые существительные мужского рода принимают окончание -у при указании местонахождения внутри/на чем-либо.",
             "es": "Algunos sustantivos masculinos toman la terminación -у al indicar ubicación dentro o sobre algo.",
             "fr": "Certains noms masculins prennent la terminaison -у pour indiquer le lieu à l'intérieur ou sur quelque chose.",
             "ar": "بعض الأسماء المذكرة تأخذ النهاية -у عند الإشارة إلى الموقع داخل أو على شيء ما.",
@@ -465,6 +493,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
         "correct_answer": "в «Новой газете»",
         "explanation": {
             "en": "Feminine adjectives in the Prepositional case end in -ой.",
+            "ru": "Прилагательные женского рода в предложном падеже оканчиваются на -ой.",
             "es": "Los adjetivos femeninos en el caso preposicional terminan en -ой.",
             "fr": "Les adjectifs féminins au cas prépositionnel se terminent par -ой.",
             "ar": "الصفات المؤنثة في حالة الجر تنتهي بـ -ой.",
@@ -481,6 +510,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
         "correct_answer": "в педагогическом институте",
         "explanation": {
             "en": "Masculine adjectives in the Prepositional case end in -ом/-ем.",
+            "ru": "Прилагательные мужского рода в предложном падеже оканчиваются на -ом/-ем.",
             "es": "Los adjetivos masculinos en el caso preposicional terminan en -ом/-ем.",
             "fr": "Les adjectifs masculins au cas prépositionnel se terminent par -ом/-ем.",
             "ar": "الصفات المذكرة في حالة الجر تنتهي بـ -ом/-ем.",
@@ -498,6 +528,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
         "correct_answer": "о тебе",
         "explanation": {
             "en": "The personal pronoun 'ты' (you) changes to 'тебе' in the Prepositional case.",
+            "ru": "Личное местоимение «ты» меняется на «тебе» в предложном падеже.",
             "es": "El pronombre personal 'ты' (tú) cambia a 'тебе' en el caso preposicional.",
             "fr": "Le pronom personnel 'ты' (tu) devient 'тебе' au cas prépositionnel.",
             "ar": "الضمير الشخصي 'ты' (أنت) يتغير إلى 'тебе' في حالة الجر.",
@@ -514,6 +545,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
         "correct_answer": "обо мне",
         "explanation": {
             "en": "The pronoun 'я' (I) changes to 'обо мне' in the Prepositional case.",
+            "ru": "Личное местоимение «я» принимает форму «обо мне» в предложном падеже.",
             "es": "El pronombre 'я' (yo) cambia a 'обо мне' en el caso preposicional.",
             "fr": "Le pronom 'я' (je) devient 'обо мне' au cas prépositionnel.",
             "ar": "الضمير 'я' (أنا) يتغير إلى 'обо мне' في حالة الجر.",
@@ -530,6 +562,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
         "correct_answer": "об этом проекте",
         "explanation": {
             "en": "Demonstrative pronoun 'этот' changes to 'этом' in the Prepositional case.",
+            "ru": "Указательное местоимение «этот» меняется на «этом» в предложном падеже.",
             "es": "El pronombre demostrativo 'этот' cambia a 'этом' en el caso preposicional.",
             "fr": "Le pronom démonstratif 'этот' devient 'этом' au cas prépositionnel.",
             "ar": "اسم الإشارة 'этот' يتغير إلى 'этом' في حالة الجر.",
@@ -546,6 +579,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
         "correct_answer": "в моей работе",
         "explanation": {
             "en": "Possessive pronoun 'моя' (my) changes to 'моей' in the Prepositional case.",
+            "ru": "Притяжательное местоимение «моя» меняется на «моей» в предложном падеже.",
             "es": "El pronombre posesivo 'моя' (mi) cambia a 'моей' en el caso preposicional.",
             "fr": "Le pronom possessif 'моя' (ma) devient 'моей' au cas prépositionnel.",
             "ar": "ضمير الملكية 'моя' (لي/خاصتي) يتغير إلى 'моей' في حالة الجر.",
@@ -565,6 +599,7 @@ DATIVE_CASE_QUESTIONS = [
         "correct_answer": "другу",
         "explanation": {
             "en": "The verb 'верить' (to believe) requires the Dative case. Masculine nouns ending in a consonant add -у.",
+            "ru": "Глагол «верить» требует дательного падежа. К существительным мужского рода, оканчивающимся на согласную, добавляется окончание -у.",
             "es": "El verbo 'верить' (creer) requiere el caso dativo. Los sustantivos masculinos que terminan en consonante añaden -у.",
             "fr": "Le verbe 'верить' (croire) requiert le datif. Les noms masculins se terminant par une consonne ajoutent -у.",
             "ar": "الفعل 'верить' (يصدق) يتطلب حالة الجر. الأسماء المذكرة التي تنتهي بحرف ساكن يضاف إليها -у.",
@@ -581,6 +616,7 @@ DATIVE_CASE_QUESTIONS = [
         "correct_answer": "родителям",
         "explanation": {
             "en": "The verb 'позвонить' (to call) takes the Dative. Plural nouns change their ending to -ам/-ям.",
+            "ru": "Глагол «позвонить» требует дательного падежа. Существительные во множественном числе меняют окончания на -ам/-ям.",
             "es": "El verbo 'позвонить' (llamar) toma el dativo. Los sustantivos plurales cambian su terminación a -ам/-ям.",
             "fr": "Le verbe 'позвонить' (appeler) prend le datif. Les noms au pluriel changent leur terminaison en -ам/-ям.",
             "ar": "الفعل 'позвонить' (يتصل) يأخذ حالة الجر. الأسماء في الجمع تتغير نهايتها إلى -ам/-ям.",
@@ -597,6 +633,7 @@ DATIVE_CASE_QUESTIONS = [
         "correct_answer": "сестре",
         "explanation": {
             "en": "Feminine nouns ending in -а change to -е in the Dative case.",
+            "ru": "Существительные женского рода на -а меняют окончание на -е в дательном падеже.",
             "es": "Los sustantivos femeninos que terminan en -а cambian a -е en el caso dativo.",
             "fr": "Les noms féminins se terminant par -а deviennent -е au datif.",
             "ar": "الأسماء المؤنثة التي تنتهي بـ -а تتغير إلى -е في حالة الجر.",
@@ -613,6 +650,7 @@ DATIVE_CASE_QUESTIONS = [
         "correct_answer": "дочери",
         "explanation": {
             "en": "The noun 'дочь' (daughter) is an exception; in the Dative case, it becomes 'дочери'.",
+            "ru": "Существительное «дочь» является исключением; в дательном падеже оно принимает форму «дочери».",
             "es": "El sustantivo 'дочь' (hija) es una excepción; en el caso dativo se convierte en 'дочери'.",
             "fr": "Le nom 'дочь' (fille) est une exception ; au datif, il devient 'дочери'.",
             "ar": "الاسم 'дочь' (ابنة) هو استثناء؛ في حالة الجر يصبح 'дочери'.",
@@ -629,6 +667,7 @@ DATIVE_CASE_QUESTIONS = [
         "correct_answer": "матери",
         "explanation": {
             "en": "The noun 'мать' (mother) follows the same exceptional pattern as 'дочь', changing to 'матери'.",
+            "ru": "Существительное «мать» изменяется как исключение аналогично слову «дочь», принимая форму «матери».",
             "es": "El sustantivo 'мать' (madre) sigue el mismo patrón excepcional que 'дочь', cambiando a 'матери'.",
             "fr": "Le nom 'мать' (mère) suit le même modèle exceptionnel que 'дочь', devenant 'матери'.",
             "ar": "الاسم 'мать' (أم) يتبع نفس النمط الاستثنائي لـ 'дочь'، حيث يتغير إلى 'матери'.",
@@ -645,6 +684,7 @@ DATIVE_CASE_QUESTIONS = [
         "correct_answer": "мне",
         "explanation": {
             "en": "The personal pronoun 'я' (I) changes to 'мне' (to me) in the Dative case.",
+            "ru": "Личное местоимение «я» меняется на «мне» в дательном падеже.",
             "es": "El pronombre personal 'я' (yo) cambia a 'мне' (a mí) en el caso dativo.",
             "fr": "Le pronom personnel 'я' (je) devient 'мне' (à moi) au datif.",
             "ar": "الضمير الشخصي 'я' (أنا) يتغير إلى 'мне' (لي) في حالة الجر.",
@@ -661,6 +701,7 @@ DATIVE_CASE_QUESTIONS = [
         "correct_answer": "ей",
         "explanation": {
             "en": "The personal pronoun 'она' (she) changes to 'ей' (to her) in the Dative case.",
+            "ru": "Личное местоимение «она» меняется на «ей» в дательном падеже.",
             "es": "El pronombre personal 'она' (ella) cambia a 'ей' (a ella) en el caso dativo.",
             "fr": "Le pronom personnel 'она' (elle) devient 'ей' (à elle) au datif.",
             "ar": "الضمير الشخصي 'она' (هي) يتغير إلى 'ей' (لها) في حالة الجر.",
@@ -677,6 +718,7 @@ DATIVE_CASE_QUESTIONS = [
         "correct_answer": "этому",
         "explanation": {
             "en": "After the preposition 'к', the demonstrative pronoun 'этот' (this) takes the masculine Dative ending -ому.",
+            "ru": "После предлога «к» указательное местоимение «этот» принимает окончание дательного падежа мужского рода -ому.",
             "es": "Después de la preposición 'к', el pronombre demostrativo 'этот' (este) toma la terminación del dativo masculino -ому.",
             "fr": "Après la préposition 'к', le pronom démonstratif 'этот' (ce) prend la terminaison du datif masculin -ому.",
             "ar": "بعد حرف الجر 'к'، يأخذ اسم الإشارة 'этот' نهاية الجر للمذكر -ому.",
@@ -693,6 +735,7 @@ DATIVE_CASE_QUESTIONS = [
         "correct_answer": "моему",
         "explanation": {
             "en": "The possessive pronoun 'мой' (my) changes to 'моему' to match the masculine Dative noun 'брату'.",
+            "ru": "Притяжательное местоимение «мой» согласуется с существительным мужского рода «брату» в дательном падеже и принимает форму «моему».",
             "es": "El pronombre posesivo 'мой' (mi) cambia a 'моему' para concordar con el sustantivo dativo masculino 'брату'.",
             "fr": "Le pronom possessif 'мой' (mon) devient 'моему' pour s'accorder avec le nom au datif masculin 'брату'.",
             "ar": "يتغير ضمير الملكية 'мой' (لي) إلى 'моему' ليتناسب مع الاسم المذكر في حالة الجر 'брату'.",
@@ -709,6 +752,7 @@ DATIVE_CASE_QUESTIONS = [
         "correct_answer": "твоей",
         "explanation": {
             "en": "The possessive 'твой' (your) changes to 'твоей' to match the feminine Dative noun 'сестре'.",
+            "ru": "Притяжательное местоимение «твой» согласуется с существительным женского рода «сестре» в дательном падеже и принимает форму «твоей».",
             "es": "El posesivo 'твой' (tu) cambia a 'твоей' para concordar con el sustantivo dativo femenino 'сестре'.",
             "fr": "Le possessif 'твой' (ton) devient 'твоей' pour s'accorder avec le nom au datif féminin 'сестре'.",
             "ar": "يتغير ضمير الملكية 'твой' (لك) إلى 'твоей' ليتناسب مع الاسم المؤنث في حالة الجر 'сестре'.",
@@ -725,6 +769,7 @@ DATIVE_CASE_QUESTIONS = [
         "correct_answer": "понравился",
         "explanation": {
             "en": "The verb agrees with the subject 'фильм' (masculine singular). 'Мне' is in the Dative case.",
+            "ru": "Форма глагола согласуется с подлежащим «фильм» (мужской род, ед. число). «Мне» стоит в дательном падеже.",
             "es": "El verbo concuerda con el sujeto 'фильм' (masculino singular). 'Мне' está en caso dativo.",
             "fr": "Le verbe s'accorde avec le sujet 'фильм' (masculin singulier). 'Мне' est au datif.",
             "ar": "الفعل يطابق الفاعل 'фильм' (مذكر مفرد). 'Мне' في حالة الجر.",
@@ -741,6 +786,7 @@ DATIVE_CASE_QUESTIONS = [
         "correct_answer": "понравились",
         "explanation": {
             "en": "The verb agrees with the plural subject 'друзья'. 'Тебе' is the Dative form of 'ты'.",
+            "ru": "Форма глагола согласуется с подлежащим во множественном числе «друзья». «Тебе» — дательный падеж от местоимения «ты».",
             "es": "El verbo concuerda con el sujeto plural 'друзья'. 'Тебе' es la forma dativa de 'ты'.",
             "fr": "Le verbe s'accorde avec le sujet au pluriel 'друзья'. 'Тебе' est la forme au datif de 'ты'.",
             "ar": "الفعل يطابق الفاعل الجمع 'друзья'. 'Тебе' هي صيغة الجر لـ 'ты'.",
@@ -757,6 +803,7 @@ DATIVE_CASE_QUESTIONS = [
         "correct_answer": "сложному экзамену",
         "explanation": {
             "en": "In the Dative masculine singular, adjectives take the ending -ому and nouns take -у.",
+            "ru": "В дательном падеже единственного числа мужского рода прилагательные принимают окончание -ому, а существительные — -у.",
             "es": "En el dativo masculino singular, los adjetivos toman la terminación -ому y los sustantivos -у.",
             "fr": "Au datif masculin singulier, les adjectifs prennent la terminaison -ому et les noms -у.",
             "ar": "في حالة الجر للمذكر المفرد، تأخذ الصفات النهاية -ому والأسماء تأخذ -у.",
@@ -773,6 +820,7 @@ DATIVE_CASE_QUESTIONS = [
         "correct_answer": "важной встрече",
         "explanation": {
             "en": "In the Dative feminine singular, adjectives take the ending -ой and nouns take -е.",
+            "ru": "В дательном падеже единственного числа женского рода прилагательные принимают окончание -ой, а существительные — -е.",
             "es": "En el dativo femenino singular, los adjetivos toman la terminación -ой y los sustantivos -е.",
             "fr": "Au datif féminin singulier, les adjectifs prennent la terminaison -ой et les noms -е.",
             "ar": "في حالة الجر للمؤنث المفرد، تأخذ الصفات النهاية -ой والأسماء تأخذ -е.",
@@ -792,6 +840,7 @@ GENITIVE_CASE_QUESTIONS = [
         "correct_answer": "городов",
         "explanation": {
             "en": "The adverb 'много' (many) requires the Genitive plural. Masculine nouns ending in a consonant take -ов.",
+            "ru": "Наречие «много» требует родительного падежа множественного числа. Существительные мужского рода на согласную принимают окончание -ов.",
             "es": "El adverbio 'много' (mucho) requiere el genitivo plural. Los sustantivos masculinos que terminan en consonante toman -ов.",
             "fr": "L'adverbe 'много' (beaucoup) requiert le génitif pluriel. Les noms masculins se terminant par une consonne prennent -ов.",
             "ar": "الظرف 'много' يتطلب حالة الجر للجمع. الأسماء المذكرة التي تنتهي بحرف ساكن تأخذ -ов.",
@@ -808,6 +857,7 @@ GENITIVE_CASE_QUESTIONS = [
         "correct_answer": "воды",
         "explanation": {
             "en": "The adverb 'мало' (little) requires the Genitive case. Feminine nouns in -а change to -ы.",
+            "ru": "Наречие «мало» требует родительного падежа. Существительные женского рода на -а меняют окончание на -ы.",
             "es": "El adverbio 'мало' (poco) requiere el caso genitivo. Los sustantivos femeninos en -а cambian a -ы.",
             "fr": "L'adverbe 'мало' (peu) requiert le génitif. Les noms féminins en -а changent en -ы.",
             "ar": "الظرف 'мало' يتطلب حالة الجر. الأسماء المؤنثة التي تنتهي بـ -а تتغير إلى -ы.",
@@ -824,6 +874,7 @@ GENITIVE_CASE_QUESTIONS = [
         "correct_answer": "картин",
         "explanation": {
             "en": "The word 'несколько' (several) requires Genitive plural. Feminine nouns with -а have a zero ending.",
+            "ru": "Слово «несколько» требует родительного падежа множественного числа. У существительных женского рода на -а при этом нулевое окончание.",
             "es": "La palabra 'несколько' requiere genitivo plural. Los sustantivos femeninos con -а tienen terminación cero.",
             "fr": "Le mot 'несколько' requiert le génitif pluriel. Les noms féminins en -а ont une terminaison zéro.",
             "ar": "كلمة 'несколько' تتطلب حالة الجر للجمع. الأسماء المؤنثة التي تنتهي بـ -а تأخذ نهاية صفرية.",
@@ -840,6 +891,7 @@ GENITIVE_CASE_QUESTIONS = [
         "correct_answer": "задач",
         "explanation": {
             "en": "For 'несколько', feminine nouns like 'задача' lose their final vowel in the Genitive plural.",
+            "ru": "После слова «несколько» существительные женского рода (например, «задача») теряют конечную гласную в родительном падеже множественного числа.",
             "es": "Para 'несколько', los sustantivos femeninos como 'задача' pierden su vocal final en genitivo plural.",
             "fr": "Pour 'несколько', les noms féminins comme 'задача' perdent leur voyelle finale au génitif pluriel.",
             "ar": "مع 'несколько'، الأسماء المؤنثة مثل 'задача' تفقد حرف العلة الأخير في جمع الجر.",
@@ -857,6 +909,7 @@ GENITIVE_CASE_QUESTIONS = [
         "correct_answer": "голубого платья",
         "explanation": {
             "en": "Negation 'не было' requires Genitive. Neuter adjectives end in -ого, and nouns end in -я.",
+            "ru": "Отрицание «не было» требует родительного падежа. Прилагательные среднего рода оканчиваются на -ого, а существительные — на -я.",
             "es": "La negación 'не было' requiere genitivo. Los adjetivos neutros terminan en -ого y los sustantivos en -я.",
             "fr": "La négation 'не было' requiert le génitif. Les adjectifs neutres finissent en -ого et les noms en -я.",
             "ar": "النفي 'не было' يتطلب حالة الجر. الصفات المحايدة تنتهي بـ -ого والأسماء بـ -я.",
@@ -873,6 +926,7 @@ GENITIVE_CASE_QUESTIONS = [
         "correct_answer": "свежей клубники",
         "explanation": {
             "en": "The 'taste of something' uses Genitive. Feminine adjectives end in -ей, and nouns in -и.",
+            "ru": "В значении «вкус чего-то» используется родительный падеж. Прилагательные женского рода оканчиваются на -ей, а существительные — на -и.",
             "es": "El 'sabor de algo' usa genitivo. Los adjetivos femeninos terminan en -ей y los sustantivos en -и.",
             "fr": "Le 'goût de quelque chose' utilise le génitif. Les adjectifs féminins finissent en -ей et les noms en -и.",
             "ar": "'طعم الشيء' يستخدم حالة الجر. الصفات المؤنثة تنتهي بـ -ей والأسماء بـ -и.",
@@ -889,6 +943,7 @@ GENITIVE_CASE_QUESTIONS = [
         "correct_answer": "твоего совета",
         "explanation": {
             "en": "The preposition 'без' (without) requires Genitive. 'Твой' changes to 'твоего'.",
+            "ru": "Предлог «без» требует родительного падежа. Местоимение «твой» меняется на «твоего».",
             "es": "La preposición 'без' (sin) requiere genitivo. 'Твой' cambia a 'твоего'.",
             "fr": "La préposition 'без' (sans) requiert le génitif. 'Твой' devient 'твоего'.",
             "ar": "حرف الجر 'без' يتطلب حالة الجر. 'Твой' تتغير إلى 'твоего'.",
@@ -906,6 +961,7 @@ GENITIVE_CASE_QUESTIONS = [
         "correct_answer": "этого словаря",
         "explanation": {
             "en": "The word 'нет' (no/none) always triggers Genitive for the noun and its pronoun.",
+            "ru": "Слово «нет» всегда требует родительного падежа для существительного и согласующегося с ним местоимения.",
             "es": "La palabra 'нет' siempre activa el genitivo para el sustantivo y su pronombre.",
             "fr": "Le mot 'нет' déclenche toujours le génitif pour le nom et son pronom.",
             "ar": "كلمة 'нет' تستلزم دائماً حالة الجر للاسم والضمير.",
@@ -922,6 +978,7 @@ GENITIVE_CASE_QUESTIONS = [
         "correct_answer": "тебя",
         "explanation": {
             "en": "After 'без', personal pronouns must be in Genitive. 'Ты' becomes 'тебя'.",
+            "ru": "После предлога «без» личные местоимения должны быть в родительном падеже. «Ты» меняется на «тебя».",
             "es": "Después de 'без', los pronombres personales deben estar en genitivo. 'Ты' se convierte en 'тебя'.",
             "fr": "Après 'без', les pronoms personnels doivent être au génitif. 'Ты' devient 'тебя'.",
             "ar": "بعد 'без'، يجب أن تكون الضمائر الشخصية في حالة الجر. 'Ты' تصبح 'тебя'.",
@@ -938,6 +995,7 @@ GENITIVE_CASE_QUESTIONS = [
         "correct_answer": "вас",
         "explanation": {
             "en": "The construction 'У + Genitive' indicates possession. 'Вы' changes to 'вас'.",
+            "ru": "Конструкция «У + родительный падеж» обозначает принадлежность (обладание). Местоимение «вы» меняется на «вас».",
             "es": "La construcción 'У + Genitivo' indica posesión. 'Вы' cambia a 'вас'.",
             "fr": "La construction 'У + Génitif' indique la possession. 'Вы' devient 'вас'.",
             "ar": "التركيب 'У + حالة الجر' يشير إلى الملكية. 'Вы' تتغير إلى 'вас'.",
@@ -955,6 +1013,7 @@ GENITIVE_CASE_QUESTIONS = [
         "correct_answer": "друзей",
         "explanation": {
             "en": "Numbers 5 and above require Genitive plural. 'Друг' changes to 'друзей'.",
+            "ru": "Числа от 5 и выше требуют родительного падежа множественного числа. «Друг» меняется на «друзей».",
             "es": "Los números 5 y superiores requieren genitivo plural. 'Друг' cambia a 'друзей'.",
             "fr": "Les nombres 5 et plus requièrent le génitif pluriel. 'Друг' devient 'друзей'.",
             "ar": "الأرقام 5 فما فوق تتطلب جمع الجر. 'Друг' تتغير إلى 'друзей'.",
@@ -971,6 +1030,7 @@ GENITIVE_CASE_QUESTIONS = [
         "correct_answer": "лекции",
         "explanation": {
             "en": "Numbers 2, 3, 4 require Genitive singular. Feminine 'лекция' changes to 'лекции'.",
+            "ru": "Числа 2, 3, 4 требуют родительного падежа единственного числа. Существительное женского рода «лекция» меняется на «лекции».",
             "es": "Los números 2, 3, 4 requieren genitivo singular. 'Лекция' cambia a 'лекции'.",
             "fr": "Les nombres 2, 3, 4 requièrent le génitif singulier. 'Лекция' devient 'лекции'.",
             "ar": "الأرقام 2، 3، 4 تتطلب مفرد الجر. 'Лекция' تتغير إلى 'лекции'.",
@@ -987,6 +1047,7 @@ GENITIVE_CASE_QUESTIONS = [
         "correct_answer": "магазина",
         "explanation": {
             "en": "Number 3 takes Genitive singular. Masculine 'магазин' adds -а.",
+            "ru": "Число 3 требует родительного падежа единственного числа. К мужскому роду «магазин» добавляется окончание -а.",
             "es": "El número 3 toma genitivo singular. El masculino 'магазин' añade -а.",
             "fr": "Le nombre 3 prend le génitif singulier. Le masculin 'магазин' ajoute -а.",
             "ar": "الرقم 3 يأخذ مفرد الجر. المذكر 'магазин' يضاف له -а.",
@@ -1009,6 +1070,7 @@ GENITIVE_CASE_QUESTIONS = [
         "correct_answer": "Шестого июня тысяча семьсот девяносто девятого года.",
         "explanation": {
             "en": "When answering 'When?', the ordinal number of the day and the year must be in Genitive.",
+            "ru": "Для ответа на вопрос «Когда?» порядковое числительное дня и год должны стоять в родительном падеже.",
             "es": "Al responder '¿Cuándo?', el número ordinal del día y el año deben estar en genitivo.",
             "fr": "En répondant à 'Quand ?', le nombre ordinal du jour et l'année doivent être au génitif.",
             "ar": "عند الإجابة على 'متى؟'، يجب أن يكون العدد الترتيبي لليوم والسنة في حالة الجر.",
@@ -1028,6 +1090,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
         "correct_answer": "другом",
         "explanation": {
             "en": "The preposition 'с' (with) requires the Instrumental case. Masculine nouns add -ом.",
+            "ru": "Предлог «с» в значении совместности требует творительного падежа. К существительным мужского рода добавляется окончание -ом.",
             "es": "La preposición 'с' (con) requiere el caso instrumental. Los sustantivos masculinos añaden -ом.",
             "fr": "La préposition 'с' (avec) requiert l'instrumental. Les noms masculins ajoutent -ом.",
             "ar": "حرف الجر 'с' (مع) يتطلب حالة الجر (الآلية). الأسماء المذكرة يضاف إليها -ом.",
@@ -1044,6 +1107,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
         "correct_answer": "подругой",
         "explanation": {
             "en": "Feminine nouns ending in -а change to -ой in the Instrumental case.",
+            "ru": "Существительные женского рода на -а меняют окончание на -ой в творительном падеже.",
             "es": "Los sustantivos femeninos que terminan en -а cambian a -ой en el caso instrumental.",
             "fr": "Les noms féminins se terminant par -а deviennent -ой à l'instrumental.",
             "ar": "الأسماء المؤنثة التي تنتهي بـ -а تتغير إلى -ой في حالة الجر (الآلية).",
@@ -1060,6 +1124,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
         "correct_answer": "матерью",
         "explanation": {
             "en": "Feminine nouns of the 3rd declension (-ь) take the ending -ью in the Instrumental.",
+            "ru": "Существительные женского рода 3-го склонения (-ь) в творительном падеже принимают окончание -ью.",
             "es": "Los sustantivos femeninos de la 3ª declinación (-ь) toman la terminación -ью en instrumental.",
             "fr": "Les noms féminins de la 3e déclinaison (-ь) prennent la terminaison -ью à l'instrumental.",
             "ar": "الأسماء المؤنثة من التصريف الثالث (-ь) تأخذ النهاية -ью في حالة الجر (الآلية).",
@@ -1076,6 +1141,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
         "correct_answer": "инженером",
         "explanation": {
             "en": "The verb 'стать' (to become) requires the Instrumental case for professions.",
+            "ru": "Глагол «стать» требует творительного падежа для обозначения профессий.",
             "es": "El verbo 'стать' (convertirse en) requiere el caso instrumental para profesiones.",
             "fr": "Le verbe 'стать' (devenir) requiert l'instrumental pour les professions.",
             "ar": "الفعل 'стать' (يصبح) يتطلب حالة الجر (الآلية) للمهن.",
@@ -1092,6 +1158,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
         "correct_answer": "аспиранткой",
         "explanation": {
             "en": "Feminine professions after 'стать' (to become) take the ending -ой.",
+            "ru": "Названия профессий женского рода после глагола «стать» принимают окончание -ой.",
             "es": "Las profesiones femeninas después de 'стать' (convertirse en) toman la terminación -ой.",
             "fr": "Les professions féminines après 'стать' (devenir) prennent la terminaison -ой.",
             "ar": "المهن المؤنثة بعد 'стать' (تصبح) تأخذ النهاية -ой.",
@@ -1108,6 +1175,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
         "correct_answer": "хорошим врачом",
         "explanation": {
             "en": "Masculine adjectives in the Instrumental end in -им/-ым, and nouns in -ом.",
+            "ru": "Прилагательные мужского рода в творительном падеже оканчиваются на -им/-ым, а существительные — на -ом.",
             "es": "Los adjetivos masculinos en instrumental terminan en -им/-ым, y los sustantivos en -ом.",
             "fr": "Les adjectifs masculins à l'instrumental finissent en -им/-ым, et les noms en -ом.",
             "ar": "الصفات المذكرة في حالة الجر (الآلية) تنتهي بـ -им/-ым، والأسماء بـ -ом.",
@@ -1124,6 +1192,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
         "correct_answer": "невинной жертвой",
         "explanation": {
             "en": "Feminine adjectives in the Instrumental case take the ending -ой.",
+            "ru": "Прилагательные женского рода в творительном падеже принимают окончание -ой.",
             "es": "Los adjetivos femeninos en el caso instrumental toman la terminación -ой.",
             "fr": "Les adjectifs féminins à l'instrumental prennent la terminaison -ой.",
             "ar": "الصفات المؤنثة في حالة الجر (الآلية) تأخذ النهاية -ой.",
@@ -1140,6 +1209,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
         "correct_answer": "с ней",
         "explanation": {
             "en": "The personal pronoun 'она' (she) changes to 'ней' after the preposition 'с' in the Instrumental.",
+            "ru": "Личное местоимение «она» принимает форму «ней» после предлога «с» в творительном падеже.",
             "es": "El pronombre personal 'она' (ella) cambia a 'ней' tras la preposición 'с' en instrumental.",
             "fr": "Le pronom personnel 'она' (elle) devient 'ней' après la préposition 'с' à l'instrumental.",
             "ar": "الضمير الشخصي 'она' (هي) يتغير إلى 'ней' بعد حرف الجر 'с' في حالة الجر (الآلية).",
@@ -1156,6 +1226,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
         "correct_answer": "с тобой",
         "explanation": {
             "en": "The personal pronoun 'ты' (you) changes to 'тобой' in the Instrumental case.",
+            "ru": "Личное местоимение «ты» меняется на «тобой» в творительном падеже.",
             "es": "El pronombre personal 'ты' (tú) cambia a 'тобой' en el caso instrumental.",
             "fr": "Le pronom personnel 'ты' (tu) devient 'тобой' à l'instrumental.",
             "ar": "الضمير الشخصي 'ты' (أنت) يتغير إلى 'тобой' في حالة الجر (الآلية).",
@@ -1172,6 +1243,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
         "correct_answer": "моим братом",
         "explanation": {
             "en": "Possessive pronouns (мой) in the masculine Instrumental end in -им.",
+            "ru": "Притяжательные местоимения (мой) в мужском роде в творительном падеже оканчиваются на -им.",
             "es": "Los pronombres posesivos (мой) en el instrumental masculino terminan en -им.",
             "fr": "Les pronoms possessifs (мой) à l'instrumental masculin finissent par -им.",
             "ar": "ضمائر الملكية (мой) في حالة الجر (الآلية) للمذكر تنتهي بـ -им.",
@@ -1188,6 +1260,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
         "correct_answer": "под удобным диваном",
         "explanation": {
             "en": "The preposition 'под' (under) indicating location requires the Instrumental case.",
+            "ru": "Предлог «под» при указании местонахождения требует творительного падежа.",
             "es": "La preposición 'под' (debajo de) al indicar ubicación requiere el caso instrumental.",
             "fr": "La préposition 'под' (sous) indiquant le lieu requiert l'instrumental.",
             "ar": "حرف الجر 'под' (تحت) الذي يشير إلى الموقع يتطلب حالة الجر (الآلية).",
@@ -1204,6 +1277,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
         "correct_answer": "Перед нашим домом",
         "explanation": {
             "en": "The preposition 'перед' (in front of) requires the Instrumental case.",
+            "ru": "Предлог «перед» требует творительного падежа.",
             "es": "La preposición 'перед' (delante de) requiere el caso instrumental.",
             "fr": "La préposition 'перед' (devant) requiert l'instrumental.",
             "ar": "حرف الجر 'перед' (أمام) يتطلب حالة الجر (الآلية).",
@@ -1220,6 +1294,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
         "correct_answer": "над тяжёлыми тучами",
         "explanation": {
             "en": "The preposition 'над' (above) takes the Instrumental. Plural adjectives end in -ыми/-ими.",
+            "ru": "Предлог «над» требует творительного падежа. Прилагательные во множественном числе принимают окончания -ыми/-ими.",
             "es": "La preposición 'над' (encima de) toma el instrumental. Los adjetivos plurales terminan en -ыми/-ими.",
             "fr": "La préposition 'над' (au-dessus de) prend l'instrumental. Les adjectifs au pluriel finissent par -ыми/-ими.",
             "ar": "حرف الجر 'над' (فوق) يأخذ حالة الجر (الآلية). الصفات في الجمع تنتهي بـ -ыми/-ими.",
@@ -1236,6 +1311,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
         "correct_answer": "за закрытой дверью",
         "explanation": {
             "en": "The preposition 'за' (behind/beyond) for location requires the Instrumental case.",
+            "ru": "Предлог «за» для указания местонахождения требует творительного падежа.",
             "es": "La preposición 'за' (detrás de) para ubicación requiere el caso instrumental.",
             "fr": "La préposition 'за' (derrière) pour le lieu requiert l'instrumental.",
             "ar": "حرف الجر 'за' (خلف/وراء) للموقع يتطلب حالة الجر (الآلية).",
@@ -1255,6 +1331,7 @@ NOMINATIVE_CASE_QUESTIONS = [
         "correct_answer": "брат",
         "explanation": {
             "en": "The Nominative case is the dictionary form of the noun. It is used for the subject of the sentence or to identify someone.",
+            "ru": "Именительный падеж — это словарная форма существительного. Он используется для подлежащего или для идентификации кого-либо.",
             "es": "El caso nominativo es la forma de diccionario del sustantivo. Se usa para el sujeto de la oración o para identificar a alguien.",
             "fr": "Le nominatif est la forme du dictionnaire du nom. Il est utilisé pour le sujet de la phrase ou pour identifier quelqu'un.",
             "ar": "حالة الرفع هي الصيغة الأصلية للاسم في القاموس. تُستخدم للمبتدأ أو لتحديد هوية شخص ما.",
@@ -1271,6 +1348,7 @@ NOMINATIVE_CASE_QUESTIONS = [
         "correct_answer": "стол",
         "explanation": {
             "en": "In the construction 'Это + noun', the noun is always in the Nominative case.",
+            "ru": "В конструкции «Это + существительное» существительное всегда стоит в именительном падеже.",
             "es": "En la construcción 'Esto + sustantivo', el sustantivo siempre va en caso nominativo.",
             "fr": "Dans la construction 'Это + nom', le nom est toujours au nominatif.",
             "ar": "في تركيب 'Это + اسم'، يكون الاسم دائماً في حالة الرفع.",
@@ -1287,6 +1365,7 @@ NOMINATIVE_CASE_QUESTIONS = [
         "correct_answer": "инженер",
         "explanation": {
             "en": "When defining a person's profession in the present tense, the Nominative case is used.",
+            "ru": "При определении профессии человека в настоящем времени используется именительный падеж.",
             "es": "Al definir la profesión de una persona en presente, se utiliza el caso nominativo.",
             "fr": "Pour définir la profession d'une personne au présent, on utilise le nominatif.",
             "ar": "عند تحديد مهنة شخص ما في زمن المضارع، تُستخدم حالة الرفع.",
@@ -1303,6 +1382,7 @@ NOMINATIVE_CASE_QUESTIONS = [
         "correct_answer": "красивая",
         "explanation": {
             "en": "Adjectives must match the gender of the noun. 'Картина' is feminine, so the ending is -ая.",
+            "ru": "Прилагательное должно согласовываться с родом существительного. «Картина» — женского рода, поэтому окончание — -ая.",
             "es": "Los adjetivos deben coincidir con el género del sustantivo. 'Картина' es femenino, por lo que la terminación es -ая.",
             "fr": "Les adjectifs doivent s'accorder avec le genre du nom. 'Картина' est féminin, la terminaison est donc -ая.",
             "ar": "يجب أن تطابق الصفة جنس الاسم. 'Картина' مؤنث، لذا تكون النهاية -ая.",
@@ -1319,6 +1399,7 @@ NOMINATIVE_CASE_QUESTIONS = [
         "correct_answer": "синее",
         "explanation": {
             "en": "The noun 'море' is neuter. Neuter adjectives in the Nominative case typically end in -ое or -ее.",
+            "ru": "Существительное «море» — среднего рода. Прилагательные среднего рода в именительном падеже обычно оканчиваются на -ое или -ее.",
             "es": "El sustantivo 'море' es neutro. Los adjetivos neutros en nominativo suelen terminar en -ое o -ее.",
             "fr": "Le nom 'море' est neutre. Les adjectifs neutres au nominatif finissent généralement par -ое ou -ее.",
             "ar": "الاسم 'море' محايد. الصفات المحايدة في حالة الرفع تنتهي عادةً بـ -ое أو -ее.",
@@ -1335,6 +1416,7 @@ NOMINATIVE_CASE_QUESTIONS = [
         "correct_answer": "книги",
         "explanation": {
             "en": "To form the plural of feminine nouns in -а, we replace -а with -и.",
+            "ru": "Для образования множественного числа существительных женского рода на -а окончание заменяется на -и.",
             "es": "Para formar el plural de los sustantivos femeninos en -а, reemplazamos -а por -и.",
             "fr": "Pour former le pluriel des noms féminins en -а, on remplace -а par -и.",
             "ar": "لصياغة الجمع للأسماء المؤنثة التي تنتهي بـ -а، نستبدل -а بـ -и.",
@@ -1351,6 +1433,7 @@ NOMINATIVE_CASE_QUESTIONS = [
         "correct_answer": "дома",
         "explanation": {
             "en": "Some masculine nouns have an irregular plural ending in -а (stressed).",
+            "ru": "Некоторые существительные мужского рода имеют нестандартное окончание множественного числа -а (под ударением).",
             "es": "Algunos sustанtivos masculinos tienen un plural irregular que termina en -а (acentuada).",
             "fr": "Certains noms masculins ont un pluriel irrégulier se terminant par -а (accentué).",
             "ar": "بعض الأسماء المذكرة لها جمع غير قياسي ينتهي بـ -а (مشددة).",
@@ -1367,6 +1450,7 @@ NOMINATIVE_CASE_QUESTIONS = [
         "correct_answer": "дети",
         "explanation": {
             "en": "The noun 'ребёнок' (child) has a completely different word for its plural form: 'дети'.",
+            "ru": "Существительное «ребёнок» имеет совершенно другую основу для формы множественного числа: «дети».",
             "es": "El sustantivo 'ребёнок' (niño) tiene una palabra completamente diferente para su forma plural: 'дети'.",
             "fr": "Le nom 'ребёнок' (enfant) a un mot complètement différent pour sa forme plurielle : 'дети'.",
             "ar": "الاسم 'ребёнок' (طفل) له كلمة مختلفة تماماً في صيغة الجمع: 'дети'.",
@@ -1383,6 +1467,7 @@ NOMINATIVE_CASE_QUESTIONS = [
         "correct_answer": "я",
         "explanation": {
             "en": "The subject of the sentence (the one doing the action) must be in the Nominative case.",
+            "ru": "Подлежащее в предложении (тот, кто совершает действие) должно стоять в именительном падеже.",
             "es": "El sujeto de la oración (quien realiza la acción) debe estar en caso nominativo.",
             "fr": "Le sujet de la phrase (celui qui fait l'action) doit être au nominatif.",
             "ar": "يجب أن يكون فاعل الجملة (من يقوم بالفعل) في حالة الرفع.",
@@ -1399,6 +1484,7 @@ NOMINATIVE_CASE_QUESTIONS = [
         "correct_answer": "он",
         "explanation": {
             "en": "To replace a masculine subject (Anton), we use the Nominative pronoun 'он'.",
+            "ru": "Для замены субъекта мужского рода (Антон) используется местоимение «он» в именительном падеже.",
             "es": "Para reemplazar un sujeto masculino (Anton), usamos el pronombre nominativo 'он'.",
             "fr": "Pour remplacer un sujet masculin (Anton), on utilise le pronom nominatif 'он'.",
             "ar": "لاستبدال فاعل مذكر (Anton)، نستخدم ضمير الرفع 'он'.",
@@ -1415,6 +1501,7 @@ NOMINATIVE_CASE_QUESTIONS = [
         "correct_answer": "что",
         "explanation": {
             "en": "The question word 'что' (what) is used in the Nominative for inanimate subjects.",
+            "ru": "Вопросительное слово «что» используется в именительном падеже для неодушевленных предметов.",
             "es": "La palabra interrogativa 'что' (qué) se usa en nominativo para sujetos inanimados.",
             "fr": "Le mot interrogatif 'что' (quoi) est utilisé au nominatif pour les sujets inanimés.",
             "ar": "تُستخدم أداة الاستفهام 'что' (ماذا) في حالة الرفع للفاعل غير العاقل.",
@@ -1431,6 +1518,7 @@ NOMINATIVE_CASE_QUESTIONS = [
         "correct_answer": "кто",
         "explanation": {
             "en": "The question word 'кто' (who) is used in the Nominative for animate subjects.",
+            "ru": "Вопросительное слово «кто» используется в именительном падеже для одушевленных субъектов.",
             "es": "La palabra interrogativa 'кто' (quién) se usa en nominativo para sujetos animados.",
             "fr": "Le mot interrogatif 'кто' (qui) est utilisé au nominatif pour les sujets animés.",
             "ar": "تُستخدم أداة الاستفهام 'кто' (من) في حالة الرفع للفاعل العاقل.",
@@ -1447,6 +1535,7 @@ NOMINATIVE_CASE_QUESTIONS = [
         "correct_answer": "родители",
         "explanation": {
             "en": "The plural form 'родители' is the subject here, so it stays in the Nominative case.",
+            "ru": "Форма множественного числа «родители» является подлежащим в предложении, поэтому используется именительный падеж.",
             "es": "La forma plural 'родители' es el sujeto aquí, por lo que permanece en caso nominativo.",
             "fr": "La forme plurielle 'родители' est le sujet ici, elle reste donc au nominatif.",
             "ar": "صيغة الجمع 'родители' هي المبتدأ هنا، لذا تبقى في حالة الرفع.",
@@ -1463,6 +1552,7 @@ NOMINATIVE_CASE_QUESTIONS = [
         "correct_answer": "новое",
         "explanation": {
             "en": "The word 'здание' ends in -ие, which means it is neuter. The adjective must be neuter ('новое').",
+            "ru": "Слово «здание» оканчивается на -ие, следовательно, это средний род. Прилагательное тоже должно быть среднего рода («новое»).",
             "es": "La palabra 'здание' termina en -ие, lo que significa que es neutra. El adjetivo debe ser neutro ('новое').",
             "fr": "Le mot 'здание' se termine par -ие, ce qui signifie qu'il est neutre. L'adjectif doit être neutre ('новое').",
             "ar": "ينتهي الاسم 'здание' بـ -ие، مما يعني أنه محايد. يجب أن تكون الصفة محايدة ('новое').",

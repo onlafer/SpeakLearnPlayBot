@@ -100,6 +100,7 @@ class PhraseConstructorGame(BaseGame):
             session.message_id = new_message_id
 
     async def handle_callback(self, bot: Bot, session: GameSession, callback: CallbackQuery) -> GameSession:
+        await callback.answer()
         # Синхронизируем ID сообщения из колбэка
         session.message_id = callback.message.message_id
         
@@ -111,7 +112,6 @@ class PhraseConstructorGame(BaseGame):
                 word = available.pop(idx)  # Удаляем именно по индексу
                 session.game_state["current_phrase"].append(word)
                 await self._send_question(bot, session)
-            await callback.answer()
 
         elif callback.data == "reset_phrase":
             idx = session.game_state["question_idx"]
@@ -121,7 +121,6 @@ class PhraseConstructorGame(BaseGame):
             session.game_state["available_words"] = words
             session.game_state["current_phrase"] = []
             await self._send_question(bot, session)
-            await callback.answer()
 
         elif callback.data == "check_phrase":
             lang = session.game_state.get("lang", "en")
@@ -149,13 +148,11 @@ class PhraseConstructorGame(BaseGame):
             ])
             await safe_edit_message(bot, session.chat_id, session.message_id, feedback, reply_markup=keyboard,
                                     parse_mode="Markdown")
-            await callback.answer()
 
         elif callback.data == "next_step":
             session.current_question += 1
             await self._prepare_next_question(session)
             await self._send_question(bot, session)
-            await callback.answer()
 
         return session
 

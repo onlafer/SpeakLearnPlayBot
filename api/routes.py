@@ -19,6 +19,7 @@ from games import (
     translator_game,
 )
 from api.fake_bot import FakeBot, FakeMessage, FakeCallbackQuery
+from utils.localization import translator
 from api.schemas import (
     GameInfoSchema,
     GameStateSchema,
@@ -29,9 +30,27 @@ from api.schemas import (
     ActionResponse,
     CancelSessionRequest,
     CurrentSessionResponse,
+    StreakResponse,
 )
+from database.user_manager import user_manager
 
 router = APIRouter(prefix="/api", tags=["games"])
+
+
+@router.get("/streak/{user_id}", response_model=StreakResponse)
+async def get_streak(user_id: int):
+    """Получить данные о стрике пользователя."""
+    user = await user_manager.get_user(user_id)
+    if not user:
+        # Если пользователя нет, создаём его (или возвращаем 0)
+        user = await user_manager.get_or_create_user(user_id)
+    
+    return StreakResponse(
+        user_id=user.user_id,
+        streak_count=user.streak_count,
+        last_activity_date=user.last_activity_date,
+        activity_history=user.activity_history,
+    )
 
 
 def _state_from_session(session) -> GameStateSchema | None:
@@ -43,6 +62,12 @@ def _state_from_session(session) -> GameStateSchema | None:
         text=last["text"],
         buttons=[ButtonSchema(**b) for b in last["buttons"]],
     )
+
+
+@router.get("/languages", response_model=list[str])
+async def list_languages():
+    """Список всех доступных языков (коды: en, ru, ...)."""
+    return list(translator.translations.keys())
 
 
 @router.get("/games", response_model=list[GameInfoSchema])
@@ -111,9 +136,19 @@ async def session_action(body: ActionRequest):
         raise HTTPException(status_code=404, detail="Игра не найдена.")
 
     fake_bot = FakeBot(session)
+    
+    # Достаём текст последнего экрана, чтобы передать его в FakeMessage
+    # Это нужно играм, которые обращаются к callback.message.text
+    last_screen = session.game_state.get("_api_last_screen", {})
+    last_text = last_screen.get("text", "")
+
     fake_callback = FakeCallbackQuery(
         data=body.callback_data,
-        message=FakeMessage(chat_id=session.chat_id, message_id=session.message_id),
+        message=FakeMessage(
+            chat_id=session.chat_id, 
+            message_id=session.message_id,
+            text=last_text
+        ),
     )
     updated = await game.handle_callback(fake_bot, session, fake_callback)
 

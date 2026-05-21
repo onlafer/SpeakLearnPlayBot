@@ -19,9 +19,10 @@ def _extract_buttons(reply_markup: InlineKeyboardMarkup | None) -> list[dict]:
 
 class FakeMessage:
     """Поддельное сообщение для start_game (нужны chat_id и message_id)."""
-    def __init__(self, chat_id: int, message_id: int = 0):
+    def __init__(self, chat_id: int, message_id: int = 0, text: str = ""):
         self.chat = type("Chat", (), {"id": chat_id})()
         self.message_id = message_id
+        self.text = text
 
 
 class FakeCallbackQuery:

@@ -7,6 +7,8 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 from database import init_db
 from api.routes import router
@@ -31,6 +33,13 @@ app = FastAPI(
     redoc_url="/redoc", # ReDoc
 )
 
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.get("/streak")
+async def streak_page():
+    """Открыть Mini App со стриком."""
+    return FileResponse("static/streak/index.html")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -42,15 +51,22 @@ app.add_middleware(
 app.include_router(router)
 
 
-@app.get("/")
-async def root():
-    return {
-        "service": "Speak Learn Play Games API",
-        "docs": "/docs",
-        "api": "/api/games",
-    }
+import os
+
+webapp_dist = "frontend/dist"
+if os.path.exists(webapp_dist):
+    app.mount("/", StaticFiles(directory=webapp_dist, html=True), name="webapp")
+else:
+    @app.get("/")
+    async def root():
+        return {
+            "service": "Speak Learn Play Games API",
+            "docs": "/docs",
+            "api": "/api/games",
+            "message": "React webapp not built. Run 'npm run build' inside frontend to enable it."
+        }
 
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("api.main:app", host="0.0.0.0", port=8001, reload=True)
+    uvicorn.run("api.main:app", host="127.0.0.1", port=8001, reload=True)

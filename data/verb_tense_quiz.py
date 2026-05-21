@@ -6,6 +6,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Повторяю",
         "explanation": {
             "en": "The word 'Всегда' (always) indicates a regular action, which requires the present tense.",
+            "ru": "Слово «Всегда» указывает на регулярное действие, что требует настоящего времени глагола.",
             "ar": "كلمة 'Всегда' (دائماً) تشير إلى عمل منتظم، مما يتطلب الزمن الحاضر.",
             "es": "La palabra 'Всегда' (siempre) indica una acción regular, lo que requiere el tiempo presente.",
             "fa": "کلمه 'Всегда' (همیشه) نشان‌دهنده یک عمل منظم است که نیاز به زمان حال دارد.",
@@ -22,6 +23,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Читает",
         "explanation": {
             "en": "The action is happening right now or is in progress.",
+            "ru": "Действие происходит прямо сейчас или находится в процессе.",
             "ar": "الحدث يحدث الآن أو قيد التنفيذ.",
             "es": "La acción está ocurriendo ahora mismo o está en progreso.",
             "fa": "این عمل همین الان در حال رخ دادن است یا در جریان است.",
@@ -38,6 +40,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Готовим",
         "explanation": {
             "en": "This describes a regular, repeated action in the present.",
+            "ru": "Это описывает регулярное, повторяющееся действие в настоящем времени.",
             "ar": "هذا يصف عملاً منتظماً ومتكرراً في الحاضر.",
             "es": "Esto describe una acción regular y repetida en el presente.",
             "fa": "این یک عمل منظم و تکراری در زمان حال را توصیف می‌کند.",
@@ -54,6 +57,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Объясняет",
         "explanation": {
             "en": "The action is happening now, during the lecture.",
+            "ru": "Действие происходит прямо сейчас, во время лекции.",
             "ar": "الحدث يحدث الآن، أثناء المحاضرة.",
             "es": "La acción está ocurriendo ahora, durante la clase.",
             "fa": "این عمل الان، در طول سخنرانی در حال انجام است.",
@@ -70,6 +74,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Ищут",
         "explanation": {
             "en": "This is a regular action for students, so the present tense is used.",
+            "ru": "Это обычное, регулярное действие для студентов, поэтому используется настоящее время.",
             "ar": "هذا عمل معتاد للطلاب، لذا يُستخدم الزمن الحاضر.",
             "es": "Esta es una acción habitual para los estudiantes, por lo que se usa el tiempo presente.",
             "fa": "این یک عمل معمول برای دانشجویان است، بنابراین از زمان حال استفاده می‌شود.",
@@ -86,6 +91,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Купил",
         "explanation": {
             "en": "Yes! The word 'вчера' (yesterday) is a clear indicator of the past tense.",
+            "ru": "Да! Слово «вчера» — это явный маркер прошедшего времени.",
             "ar": "نعم! كلمة 'вчера' (أمس) مؤشر واضح على الزمن الماضي.",
             "es": "¡Sí! La palabra 'вчера' (ayer) es un claro indicador del tiempo pasado.",
             "fa": "بله! کلمه 'вчера' (دیروز) نشان‌دهنده واضح زمان گذشته است.",
@@ -102,6 +108,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Посетили",
         "explanation": {
             "en": "The action already happened in the past.",
+            "ru": "Действие уже произошло в прошлом.",
             "ar": "لقد حدث الفعل بالفعل في الماضي.",
             "es": "La acción ya ocurrió en el pasado.",
             "fa": "این عمل قبلاً در گذشته اتفاق افتاده است.",
@@ -118,6 +125,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Позвонил",
         "explanation": {
             "en": "The phrase 'после пар' (after classes) indicates a completed action in the past.",
+            "ru": "Словосочетание «после пар» указывает на завершенное действие в прошлом.",
             "ar": "عبارة 'после пар' (بعد الدروس) تشير إلى عمل مكتمل في الماضي.",
             "es": "La frase 'после пар' (después de clases) indica una acción completada en el pasado.",
             "fa": "عبارت 'после пар' (بعد از کلاس‌ها) نشان‌دهنده یک عمل تکمیل شده در گذشته است.",
@@ -134,6 +142,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Была",
         "explanation": {
             "en": "'В прошлую субботу' (Last Saturday) clearly points to the past tense.",
+            "ru": "«В прошлую субботу» явно указывает на прошедшее время.",
             "ar": "'В прошлую субботу' (السبت الماضي) تشير بوضوح إلى الزمن الماضي.",
             "es": "'В прошлую субботу' (El sábado pasado) apunta claramente al tiempo pasado.",
             "fa": "'В прошлую субботу' (شنبه گذشته) به وضوح به زمان گذشته اشاره دارد.",
@@ -150,6 +159,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Сдал",
         "explanation": {
             "en": "The exam is over, so the action is completed in the past.",
+            "ru": "Экзамен завершен, поэтому действие закончилось в прошлом.",
             "ar": "الامتحان انتهى، لذا العمل مكتمل في الماضي.",
             "es": "El examen terminó, por lo que la acción se completó en el pasado.",
             "fa": "امتحان تمام شده است، بنابراین عمل در گذشته تکمیل شده است.",
@@ -166,6 +176,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Буду делать",
         "explanation": {
             "en": "The words 'завтра' (tomorrow) and 'вечером' (in the evening) refer to the future.",
+            "ru": "Слова «завтра» и «вечером» указывают на будущее время.",
             "ar": "الكلمات 'завтра' (غداً) و 'вечером' (في المساء) تشير إلى المستقبل.",
             "es": "Las palabras 'завтра' (mañana) y 'вечером' (por la tarde) se refieren al futuro.",
             "fa": "کلمات 'завтра' (فردا) و 'вечером' (در عصر) به آینده اشاره دارند.",
@@ -182,6 +193,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Встретимся",
         "explanation": {
             "en": "'после занятий' (after classes) indicates future plans.",
+            "ru": "«После занятий» указывает на планы на будущее.",
             "ar": "'после занятий' (بعد الدروس) تشير إلى خطط مستقبلية.",
             "es": "'после занятий' (después de clases) indica planes futuros.",
             "fa": "'после занятий' (بعد از کلاس‌ها) نشان‌دهنده برنامه‌های آینده است.",
@@ -198,6 +210,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Поедет",
         "explanation": {
             "en": "'Летом' (in the summer) in this context refers to the future, so a future tense verb is needed.",
+            "ru": "«Летом» в данном контексте относится к будущему времени, поэтому требуется глагол в будущем времени.",
             "ar": "'Летом' (في الصيف) في هذا السياق تشير إلى المستقبل، لذا يلزم فعل بصيغة المستقبل.",
             "es": "'Летом' (en verano) en este contexto se refiere al futuro, por lo que se necesita un verbo en futuro.",
             "fa": "'Летом' (در تابستان) در این متن به آینده اشاره دارد، بنابراین فعل زمان آینده لازم است.",
@@ -214,6 +227,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Напишет",
         "explanation": {
             "en": "'К следующей неделе' (by next week) indicates a future deadline.",
+            "ru": "«К следующей неделе» указывает на крайний срок в будущем.",
             "ar": "'К следующей неделе' (بحلول الأسبوع القادم) تشير إلى موعد نهائي في المستقبل.",
             "es": "'К следующей неделе' (para la próxima semana) indica una fecha límite futura.",
             "fa": "'К следующей неделе' (تا هفته آینده) نشان‌دهنده یک مهلت در آینده است.",
@@ -230,6 +244,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Куплю",
         "explanation": {
             "en": "This expresses a plan or intention for the future.",
+            "ru": "Это выражает намерение или план на будущее.",
             "ar": "هذا يعبر عن خطة أو نية للمستقبل.",
             "es": "Esto expresa un plan o intención para el futuro.",
             "fa": "این بیانگر یک برنامه یا قصد برای آینده است.",
@@ -246,6 +261,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Живу",
         "explanation": {
             "en": "The word 'сейчас' (now) is an indicator of the present tense.",
+            "ru": "Слово «сейчас» указывает на настоящее время.",
             "ar": "كلمة 'сейчас' (الآن) مؤشر على الزمن الحاضر.",
             "es": "La palabra 'сейчас' (ahora) es un indicador del tiempo presente.",
             "fa": "کلمه 'сейчас' (الان) نشانگر زمان حال است.",
@@ -262,6 +278,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Познакомился",
         "explanation": {
             "en": "The phrase 'в прошлом месяце' (last month) indicates a past, completed action.",
+            "ru": "Словосочетание «в прошлом месяце» указывает на завершенное действие в прошлом.",
             "ar": "عبارة 'в прошлом месяце' (في الشهر الماضي) تشير إلى عمل مكتمل في الماضي.",
             "es": "La frase 'в прошлом месяце' (el mes pasado) indica una acción pasada y completada.",
             "fa": "عبارت 'в прошлом месяце' (ماه گذشته) نشان‌دهنده یک عمل تکمیل شده در گذشته است.",
@@ -278,6 +295,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Буду изучать",
         "explanation": {
             "en": "'В следующем семестре' (next semester) clearly indicates a future action.",
+            "ru": "«В следующем семестре» явно указывает на будущее время.",
             "ar": "'В следующем семестре' (في الفصل الدراسي القادم) تشير بوضوح إلى عمل مستقبلي.",
             "es": "'В следующем семестре' (el próximo semestre) indica claramente una acción futura.",
             "fa": "'В следующем семестре' (در ترم آینده) به وضوح نشان‌دهنده یک عمل در آینده است.",
@@ -294,6 +312,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Делал",
         "explanation": {
             "en": "The phrase 'вчера вечером' (yesterday evening) refers to the past.",
+            "ru": "Словосочетание «вчера вечером» указывает на прошедшее время.",
             "ar": "عبارة 'вчера вечером' (مساء أمس) تشير إلى الماضي.",
             "es": "La frase 'вчера вечером' (ayer por la tarde) se refiere al pasado.",
             "fa": "عبارت 'вчера вечером' (دیروز عصر) به گذشته اشاره دارد.",
@@ -310,6 +329,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Смотрел",
         "explanation": {
             "en": "The answer is about a past event, so the past tense is needed.",
+            "ru": "Ответ касается прошедшего события, поэтому требуется прошедшее время глагола.",
             "ar": "الإجابة تتعلق بحدث ماضٍ، لذا يلزم الزمن الماضي.",
             "es": "La respuesta es sobre un evento pasado, por lo que se necesita el tiempo pasado.",
             "fa": "پاسخ در مورد یک رویداد گذشته است، بنابراین زمان گذشته لازم است.",
@@ -326,6 +346,7 @@ VERB_TENSE_QUESTIONS = [
         "correct_answer": "Будешь делать / пойду",
         "explanation": {
             "en": "Both verbs need to be in the future tense to match the context of the question about 'завтра' (tomorrow).",
+            "ru": "Оба глагола должны быть в будущем времени, чтобы соответствовать контексту вопроса о «завтра».",
             "ar": "كلا الفعلين يجب أن يكونا في صيغة المستقبل ليتناسبا مع سياق السؤال حول 'завтра' (غداً).",
             "es": "Ambos verbos deben estar en futuro para coincidir con el contexto de la pregunta sobre 'завтра' (mañana).",
             "fa": "هر دو فعل باید در زمان آینده باشند تا با زمینه سوال درباره 'завтра' (فردا) مطابقت داشته باشند.",

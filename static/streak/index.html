@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Стрик</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #f97316;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --active-day: #f97316;
+            --inactive-day: #334155;
+            --today-border: #6366f1;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .streak-card {
+            background-color: var(--card-bg);
+            border-radius: 24px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .streak-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), #fbbf24);
+        }
+
+        .streak-icon {
+            font-size: 64px;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.5));
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.5)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(249, 115, 22, 0.8)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.5)); }
+        }
+
+        .streak-count {
+            font-size: 64px;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1;
+            background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .streak-label {
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-top: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .calendar-card {
+            background-color: var(--card-bg);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .calendar-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .month-nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            background: var(--inactive-day);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: #475569;
+            transform: translateY(-2px);
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+
+        .weekday {
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 700;
+            padding-bottom: 12px;
+        }
+
+        .day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            border-radius: 14px;
+            position: relative;
+            cursor: default;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .day.active {
+            background: linear-gradient(135deg, var(--active-day) 0%, #ea580c 100%);
+            color: white;
+            font-weight: 800;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+            transform: scale(1.05);
+        }
+
+        .day.inactive {
+            color: var(--text-secondary);
+        }
+
+        .day.other-month {
+            opacity: 0.15;
+        }
+
+        .day.today {
+            box-shadow: inset 0 0 0 2px var(--today-border);
+        }
+
+        .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            gap: 16px;
+        }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid rgba(249, 115, 22, 0.1);
+            border-top: 4px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-msg {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            text-align: center;
+            padding: 24px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="app">
+        <div class="loader">
+            <div class="spinner"></div>
+            <p style="color: var(--text-secondary); font-weight: 600;">Загружаем стрик...</p>
+        </div>
+    </div>
+
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.ready();
+        tg.expand();
+
+        // Адаптация темы под Telegram
+        if (tg.themeParams.bg_color) {
+            document.documentElement.style.setProperty('--bg-color', tg.themeParams.bg_color);
+        }
+
+        const API_BASE = window.location.origin + '/api';
+        const userId = tg.initDataUnsafe.user?.id || 12345;
+
+        async function init() {
+            try {
+                const response = await fetch(`${API_BASE}/streak/${userId}`);
+                if (!response.ok) throw new Error('Failed to fetch streak data');
+                const data = await response.json();
+                renderApp(data);
+            } catch (err) {
+                document.getElementById('app').innerHTML = `
+                    <div class="error-msg">
+                        <p style="font-size: 24px; margin: 0 0 8px 0;">😕</p>
+                        Ошибка загрузки данных: ${err.message}
+                    </div>
+                `;
+            }
+        }
+
+        function renderApp(data) {
+            const container = document.getElementById('app');
+            
+            const streakCard = `
+                <div class="streak-card">
+                    <div class="streak-icon">🔥</div>
+                    <p class="streak-count">${data.streak_count}</p>
+                    <p class="streak-label">дней подряд</p>
+                </div>
+            `;
+
+            const calendarCard = `
+                <div class="calendar-card">
+                    <div class="calendar-header">
+                        <div class="calendar-title" id="monthDisplay"></div>
+                        <div class="month-nav">
+                            <button class="nav-btn" onclick="changeMonth(-1)">←</button>
+                            <button class="nav-btn" onclick="changeMonth(1)">→</button>
+                        </div>
+                    </div>
+                    <div class="days-grid" id="daysGrid">
+                        <div class="weekday">ПН</div>
+                        <div class="weekday">ВТ</div>
+                        <div class="weekday">СР</div>
+                        <div class="weekday">ЧТ</div>
+                        <div class="weekday">ПТ</div>
+                        <div class="weekday">СБ</div>
+                        <div class="weekday">ВС</div>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = streakCard + calendarCard;
+            
+            window.activeHistory = new Set(data.activity_history);
+            window.currentDate = new Date();
+            renderCalendar();
+        }
+
+        function renderCalendar() {
+            const grid = document.getElementById('daysGrid');
+            const title = document.getElementById('monthDisplay');
+            
+            const dayElements = grid.querySelectorAll('.day');
+            dayElements.forEach(el => el.remove());
+
+            const year = window.currentDate.getFullYear();
+            const month = window.currentDate.getMonth();
+            
+            const monthName = new Intl.DateTimeFormat('ru-RU', { month: 'long', year: 'numeric' }).format(window.currentDate);
+            title.textContent = monthName.charAt(0).toUpperCase() + monthName.slice(1);
+
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            
+            let startDay = firstDay.getDay() - 1;
+            if (startDay === -1) startDay = 6;
+
+            const prevLastDay = new Date(year, month, 0).getDate();
+            for (let i = startDay - 1; i >= 0; i--) {
+                const d = document.createElement('div');
+                d.className = 'day other-month';
+                d.textContent = prevLastDay - i;
+                grid.appendChild(d);
+            }
+
+            const today = new Date();
+            const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+
+            for (let i = 1; i <= lastDay.getDate(); i++) {
+                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+                const d = document.createElement('div');
+                d.className = 'day';
+                if (window.activeHistory.has(dateStr)) d.classList.add('active');
+                if (dateStr === todayStr) d.classList.add('today');
+                d.textContent = i;
+                grid.appendChild(d);
+            }
+
+            const currentTotal = startDay + lastDay.getDate();
+            const remaining = 42 - currentTotal;
+            for (let i = 1; i <= (remaining > 7 ? remaining - 7 : remaining); i++) {
+                if (grid.children.length >= 49) break; // Ограничение сетки
+                const d = document.createElement('div');
+                d.className = 'day other-month';
+                d.textContent = i;
+                grid.appendChild(d);
+            }
+        }
+
+        function changeMonth(delta) {
+            window.currentDate.setMonth(window.currentDate.getMonth() + delta);
+            renderCalendar();
+        }
+
+        init();
+    </script>
+</body>
+</html>

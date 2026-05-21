@@ -57,3 +57,11 @@ class CurrentSessionResponse(BaseModel):
     current_question: int
     status: str
     state: GameStateSchema | None = Field(None, description="Последний экран игры")
+
+
+class StreakResponse(BaseModel):
+    user_id: int
+    streak_count: int
+    last_activity_date: str | None
+    activity_history: list[str]
+

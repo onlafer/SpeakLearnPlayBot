@@ -54,7 +54,11 @@ def get_language_keyboard(
                 text="🇯🇵 Japanese", callback_data=f"set_language:{Language.JA.value}"
             )
         ],
-        # [InlineKeyboardButton(text="🇷🇺 Russian", callback_data=f"set_language:{Language.RU.value}")],
+        [
+            InlineKeyboardButton(
+                text="🇷🇺 Russian", callback_data=f"set_language:{Language.RU.value}"
+            )
+        ],
     ]
 
     if show_back_button:

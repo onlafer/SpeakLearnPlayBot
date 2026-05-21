@@ -102,6 +102,7 @@ class OddOneOutGame(BaseGame):
             session.message_id = new_message_id
 
     async def handle_callback(self, bot: Bot, session: GameSession, callback: CallbackQuery) -> GameSession:
+        await callback.answer()
         # Синхронизируем ID сообщения из колбэка
         session.message_id = callback.message.message_id
 
@@ -157,7 +158,6 @@ class OddOneOutGame(BaseGame):
         elif data == "ooo_finish":
             await self.end_game(bot, session)
 
-        await callback.answer()
         return session
 
     async def end_game(self, bot: Bot, session: GameSession, send_message: bool = True):

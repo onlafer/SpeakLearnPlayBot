@@ -9,4 +9,4 @@ class Language(Enum):
     ES = "es"  # Spanish
     VI = "vi"  # Vietnamese
     JA = "ja"  # Japanese
-    # RU = "ru"  # Russian
+    RU = "ru"  # Russian
