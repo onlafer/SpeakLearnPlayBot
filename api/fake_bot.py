@@ -77,3 +77,24 @@ class FakeBot:
     ):
         self._store(text, reply_markup)
         return message_id
+
+    async def send_chat_action(self, chat_id: int, action: str):
+        """Заглушка для отправки статуса активности (например, 'record_voice')."""
+        pass
+
+    async def delete_message(self, chat_id: int, message_id: int):
+        """Заглушка для удаления сообщений (например, удаления сообщения о загрузке)."""
+        pass
+
+    async def send_voice(
+        self,
+        chat_id: int,
+        voice: any,
+        caption: str | None = None,
+        parse_mode: str | None = None,
+        reply_markup: InlineKeyboardMarkup | None = None,
+    ):
+        """Заглушка для отправки голосовых сообщений: текст подписи сохраняется как экран API."""
+        text = caption or "🎤 [Голосовое сообщение]"
+        self._store(text, reply_markup)
+        return FakeMessage(chat_id=chat_id, message_id=1)

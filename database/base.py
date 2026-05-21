@@ -11,8 +11,9 @@ class Base(DeclarativeBase):
 
 
 # Для SQLite: создать директорию файла БД, если её нет
-_db_path = Path(CONFIG.database.path)
-_db_path.parent.mkdir(parents=True, exist_ok=True)
+if not CONFIG.database.host:
+    _db_path = Path(CONFIG.database.path)
+    _db_path.parent.mkdir(parents=True, exist_ok=True)
 
 engine = create_async_engine(
     CONFIG.database.url,

@@ -24,14 +24,24 @@ class BotConfig:
 
 @dataclass
 class DatabaseConfig:
-    """Путь к файлу SQLite (например data/bot.sqlite или /app/data/bot.sqlite в Docker)."""
+    """Путь к файлу SQLite или параметры подключения к PostgreSQL."""
     path: str
+    host: str = None
+    port: str = None
+    user: str = None
+    password: str = None
+    name: str = None
 
     @property
     def url(self) -> str:
-        """Возвращает URL для подключения к SQLite (async через aiosqlite)."""
-        p = normpath(self.path).replace("\\", "/")
-        return f"sqlite+aiosqlite:///{p}"
+        """Возвращает URL для подключения к БД (SQLite или PostgreSQL)."""
+        if self.host:
+            # Использовать PostgreSQL (asyncpg)
+            return f"postgresql+asyncpg://{self.user}:{self.password}@{self.host}:{self.port}/{self.name}"
+        else:
+            # Использовать SQLite (aiosqlite)
+            p = normpath(self.path).replace("\\", "/")
+            return f"sqlite+aiosqlite:///{p}"
 
 
 @dataclass
@@ -55,6 +65,11 @@ CONFIG = Config(
     ),
     database=DatabaseConfig(
         path=normpath(getenv("DB_PATH", "data/bot.sqlite")),
+        host=getenv("DB_HOST"),
+        port=getenv("DB_PORT", "5432"),
+        user=getenv("DB_USER"),
+        password=getenv("DB_PASSWORD"),
+        name=getenv("DB_NAME"),
     ),
     storage=StorageConfig(
         root=normpath(getenv("STORAGE_PATH", "storage")),

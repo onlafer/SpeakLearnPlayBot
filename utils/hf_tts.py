@@ -1,11 +1,27 @@
 import os
 import io
 import asyncio
-import torch
-import soundfile as sf
-import numpy as np
 import re
-from f5_tts.api import F5TTS
+
+try:
+    import torch
+except ImportError:
+    torch = None
+
+try:
+    import soundfile as sf
+except ImportError:
+    sf = None
+
+try:
+    import numpy as np
+except ImportError:
+    np = None
+
+try:
+    from f5_tts.api import F5TTS
+except ImportError:
+    F5TTS = None
 
 try:
     from ruaccent import RUAccent
@@ -36,24 +52,27 @@ _accentizer_instance = None
 # Apply a global patch to f5_tts to fix duration calculation when stress marks are present.
 # The library uses len(text.encode("utf-8")) which counts '+' and accents, 
 # but these don't add to audio duration, causing tensor size mismatches.
-import f5_tts.infer.utils_infer as utils_infer
-_original_len = len
+try:
+    import f5_tts.infer.utils_infer as utils_infer
+    _original_len = len
 
-def _patched_len(obj):
-    if isinstance(obj, bytes):
-        try:
-            # Try to decode and remove stress marks for length calculation
-            s = obj.decode('utf-8')
-            if '+' in s or '\u0301' in s or '\u0300' in s:
-                # Remove common stress marks used in Russian TTS
-                s_clean = s.replace('+', '').replace('\u0301', '').replace('\u0300', '')
-                return _original_len(s_clean.encode('utf-8'))
-        except Exception:
-            pass
-    return _original_len(obj)
+    def _patched_len(obj):
+        if isinstance(obj, bytes):
+            try:
+                # Try to decode and remove stress marks for length calculation
+                s = obj.decode('utf-8')
+                if '+' in s or '\u0301' in s or '\u0300' in s:
+                    # Remove common stress marks used in Russian TTS
+                    s_clean = s.replace('+', '').replace('\u0301', '').replace('\u0300', '')
+                    return _original_len(s_clean.encode('utf-8'))
+            except Exception:
+                pass
+        return _original_len(obj)
 
-# Inject the patched len into the library's namespace
-utils_infer.len = _patched_len
+    # Inject the patched len into the library's namespace
+    utils_infer.len = _patched_len
+except ImportError:
+    utils_infer = None
 
 
 def _patch_ruaccent_onnx(accentizer):
@@ -154,6 +173,9 @@ def get_f5tts():
     Loads the model on the first call.
     """
     global _f5tts_instance
+    if F5TTS is None or torch is None:
+        raise RuntimeError("F5-TTS is disabled because torch or f5-tts is not installed.")
+        
     if _f5tts_instance is None:
         print("Loading local F5-TTS Russian model...")
         # Check if files exist
@@ -216,6 +238,10 @@ async def async_text_to_speech_f5(text: str, voice: str = "male", use_accent: bo
     Supported voices: 'male', 'female'.
     Handles long texts by splitting them into chunks.
     """
+    if F5TTS is None or torch is None or sf is None or np is None:
+        print("Warning: F5-TTS or its dependencies are not installed. Speech generation disabled.")
+        return None
+
     def _generate() -> io.BytesIO | None:
         try:
             # 0. Select voice config
