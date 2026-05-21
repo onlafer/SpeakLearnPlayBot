@@ -232,5 +232,13 @@
   "nav_prev": "⬅️ Anterior",
   "nav_next": "Siguiente ➡️",
   "nav_menu": "📋 Menú",
-  "wait_thinking": "⏳ ¡Por favor, espera, todavía estoy procesando el mensaje anterior!"
+  "wait_thinking": "⏳ ¡Por favor, espera, todavía estoy procesando el mensaje anterior!",
+  "game_reading_name": "📖 Comprensión lectora",
+  "game_reading_skip": "⏭️ Saltar",
+  "game_reading_instruction": "Escribe tu respuesta en ruso (o en el idioma del texto).",
+  "game_reading_correct": "✅ ¡Correcto!",
+  "game_reading_wrong": "❌ Incorrecto. Respuesta correcta: {correct}",
+  "game_reading_skipped": "Pregunta saltada.",
+  "game_reading_resume": "¡Continuemos con la comprensión lectora!",
+  "game_reading_end": "🎉 ¡Juego terminado! Tu puntuación: {score}/{total}"
 }

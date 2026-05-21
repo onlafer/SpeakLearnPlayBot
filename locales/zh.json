@@ -232,5 +232,13 @@
   "nav_prev": "⬅️ 上一页",
   "nav_next": "下一页 ➡️",
   "nav_menu": "📋 菜单",
-  "wait_thinking": "⏳ 请稍候，我还在处理前一条消息！"
+  "wait_thinking": "⏳ 请稍候，我还在处理前一条消息！",
+  "game_reading_name": "📖 阅读理解",
+  "game_reading_skip": "⏭️ 跳过",
+  "game_reading_instruction": "请用俄语（或课文语言）输入答案。",
+  "game_reading_correct": "✅ 正确！",
+  "game_reading_wrong": "❌ 错误。正确答案：{correct}",
+  "game_reading_skipped": "已跳过问题。",
+  "game_reading_resume": "让我们继续阅读理解！",
+  "game_reading_end": "🎉 游戏结束！你的得分：{score}/{total}"
 }

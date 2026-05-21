@@ -232,5 +232,13 @@
   "nav_prev": "⬅️ قبلی",
   "nav_next": "بعدی ➡️",
   "nav_menu": "📋 منو",
-  "wait_thinking": "⏳ لطفاً منتظر بمانید، هنوز در حال پردازش پیام قبلی هستم!"
+  "wait_thinking": "⏳ لطفاً منتظر بمانید، هنوز در حال پردازش پیام قبلی هستم!",
+  "game_reading_name": "📖 درک مطلب",
+  "game_reading_skip": "⏭️ رد کردن",
+  "game_reading_instruction": "پاسخ خود را به روسی (یا زبان متن) بنویسید.",
+  "game_reading_correct": "✅ درست!",
+  "game_reading_wrong": "❌ نادرست. پاسخ صحیح: {correct}",
+  "game_reading_skipped": "سوال رد شد.",
+  "game_reading_resume": "بیایید درک مطلب را ادامه دهیم!",
+  "game_reading_end": "🎉 بازی تمام شد! امتیاز شما: {score}/{total}"
 }

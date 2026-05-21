@@ -6,6 +6,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Яблоко",
                 "translations": {
+                    "ru": "Яблоко",
                     "en": "Apple",
                     "ar": "تفاحة",
                     "es": "Manzana",
@@ -19,6 +20,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Хлеб",
                 "translations": {
+                    "ru": "Хлеб",
                     "en": "Bread",
                     "ar": "خبز",
                     "es": "Pan",
@@ -32,6 +34,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Сыр",
                 "translations": {
+                    "ru": "Сыр",
                     "en": "Cheese",
                     "ar": "جبن",
                     "es": "Queso",
@@ -45,6 +48,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Молоко",
                 "translations": {
+                    "ru": "Молоко",
                     "en": "Milk",
                     "ar": "حليب",
                     "es": "Leche",
@@ -58,6 +62,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Вода",
                 "translations": {
+                    "ru": "Вода",
                     "en": "Water",
                     "ar": "ماء",
                     "es": "Agua",
@@ -71,6 +76,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Яйцо",
                 "translations": {
+                    "ru": "Яйцо",
                     "en": "Egg",
                     "ar": "بيضة",
                     "es": "Huevo",
@@ -84,6 +90,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Мясо",
                 "translations": {
+                    "ru": "Мясо",
                     "en": "Meat",
                     "ar": "لحم",
                     "es": "Carne",
@@ -97,6 +104,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Рыба",
                 "translations": {
+                    "ru": "Рыба",
                     "en": "Fish",
                     "ar": "سمك",
                     "es": "Pescado",
@@ -110,6 +118,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Масло",
                 "translations": {
+                    "ru": "Масло",
                     "en": "Butter",
                     "ar": "زبدة",
                     "es": "Mantequilla",
@@ -123,6 +132,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Сахар",
                 "translations": {
+                    "ru": "Сахар",
                     "en": "Sugar",
                     "ar": "سكر",
                     "es": "Azúcar",
@@ -136,6 +146,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Клубника",
                 "translations": {
+                    "ru": "Клубника",
                     "en": "Strawberry",
                     "ar": "فراولة",
                     "es": "Fresa",
@@ -149,6 +160,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Чеснок",
                 "translations": {
+                    "ru": "Чеснок",
                     "en": "Garlic",
                     "ar": "ثوم",
                     "es": "Ajo",
@@ -162,6 +174,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Огурец",
                 "translations": {
+                    "ru": "Огурец",
                     "en": "Cucumber",
                     "ar": "خيار",
                     "es": "Pepino",
@@ -175,6 +188,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Мед",
                 "translations": {
+                    "ru": "Мед",
                     "en": "Honey",
                     "ar": "عسل",
                     "es": "Miel",
@@ -188,6 +202,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Суп",
                 "translations": {
+                    "ru": "Суп",
                     "en": "Soup",
                     "ar": "حساء",
                     "es": "Sopa",
@@ -207,6 +222,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Собака",
                 "translations": {
+                    "ru": "Собака",
                     "en": "Dog",
                     "ar": "كلب",
                     "es": "Perro",
@@ -220,6 +236,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Кошка",
                 "translations": {
+                    "ru": "Кошка",
                     "en": "Cat",
                     "ar": "قطة",
                     "es": "Gato",
@@ -233,6 +250,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Лошадь",
                 "translations": {
+                    "ru": "Лошадь",
                     "en": "Horse",
                     "ar": "حصان",
                     "es": "Caballo",
@@ -246,6 +264,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Лев",
                 "translations": {
+                    "ru": "Лев",
                     "en": "Lion",
                     "ar": "أسد",
                     "es": "León",
@@ -259,6 +278,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Тигр",
                 "translations": {
+                    "ru": "Тигр",
                     "en": "Tiger",
                     "ar": "نمر",
                     "es": "Tigre",
@@ -272,6 +292,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Медведь",
                 "translations": {
+                    "ru": "Медведь",
                     "en": "Bear",
                     "ar": "دب",
                     "es": "Oso",
@@ -285,6 +306,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Лиса",
                 "translations": {
+                    "ru": "Лиса",
                     "en": "Fox",
                     "ar": "ثعلب",
                     "es": "Zorro",
@@ -298,6 +320,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Волк",
                 "translations": {
+                    "ru": "Волк",
                     "en": "Wolf",
                     "ar": "ذئب",
                     "es": "Lobo",
@@ -311,6 +334,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Птица",
                 "translations": {
+                    "ru": "Птица",
                     "en": "Bird",
                     "ar": "طائر",
                     "es": "Pájaro",
@@ -324,6 +348,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Мышь",
                 "translations": {
+                    "ru": "Мышь",
                     "en": "Mouse",
                     "ar": "فأر",
                     "es": "Ratón",
@@ -337,6 +362,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Белка",
                 "translations": {
+                    "ru": "Белка",
                     "en": "Squirrel",
                     "ar": "سنجاب",
                     "es": "Ardilla",
@@ -350,6 +376,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Еж",
                 "translations": {
+                    "ru": "Еж",
                     "en": "Hedgehog",
                     "ar": "قنفذ",
                     "es": "Erizo",
@@ -363,6 +390,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Акула",
                 "translations": {
+                    "ru": "Акула",
                     "en": "Shark",
                     "ar": "قرش",
                     "es": "Tiburón",
@@ -376,6 +404,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Обезьяна",
                 "translations": {
+                    "ru": "Обезьяна",
                     "en": "Monkey",
                     "ar": "قرد",
                     "es": "Mono",
@@ -395,6 +424,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Солнце",
                 "translations": {
+                    "ru": "Солнце",
                     "en": "Sun",
                     "ar": "شمس",
                     "es": "Sol",
@@ -408,6 +438,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Луна",
                 "translations": {
+                    "ru": "Луна",
                     "en": "Moon",
                     "ar": "قمر",
                     "es": "Luna",
@@ -421,6 +452,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Небо",
                 "translations": {
+                    "ru": "Небо",
                     "en": "Sky",
                     "ar": "سماء",
                     "es": "Cielo",
@@ -434,6 +466,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Дерево",
                 "translations": {
+                    "ru": "Дерево",
                     "en": "Tree",
                     "ar": "شجرة",
                     "es": "Árbol",
@@ -447,6 +480,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Река",
                 "translations": {
+                    "ru": "Река",
                     "en": "River",
                     "ar": "نهر",
                     "es": "Río",
@@ -460,6 +494,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Гора",
                 "translations": {
+                    "ru": "Гора",
                     "en": "Mountain",
                     "ar": "جبل",
                     "es": "Montaña",
@@ -473,6 +508,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Дождь",
                 "translations": {
+                    "ru": "Дождь",
                     "en": "Rain",
                     "ar": "مطر",
                     "es": "Lluvia",
@@ -486,6 +522,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Снег",
                 "translations": {
+                    "ru": "Снег",
                     "en": "Snow",
                     "ar": "ثلج",
                     "es": "Nieve",
@@ -499,6 +536,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Цветок",
                 "translations": {
+                    "ru": "Цветок",
                     "en": "Flower",
                     "ar": "زهرة",
                     "es": "Flor",
@@ -512,6 +550,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Радуга",
                 "translations": {
+                    "ru": "Радуга",
                     "en": "Rainbow",
                     "ar": "قوس قزح",
                     "es": "Arcoíris",
@@ -525,6 +564,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Туман",
                 "translations": {
+                    "ru": "Туман",
                     "en": "Fog",
                     "ar": "ضباب",
                     "es": "Niebla",
@@ -538,6 +578,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Молния",
                 "translations": {
+                    "ru": "Молния",
                     "en": "Lightning",
                     "ar": "برق",
                     "es": "Rayo",
@@ -557,6 +598,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Рубашка",
                 "translations": {
+                    "ru": "Рубашка",
                     "en": "Shirt",
                     "ar": "قميص",
                     "es": "Camisa",
@@ -570,6 +612,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Платье",
                 "translations": {
+                    "ru": "Платье",
                     "en": "Dress",
                     "ar": "فستان",
                     "es": "Vestido",
@@ -583,6 +626,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Брюки",
                 "translations": {
+                    "ru": "Брюки",
                     "en": "Pants",
                     "ar": "بنطلون",
                     "es": "Pantalones",
@@ -596,6 +640,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Обувь",
                 "translations": {
+                    "ru": "Обувь",
                     "en": "Shoes",
                     "ar": "حذاء",
                     "es": "Zapatos",
@@ -609,6 +654,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Шляпа",
                 "translations": {
+                    "ru": "Шляпа",
                     "en": "Hat",
                     "ar": "قبعة",
                     "es": "Sombrero",
@@ -622,6 +668,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Куртка",
                 "translations": {
+                    "ru": "Куртка",
                     "en": "Jacket",
                     "ar": "سترة",
                     "es": "Chaqueta",
@@ -635,6 +682,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Носки",
                 "translations": {
+                    "ru": "Носки",
                     "en": "Socks",
                     "ar": "جوارب",
                     "es": "Calcetines",
@@ -648,6 +696,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Шарф",
                 "translations": {
+                    "ru": "Шарф",
                     "en": "Scarf",
                     "ar": "وشاح",
                     "es": "Bufanda",
@@ -661,6 +710,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Перчатки",
                 "translations": {
+                    "ru": "Перчатки",
                     "en": "Gloves",
                     "ar": "قفازات",
                     "es": "Guantes",
@@ -674,6 +724,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Ремень",
                 "translations": {
+                    "ru": "Ремень",
                     "en": "Belt",
                     "ar": "حزام",
                     "es": "Cinturón",
@@ -687,6 +738,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Юбка",
                 "translations": {
+                    "ru": "Юбка",
                     "en": "Skirt",
                     "ar": "تنورة",
                     "es": "Falda",
@@ -706,6 +758,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Дом",
                 "translations": {
+                    "ru": "Дом",
                     "en": "House",
                     "ar": "منزل",
                     "es": "Casa",
@@ -719,6 +772,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Комната",
                 "translations": {
+                    "ru": "Комната",
                     "en": "Room",
                     "ar": "غرفة",
                     "es": "Habitación",
@@ -732,6 +786,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Кухня",
                 "translations": {
+                    "ru": "Кухня",
                     "en": "Kitchen",
                     "ar": "مطبخ",
                     "es": "Cocina",
@@ -745,6 +800,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Дверь",
                 "translations": {
+                    "ru": "Дверь",
                     "en": "Door",
                     "ar": "باب",
                     "es": "Puerta",
@@ -758,6 +814,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Окно",
                 "translations": {
+                    "ru": "Окно",
                     "en": "Window",
                     "ar": "نافذة",
                     "es": "Ventana",
@@ -771,6 +828,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Стол",
                 "translations": {
+                    "ru": "Стол",
                     "en": "Table",
                     "ar": "طاولة",
                     "es": "Mesa",
@@ -784,6 +842,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Стул",
                 "translations": {
+                    "ru": "Стул",
                     "en": "Chair",
                     "ar": "كرسي",
                     "es": "Silla",
@@ -797,6 +856,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Кровать",
                 "translations": {
+                    "ru": "Кровать",
                     "en": "Bed",
                     "ar": "سرير",
                     "es": "Cama",
@@ -810,6 +870,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Зеркало",
                 "translations": {
+                    "ru": "Зеркало",
                     "en": "Mirror",
                     "ar": "مرآة",
                     "es": "Espejo",
@@ -823,6 +884,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Подушка",
                 "translations": {
+                    "ru": "Подушка",
                     "en": "Pillow",
                     "ar": "وسادة",
                     "es": "Almohada",
@@ -836,6 +898,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Потолок",
                 "translations": {
+                    "ru": "Потолок",
                     "en": "Ceiling",
                     "ar": "سقف",
                     "es": "Techo",
@@ -855,6 +918,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Компьютер",
                 "translations": {
+                    "ru": "Компьютер",
                     "en": "Computer",
                     "ar": "حاسوب",
                     "es": "Computadora",
@@ -868,6 +932,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Телефон",
                 "translations": {
+                    "ru": "Телефон",
                     "en": "Phone",
                     "ar": "هاتف",
                     "es": "Teléfono",
@@ -881,6 +946,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Экран",
                 "translations": {
+                    "ru": "Экран",
                     "en": "Screen",
                     "ar": "شاشة",
                     "es": "Pantalla",
@@ -894,6 +960,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Клавиатура",
                 "translations": {
+                    "ru": "Клавиатура",
                     "en": "Keyboard",
                     "ar": "لوحة مفاتيح",
                     "es": "Teclado",
@@ -907,6 +974,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Мышь",
                 "translations": {
+                    "ru": "Мышь",
                     "en": "Mouse",
                     "ar": "فأرة",
                     "es": "Ratón",
@@ -920,6 +988,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Интернет",
                 "translations": {
+                    "ru": "Интернет",
                     "en": "Internet",
                     "ar": "إنترنت",
                     "es": "Internet",
@@ -933,6 +1002,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Батарея",
                 "translations": {
+                    "ru": "Батарея",
                     "en": "Battery",
                     "ar": "بطارية",
                     "es": "Batería",
@@ -946,6 +1016,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Наушники",
                 "translations": {
+                    "ru": "Наушники",
                     "en": "Headphones",
                     "ar": "سماعات",
                     "es": "Auriculares",
@@ -959,6 +1030,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Зарядка",
                 "translations": {
+                    "ru": "Зарядка",
                     "en": "Charger",
                     "ar": "شاحن",
                     "es": "Cargador",
@@ -972,6 +1044,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Пароль",
                 "translations": {
+                    "ru": "Пароль",
                     "en": "Password",
                     "ar": "كلمة المرور",
                     "es": "Contraseña",
@@ -985,6 +1058,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Кнопка",
                 "translations": {
+                    "ru": "Кнопка",
                     "en": "Button",
                     "ar": "زر",
                     "es": "Botón",
@@ -1004,6 +1078,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Врач",
                 "translations": {
+                    "ru": "Врач",
                     "en": "Doctor",
                     "ar": "طبيب",
                     "es": "Médico",
@@ -1017,6 +1092,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Учитель",
                 "translations": {
+                    "ru": "Учитель",
                     "en": "Teacher",
                     "ar": "معلم",
                     "es": "Maestro",
@@ -1030,6 +1106,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Инженер",
                 "translations": {
+                    "ru": "Инженер",
                     "en": "Engineer",
                     "ar": "مهندس",
                     "es": "Ingeniero",
@@ -1043,6 +1120,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Повар",
                 "translations": {
+                    "ru": "Повар",
                     "en": "Cook",
                     "ar": "طباخ",
                     "es": "Cocinero",
@@ -1056,6 +1134,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Водитель",
                 "translations": {
+                    "ru": "Водитель",
                     "en": "Driver",
                     "ar": "سائق",
                     "es": "Conductor",
@@ -1069,6 +1148,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Художник",
                 "translations": {
+                    "ru": "Художник",
                     "en": "Artist",
                     "ar": "فنان",
                     "es": "Artista",
@@ -1082,6 +1162,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Полицейский",
                 "translations": {
+                    "ru": "Полицейский",
                     "en": "Police Officer",
                     "ar": "شرطي",
                     "es": "Policía",
@@ -1095,6 +1176,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Бухгалтер",
                 "translations": {
+                    "ru": "Бухгалтер",
                     "en": "Accountant",
                     "ar": "محاسب",
                     "es": "Contador",
@@ -1108,6 +1190,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Юрист",
                 "translations": {
+                    "ru": "Юрист",
                     "en": "Lawyer",
                     "ar": "محامي",
                     "es": "Abogado",
@@ -1121,6 +1204,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Пожарный",
                 "translations": {
+                    "ru": "Пожарный",
                     "en": "Firefighter",
                     "ar": "رجل إطفاء",
                     "es": "Bombero",
@@ -1134,6 +1218,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Ученый",
                 "translations": {
+                    "ru": "Ученый",
                     "en": "Scientist",
                     "ar": "عالم",
                     "es": "Científico",
@@ -1153,6 +1238,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Машина",
                 "translations": {
+                    "ru": "Машина",
                     "en": "Car",
                     "ar": "سيارة",
                     "es": "Coche",
@@ -1166,6 +1252,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Автобус",
                 "translations": {
+                    "ru": "Автобус",
                     "en": "Bus",
                     "ar": "حافلة",
                     "es": "Autobús",
@@ -1179,6 +1266,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Поезд",
                 "translations": {
+                    "ru": "Поезд",
                     "en": "Train",
                     "ar": "قطار",
                     "es": "Tren",
@@ -1192,6 +1280,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Самолет",
                 "translations": {
+                    "ru": "Самолет",
                     "en": "Airplane",
                     "ar": "طائرة",
                     "es": "Avión",
@@ -1205,6 +1294,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Велосипед",
                 "translations": {
+                    "ru": "Велосипед",
                     "en": "Bicycle",
                     "ar": "دراجة",
                     "es": "Bicicleta",
@@ -1218,6 +1308,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Лодка",
                 "translations": {
+                    "ru": "Лодка",
                     "en": "Boat",
                     "ar": "قارب",
                     "es": "Barco",
@@ -1231,6 +1322,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Такси",
                 "translations": {
+                    "ru": "Такси",
                     "en": "Taxi",
                     "ar": "سيارة أجرة",
                     "es": "Taxi",
@@ -1244,6 +1336,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Метро",
                 "translations": {
+                    "ru": "Метро",
                     "en": "Subway",
                     "ar": "مترو",
                     "es": "Metro",
@@ -1257,6 +1350,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Вертолет",
                 "translations": {
+                    "ru": "Вертолет",
                     "en": "Helicopter",
                     "ar": "مروحية",
                     "es": "Helicóptero",
@@ -1270,6 +1364,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Мотоцикл",
                 "translations": {
+                    "ru": "Мотоцикл",
                     "en": "Motorcycle",
                     "ar": "دراجة نارية",
                     "es": "Motocicleta",
@@ -1283,6 +1378,7 @@ WORD_DICTIONARIES = [
             {
                 "russian_word": "Светофор",
                 "translations": {
+                    "ru": "Светофор",
                     "en": "Traffic light",
                     "ar": "إشارة مرور",
                     "es": "Semáforo",

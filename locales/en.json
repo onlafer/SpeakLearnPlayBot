@@ -232,5 +232,13 @@
   "nav_prev": "⬅️ Previous",
   "nav_next": "Next ➡️",
   "nav_menu": "📋 Menu",
-  "wait_thinking": "⏳ Please wait, I'm still processing the previous message!"
+  "wait_thinking": "⏳ Please wait, I'm still processing the previous message!",
+  "game_reading_name": "📖 Reading Comprehension",
+  "game_reading_skip": "⏭️ Skip",
+  "game_reading_instruction": "Type your answer in Russian.",
+  "game_reading_correct": "✅ Correct!",
+  "game_reading_wrong": "❌ Wrong. Correct answer: {correct}",
+  "game_reading_skipped": "Question skipped.",
+  "game_reading_resume": "Let's continue reading comprehension!",
+  "game_reading_end": "🎉 Game over! Your score: {score}/{total}"
 }

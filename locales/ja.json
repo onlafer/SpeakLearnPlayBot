@@ -232,5 +232,13 @@
   "nav_prev": "⬅️ 前へ",
   "nav_next": "次へ ➡️",
   "nav_menu": "📋 メニュー",
-  "wait_thinking": "⏳ 前のメッセージを処理中です。しばらくお待ちください！"
+  "wait_thinking": "⏳ 前のメッセージを処理中です。しばらくお待ちください！",
+  "game_reading_name": "📖 読解問題",
+  "game_reading_skip": "⏭️ スキップ",
+  "game_reading_instruction": "ロシア語（またはテキストの言語）で回答してください。",
+  "game_reading_correct": "✅ 正解！",
+  "game_reading_wrong": "❌ 不正解。正しい答え: {correct}",
+  "game_reading_skipped": "質問をスキップしました。",
+  "game_reading_resume": "読解問題を続けましょう！",
+  "game_reading_end": "🎉 ゲーム終了！あなたのスコア: {score}/{total}"
 }

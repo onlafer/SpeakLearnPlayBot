@@ -232,5 +232,13 @@
   "nav_prev": "⬅️ Trước",
   "nav_next": "Sau ➡️",
   "nav_menu": "📋 Thực đơn",
-  "wait_thinking": "⏳ Vui lòng đợi, tôi vẫn đang xử lý tin nhắn trước đó!"
+  "wait_thinking": "⏳ Vui lòng đợi, tôi vẫn đang xử lý tin nhắn trước đó!",
+  "game_reading_name": "📖 Đọc hiểu",
+  "game_reading_skip": "⏭️ Bỏ qua",
+  "game_reading_instruction": "Nhập câu trả lời bằng tiếng Nga (hoặc ngôn ngữ của văn bản).",
+  "game_reading_correct": "✅ Đúng!",
+  "game_reading_wrong": "❌ Sai. Đáp án đúng: {correct}",
+  "game_reading_skipped": "Đã bỏ qua câu hỏi.",
+  "game_reading_resume": "Hãy tiếp tục phần đọc hiểu!",
+  "game_reading_end": "🎉 Trò chơi kết thúc! Điểm của bạn: {score}/{total}"
 }

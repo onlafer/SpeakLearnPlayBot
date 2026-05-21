@@ -6,6 +6,7 @@ VERB_ASPECT_QUESTIONS = [
         "correct_answer": "читаю",
         "explanation": {
             "en": "'Каждый день' (Every day) indicates a regular, repeated action (Imperfective).",
+            "ru": "«Каждый день» указывает на регулярное, повторяющееся действие (НСВ).",
             "es": "'Каждый день' (Cada día) indica una acción regular y repetida (Imperfectivo).",
             "fr": "'Каждый день' (Chaque jour) indique une action régulière et répétée (Imperfectif).",
             "ar": "'Каждый день' (كل يوم) تشير إلى عمل منتظم ومتكرر (غير تام).",
@@ -22,6 +23,7 @@ VERB_ASPECT_QUESTIONS = [
         "correct_answer": "прочитал",
         "explanation": {
             "en": "'Наконец' (finally) points to the completion of the action (Perfective).",
+            "ru": "«Наконец» указывает на завершение и результат действия (СВ).",
             "es": "'Наконец' (por fin) señala la finalización de la acción (Perfectivo).",
             "fr": "'Наконец' (enfin) indique l'achèvement de l'action (Perfectif).",
             "ar": "'Наконец' (أخيراً) تشير إلى اكتمال العمل (تام).",
@@ -38,6 +40,7 @@ VERB_ASPECT_QUESTIONS = [
         "correct_answer": "повторю",
         "explanation": {
             "en": "'К трём часам' (by three o'clock) specifies a deadline for completion (Perfective).",
+            "ru": "«К трём часам» указывает на крайний срок выполнения действия (СВ).",
             "es": "'К трём часам' (para las tres) especifica una fecha límite (Perfectivo).",
             "fr": "'К трём часам' (pour trois heures) spécifie une date limite (Perfectif).",
             "ar": "'К трём часам' (بحلول الساعة الثالثة) تحدد موعداً نهائياً للإنجاز (تام).",
@@ -54,6 +57,7 @@ VERB_ASPECT_QUESTIONS = [
         "correct_answer": "работаю",
         "explanation": {
             "en": "The present tense describes an ongoing action (Imperfective).",
+            "ru": "Настоящее время описывает развивающееся действие в процессе (НСВ).",
             "es": "El tiempo presente describe una acción en curso (Imperfectivo).",
             "fr": "Le présent décrit une action en cours (Imperfectif)." ,
             "ar": "الزمن الحاضر يصف عملاً مستمراً (غير تام).",
@@ -70,6 +74,7 @@ VERB_ASPECT_QUESTIONS = [
         "correct_answer": "занимается",
         "explanation": {
             "en": "'Обычно' (usually) indicates a regular action in the present (Imperfective).",
+            "ru": "«Обычно» указывает на регулярное действие в настоящем (НСВ).",
             "es": "'Обычно' (usualmente) indica una acción regular (Imperfectivo).",
             "fr": "'Обычно' (d'habitude) indique une action régulière (Imperfectif).",
             "ar": "'Обычно' (عادةً) تشير إلى عمل منتظم (غير تام).",
@@ -86,6 +91,7 @@ VERB_ASPECT_QUESTIONS = [
         "correct_answer": "занимался",
         "explanation": {
             "en": "'Два часа' indicates duration, not a completed result (Imperfective).",
+            "ru": "«Два часа» указывает на длительность, а не на завершенный результат (НСВ).",
             "es": "'Два часа' indica duración, no un resultado completo (Imperfectivo).",
             "fr": "'Два часа' indique la durée, pas un résultat achevé (Imperfectif).",
             "ar": "'Два часа' (ساعتين) تشير إلى المدة، وليس النتيجة المكتملة (غير تام).",
@@ -102,6 +108,7 @@ VERB_ASPECT_QUESTIONS = [
         "correct_answer": "сделал",
         "explanation": {
             "en": "'Уже' (already) indicates the completion of the action (Perfective).",
+            "ru": "«Уже» указывает на завершенность действия (СВ).",
             "es": "'Уже' (ya) indica la finalización de la acción (Perfectivo).",
             "fr": "'Уже' (déjà) indique l'achèvement de l'action (Perfectif).",
             "ar": "'Уже' (بالفعل) تشير إلى اكتمال العمل (تام).",
@@ -118,6 +125,7 @@ VERB_ASPECT_QUESTIONS = [
         "correct_answer": "найду",
         "explanation": {
             "en": "'Обязательно' shows firm intention to achieve a result (Perfective).",
+            "ru": "«Обязательно» выражает твердое намерение достичь результата (СВ).",
             "es": "'Обязательно' muestra la intención firme de lograr un resultado (Perfectivo).",
             "fr": "'Обязательно' montre l'intention ferme d'obtenir un résultat (Perfectif).",
             "ar": "'Обязательно' (بالتأكيد) تظهر نية مؤكدة لتحقيق نتيجة (تام).",
@@ -134,6 +142,7 @@ VERB_ASPECT_QUESTIONS = [
         "correct_answer": "буду изучать",
         "explanation": {
             "en": "Describes a long process in the future (Imperfective Future).",
+            "ru": "Описывает длительный процесс в будущем (будущее время, НСВ).",
             "es": "Describe un proceso largo en el futuro (Futuro Imperfectivo).",
             "fr": "Décrit un long processus dans le futur (Futur Imperfectif).",
             "ar": "يصف عملية طويلة في المستقبل (مستقبل غير تام).",
@@ -150,6 +159,7 @@ VERB_ASPECT_QUESTIONS = [
         "correct_answer": "сделаю",
         "explanation": {
             "en": "Completion of one action before another begins (Perfective).",
+            "ru": "Завершение одного действия до начала другого (СВ).",
             "es": "Finalización de una acción antes de que comience otra (Perfectivo).",
             "fr": "Achèvement d'une action avant qu'une autre ne commence (Perfectif).",
             "ar": "اكتمال عمل واحد قبل بدء عمل آخر (تام).",
@@ -166,6 +176,7 @@ VERB_ASPECT_QUESTIONS = [
         "correct_answer": "смотрю",
         "explanation": {
             "en": "'Каждый раз' (every time) implies repetition (Imperfective).",
+            "ru": "«Каждый раз» указывает на повторяемость (НСВ).",
             "es": "'Каждый раз' (cada vez) implica repetición (Imperfectivo).",
             "fr": "'Каждый раз' (chaque fois) implique la répétition (Imperfectif).",
             "ar": "'Каждый раз' (كل مرة) تعني التكرار (غير تام).",
@@ -182,6 +193,7 @@ VERB_ASPECT_QUESTIONS = [
         "correct_answer": "напишу",
         "explanation": {
             "en": "Completion by a specific future moment (Perfective).",
+            "ru": "Завершение действия к определенному моменту в будущем (СВ).",
             "es": "Finalización en un momento futuro específico (Perfectivo).",
             "fr": "Achèvement à un moment futur spécifique (Perfectif).",
             "ar": "الإنجاز بحلول لحظة مستقبلية محددة (تام).",

@@ -32,3 +32,4 @@ async def get_ai_tutor_response(history: list) -> str:
     except Exception as e:
         print(f"Error calling GigaChat API: {e}")
         return "Sorry, an error occurred while trying to contact the AI assistant. Please try again later."
+

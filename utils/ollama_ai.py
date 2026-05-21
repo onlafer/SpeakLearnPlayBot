@@ -100,3 +100,39 @@ async def preprocess_russian_text_for_tts(text: str) -> str:
         return text
 
     return processed_text
+
+
+async def is_answer_correct(question: str, user_answer: str, expected_answers: list) -> bool:
+    """
+    Checks if the user answer matches expected answers semantically using local Ollama model.
+    """
+    config = get_ollama_config()
+    # Fallback if no model/host config? Just standard procedure.
+    
+    expected_str = ", ".join(f'"{a}"' for a in expected_answers[:3])  # limit to 3 variants
+
+    prompt = f"""Ты — экзаменатор. Твоя задача — проверить правильность ответа студента.
+Вопрос: "{question}"
+Правильные (эталонные) ответы: {expected_str}
+Ответ пользователя: "{user_answer}"
+
+Верен ли ответ пользователя по смыслу, даже если сформулирован немного иначе?
+Ответь ТОЛЬКО одним словом: "да" или "нет"."""
+
+    history = [
+        {"role": "system", "content": "You are an examiner validating user answers. Reply ONLY with 'да' or 'нет'."},
+        {"role": "user", "content": prompt}
+    ]
+
+    try:
+        response = await get_ollama_response(history)
+        answer = response.strip().lower()
+        return "да" in answer.split()[0] or answer.startswith("да")
+    except Exception as e:
+        print(f"Ollama error in is_answer_correct: {e}")
+        # Fallback basic matching
+        user_norm = user_answer.lower().strip()
+        for ans in expected_answers:
+            if ans.lower().strip() == user_norm:
+                return True
+        return False

@@ -27,6 +27,7 @@ from games import (
     texts,
     verb_tests_quiz,
     roleplay_game,
+    reading_comprehension_quiz,
 )
 
 

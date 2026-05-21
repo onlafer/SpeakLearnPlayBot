@@ -232,5 +232,13 @@
   "nav_prev": "⬅️ السابق",
   "nav_next": "التالي ➡️",
   "nav_menu": "📋 القائمة",
-  "wait_thinking": "⏳ يرجى الانتظار، لا أزال أعالج الرسالة السابقة!"
+  "wait_thinking": "⏳ يرجى الانتظار، لا أزال أعالج الرسالة السابقة!",
+  "game_reading_name": "📖 فهم المقروء",
+  "game_reading_skip": "⏭️ تخطي",
+  "game_reading_instruction": "اكتب إجابتك بالروسية (أو بلغة النص).",
+  "game_reading_correct": "✅ صحيح!",
+  "game_reading_wrong": "❌ غير صحيح. الإجابة الصحيحة: {correct}",
+  "game_reading_skipped": "تم تخطي السؤال.",
+  "game_reading_resume": "لنكمل فهم المقروء!",
+  "game_reading_end": "🎉 انتهت اللعبة! نتيجتك: {score}/{total}"
 }

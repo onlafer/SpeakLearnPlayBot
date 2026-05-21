@@ -1,4 +1,4 @@
- {
+{
   "start_new_user_welcome": "Bonjour ! 👋\nBienvenue sur le bot Apprendre le russe 🇷🇺\n\nIci, vous pouvez :\n🧠 Apprendre des mots et des phrases utiles\n🎮 Jouer à des mini-jeux amusants\n🎓 Suivre des leçons courtes et interactives\n🔊 Écouter la prononciation réelle\n\nVeuillez choisir votre langue pour commencer :",
   "start_existing_user_welcome": "⬆️ Améliorons votre russe en discutant\n\nSélectionnez une option dans le menu :",
   "main_menu_title": "📋 Menu principal :",
@@ -232,5 +232,13 @@
   "nav_prev": "⬅️ Précédent",
   "nav_next": "Suivant ➡️",
   "nav_menu": "📋 Menu",
-  "wait_thinking": "⏳ Veuillez patienter, je suis encore en train de traiter le message précédent !"
+  "wait_thinking": "⏳ Veuillez patienter, je suis encore en train de traiter le message précédent !",
+  "game_reading_name": "📖 Compréhension écrite",
+  "game_reading_skip": "⏭️ Passer",
+  "game_reading_instruction": "Écrivez votre réponse en russe (ou dans la langue du texte).",
+  "game_reading_correct": "✅ Correct !",
+  "game_reading_wrong": "❌ Incorrect. Bonne réponse : {correct}",
+  "game_reading_skipped": "Question ignorée.",
+  "game_reading_resume": "Continuons la compréhension écrite !",
+  "game_reading_end": "🎉 Jeu terminé ! Votre score : {score}/{total}"
 }
