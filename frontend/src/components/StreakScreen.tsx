@@ -57,14 +57,23 @@ const StreakScreen: React.FC<StreakScreenProps> = ({ lang, onBack }) => {
   }
 
   if (errorMsg) {
+    const hasTg = typeof window !== 'undefined' && typeof window.Telegram !== 'undefined';
+    const initData = hasTg ? window.Telegram?.WebApp?.initData : '';
+    const initDataUnsafe = hasTg ? JSON.stringify(window.Telegram?.WebApp?.initDataUnsafe, null, 2) : '';
+
     return (
-      <div className="card error" style={{ textAlign: 'center', padding: '2rem' }}>
-        <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>⚠️</div>
-        <h3 style={{ color: '#ff4d4d' }}>{t.error}</h3>
-        <div style={{ margin: '1.5rem 0', background: 'rgba(255,255,255,0.05)', padding: '1rem', borderRadius: '8px', fontSize: '0.9rem', textAlign: 'left' }}>
-          <p style={{ marginBottom: '0.5rem' }}><strong>Details:</strong> {errorMsg}</p>
-          <p style={{ marginBottom: '0.5rem' }}><strong>User ID:</strong> {user.id}</p>
-          <p><strong>API Base URL:</strong> {localStorage.getItem('api_url') || 'Relative (same domain)'}</p>
+      <div className="card error" style={{ textAlign: 'center', padding: '1.5rem' }}>
+        <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>⚠️</div>
+        <h3 style={{ color: '#ff4d4d', marginBottom: '1rem' }}>{t.error}</h3>
+        <div style={{ margin: '1rem 0', background: 'rgba(255,255,255,0.05)', padding: '1rem', borderRadius: '8px', fontSize: '0.85rem', textAlign: 'left', wordBreak: 'break-all', maxHeight: '300px', overflowY: 'auto' }}>
+          <p style={{ marginBottom: '0.5rem' }}><strong>Error Details:</strong> {errorMsg}</p>
+          <p style={{ marginBottom: '0.5rem' }}><strong>Request User ID:</strong> {user.id}</p>
+          <p style={{ marginBottom: '0.5rem' }}><strong>API Base URL:</strong> {localStorage.getItem('api_url') || 'Relative (same domain)'}</p>
+          <p style={{ marginBottom: '0.5rem' }}><strong>Full URL:</strong> {window.location.href}</p>
+          <p style={{ marginBottom: '0.5rem' }}><strong>Telegram Script:</strong> {hasTg ? 'Loaded ✅' : 'Missing ❌'}</p>
+          <p style={{ marginBottom: '0.5rem' }}><strong>InitData:</strong> {initData || 'None'}</p>
+          <p><strong>InitData Unsafe:</strong></p>
+          <pre style={{ background: 'rgba(0,0,0,0.2)', padding: '0.5rem', borderRadius: '4px', fontSize: '0.75rem', overflowX: 'auto', whiteSpace: 'pre-wrap' }}>{initDataUnsafe || 'None'}</pre>
         </div>
         <button onClick={onBack}>{t.back}</button>
       </div>

@@ -33,6 +33,11 @@ from api.schemas import (
     StreakResponse,
 )
 from database.user_manager import user_manager
+import logging
+
+# Set up routing logger
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("api.routes")
 
 router = APIRouter(prefix="/api", tags=["games"])
 
@@ -40,17 +45,37 @@ router = APIRouter(prefix="/api", tags=["games"])
 @router.get("/streak/{user_id}", response_model=StreakResponse)
 async def get_streak(user_id: int):
     """Получить данные о стрике пользователя."""
-    user = await user_manager.get_user(user_id)
-    if not user:
-        # Если пользователя нет, создаём его (или возвращаем 0)
-        user = await user_manager.get_or_create_user(user_id)
+    logger.info(f"[API] Incoming get_streak request for user_id: {user_id} (Type: {type(user_id)})")
     
-    return StreakResponse(
-        user_id=user.user_id,
-        streak_count=user.streak_count,
-        last_activity_date=user.last_activity_date,
-        activity_history=user.activity_history,
-    )
+    try:
+        user = await user_manager.get_user(user_id)
+        if not user:
+            logger.info(f"[API] User {user_id} not found in database. Attempting to create...")
+            user = await user_manager.get_or_create_user(user_id)
+            logger.info(f"[API] Created new user: {user.user_id} with default language: {user.language}")
+        else:
+            logger.info(f"[API] User {user_id} successfully loaded from database.")
+            
+        logger.info(
+            f"[API] Streak data for user {user.user_id}: "
+            f"streak_count={user.streak_count}, "
+            f"last_activity_date={user.last_activity_date}, "
+            f"history_length={len(user.activity_history)}"
+        )
+        
+        response_data = StreakResponse(
+            user_id=user.user_id,
+            streak_count=user.streak_count,
+            last_activity_date=user.last_activity_date,
+            activity_history=user.activity_history,
+        )
+        logger.info(f"[API] Streak response successfully serialized: {response_data.model_dump()}")
+        return response_data
+        
+    except Exception as e:
+        logger.error(f"[API ERROR] Failed to fetch streak for user {user_id}: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
+
 
 
 def _state_from_session(session) -> GameStateSchema | None:
