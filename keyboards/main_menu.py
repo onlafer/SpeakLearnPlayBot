@@ -34,6 +34,15 @@ def get_main_menu(lang: str, session=None) -> InlineKeyboardMarkup:
         )
     ])
 
+    # Extract base web app URL (removing /streak if present) to point to the React games dashboard
+    base_url = CONFIG.bot.webapp_url.replace("/streak", "")
+    buttons.append([
+        InlineKeyboardButton(
+            text="🎮 " + (translator.get_text("play_webapp_button", lang) or "Play in Web App"),
+            web_app=WebAppInfo(url=base_url)
+        )
+    ])
+
     buttons.append([
         InlineKeyboardButton(
             text=translator.get_text("settings_button", lang),

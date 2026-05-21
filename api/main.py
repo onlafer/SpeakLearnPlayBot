@@ -51,13 +51,20 @@ app.add_middleware(
 app.include_router(router)
 
 
-@app.get("/")
-async def root():
-    return {
-        "service": "Speak Learn Play Games API",
-        "docs": "/docs",
-        "api": "/api/games",
-    }
+import os
+
+webapp_dist = "frontend/dist"
+if os.path.exists(webapp_dist):
+    app.mount("/", StaticFiles(directory=webapp_dist, html=True), name="webapp")
+else:
+    @app.get("/")
+    async def root():
+        return {
+            "service": "Speak Learn Play Games API",
+            "docs": "/docs",
+            "api": "/api/games",
+            "message": "React webapp not built. Run 'npm run build' inside frontend to enable it."
+        }
 
 
 if __name__ == "__main__":
