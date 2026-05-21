@@ -12,6 +12,7 @@ const StreakScreen: React.FC<StreakScreenProps> = ({ lang, onBack }) => {
   const { user } = useTelegram();
   const [streakData, setStreakData] = useState<StreakResponse | null>(null);
   const [loading, setLoading] = useState(true);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const translations: Record<string, any> = {
@@ -38,7 +39,10 @@ const StreakScreen: React.FC<StreakScreenProps> = ({ lang, onBack }) => {
   useEffect(() => {
     gamesApi.getStreak(user.id)
       .then(setStreakData)
-      .catch(err => console.error('Failed to get streak', err))
+      .catch(err => {
+        console.error('Failed to get streak', err);
+        setErrorMsg(err.message || String(err));
+      })
       .finally(() => setLoading(false));
   }, [user.id]);
 
@@ -50,6 +54,21 @@ const StreakScreen: React.FC<StreakScreenProps> = ({ lang, onBack }) => {
 
   if (loading) {
     return <div className="card">{t.loading}</div>;
+  }
+
+  if (errorMsg) {
+    return (
+      <div className="card error" style={{ textAlign: 'center', padding: '2rem' }}>
+        <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>⚠️</div>
+        <h3 style={{ color: '#ff4d4d' }}>{t.error}</h3>
+        <div style={{ margin: '1.5rem 0', background: 'rgba(255,255,255,0.05)', padding: '1rem', borderRadius: '8px', fontSize: '0.9rem', textAlign: 'left' }}>
+          <p style={{ marginBottom: '0.5rem' }}><strong>Details:</strong> {errorMsg}</p>
+          <p style={{ marginBottom: '0.5rem' }}><strong>User ID:</strong> {user.id}</p>
+          <p><strong>API Base URL:</strong> {localStorage.getItem('api_url') || 'Relative (same domain)'}</p>
+        </div>
+        <button onClick={onBack}>{t.back}</button>
+      </div>
+    );
   }
 
   if (!streakData) {
