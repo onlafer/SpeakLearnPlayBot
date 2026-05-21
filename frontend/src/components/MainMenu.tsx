@@ -33,6 +33,9 @@ const MainMenu: React.FC<MainMenuProps> = ({ onSelectGame, onContinueGame, onOpe
   useEffect(() => {
     gamesApi.getCurrentSession(user.id)
       .then(setActiveSession)
+      .catch(err => {
+        console.error('[MainMenu] Failed to check active session:', err);
+      })
       .finally(() => setLoading(false));
   }, [user.id]);
 

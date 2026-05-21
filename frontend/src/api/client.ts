@@ -21,6 +21,7 @@ console.log('[API Client] Active Base URL configured:', activeBaseUrl);
 
 const client = axios.create({
   baseURL: activeBaseUrl,
+  timeout: 10000, // 10 seconds timeout
 });
 
 // Add Request interceptor for logging

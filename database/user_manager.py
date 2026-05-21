@@ -72,7 +72,7 @@ class UserManager:
             user.last_activity_date = today
             
             # Добавляем в историю
-            history = list(user.activity_history)
+            history = list(user.activity_history or [])
             if today not in history:
                 history.append(today)
                 # Ограничиваем историю 365 днями
@@ -98,7 +98,10 @@ class UserManager:
                 new_user = UserModel(
                     user_id=user_id,
                     language=language,
-                    created_at=int(time.time())
+                    created_at=int(time.time()),
+                    streak_count=0,
+                    last_activity_date=None,
+                    activity_history=[]
                 )
                 db_session.add(new_user)
                 await db_session.commit()

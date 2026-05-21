@@ -56,18 +56,19 @@ async def get_streak(user_id: int):
         else:
             logger.info(f"[API] User {user_id} successfully loaded from database.")
             
+        history = user.activity_history or []
         logger.info(
             f"[API] Streak data for user {user.user_id}: "
             f"streak_count={user.streak_count}, "
             f"last_activity_date={user.last_activity_date}, "
-            f"history_length={len(user.activity_history)}"
+            f"history_length={len(history)}"
         )
         
         response_data = StreakResponse(
             user_id=user.user_id,
             streak_count=user.streak_count,
             last_activity_date=user.last_activity_date,
-            activity_history=user.activity_history,
+            activity_history=history,
         )
         logger.info(f"[API] Streak response successfully serialized: {response_data.model_dump()}")
         return response_data
