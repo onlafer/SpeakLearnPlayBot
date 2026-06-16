@@ -206,3 +206,41 @@ button:focus-visible {
 .calendar-grid-day.today {
   box-shadow: inset 0 0 0 2px var(--tg-theme-link-color, #6366f1);
 }
+
+.back-button {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: var(--tg-theme-secondary-bg-color, #1e293b);
+  color: var(--tg-theme-text-color, #e2e8f0);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+  background: var(--tg-theme-button-color, #334155);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.back-button:hover .back-arrow-svg {
+  transform: translateX(-4px);
+}
+
+.back-arrow-svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+}
+

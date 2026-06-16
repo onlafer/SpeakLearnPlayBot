@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speak Learn Play — Моя Активность / Streak Preview</title>
+    <!-- Подключаем современный шрифт Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            font-weight: 400;
+            color-scheme: dark;
+            color: rgba(255, 255, 255, 0.87);
+            background-color: #0f172a; /* Глубокий темно-синий премиальный фон */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 32px;
+            padding: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+        }
+
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: left;
+        }
+
+        /* Кнопка переключения языка */
+        .lang-toggle {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-toggle:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: scale(1.05);
+        }
+
+        /* Streak Card (Карточка Стрика с огнем) */
+        .streak-badge-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border-radius: 24px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .streak-badge-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f97316, #fbbf24);
+        }
+
+        .streak-fire-icon {
+            font-size: 64px;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 0 15px rgba(249, 115, 22, 0.6));
+            animation: pulse 2s infinite;
+            display: inline-block;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 12px rgba(249, 115, 22, 0.5)); }
+            50% { transform: scale(1.08); filter: drop-shadow(0 0 25px rgba(249, 115, 22, 0.9)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 12px rgba(249, 115, 22, 0.5)); }
+        }
+
+        .streak-badge-count {
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1;
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .streak-badge-label {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-top: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* Calendar Card */
+        .calendar-badge-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .calendar-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-nav-month {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #f8fafc;
+        }
+
+        .calendar-nav-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-arrow-btn {
+            background: #334155;
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .nav-arrow-btn:hover {
+            background: #475569;
+            transform: translateY(-2px);
+        }
+
+        .calendar-days-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            text-align: center;
+        }
+
+        .calendar-grid-weekday {
+            color: #64748b;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .calendar-grid-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.03);
+            color: #e2e8f0;
+        }
+
+        .calendar-grid-day:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: scale(1.05);
+        }
+
+        /* Активный день (есть стрик) */
+        .calendar-grid-day.active {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            font-weight: 800;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+            transform: scale(1.05);
+        }
+
+        .calendar-grid-day.active:hover {
+            filter: brightness(1.1);
+        }
+
+        /* Другой месяц */
+        .calendar-grid-day.other-month {
+            opacity: 0.15;
+            cursor: default;
+        }
+        
+        .calendar-grid-day.other-month:hover {
+            background: rgba(255, 255, 255, 0.03);
+            transform: none;
+        }
+
+        /* Сегодняшний день */
+        .calendar-grid-day.today {
+            box-shadow: inset 0 0 0 2px #6366f1;
+        }
+
+        /* Премиальная кнопка "Назад в меню" с SVG стрелкой и микро-анимацией */
+        .back-button {
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 14px 28px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .back-button:hover {
+            background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .back-button:hover .back-arrow-svg {
+            transform: translateX(-4px);
+        }
+
+        .back-arrow-svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-section">
+        <h2 id="screen-title">Моя активность</h2>
+        <button class="lang-toggle" onclick="toggleLanguage()" id="lang-btn">EN</button>
+    </div>
+    
+    <!-- Карточка Стрика -->
+    <div class="streak-badge-card">
+        <div class="streak-fire-icon">🔥</div>
+        <div class="streak-badge-count" id="streak-count">7</div>
+        <div class="streak-badge-label" id="streak-label">дней подряд</div>
+    </div>
+
+    <!-- Календарь -->
+    <div class="calendar-badge-card">
+        <div class="calendar-nav-header">
+            <div class="calendar-nav-month" id="month-name">Май 2026</div>
+            <div class="calendar-nav-buttons">
+                <button class="nav-arrow-btn" onclick="changeMonth(-1)">←</button>
+                <button class="nav-arrow-btn" onclick="changeMonth(1)">→</button>
+            </div>
+        </div>
+
+        <div class="calendar-days-grid" id="calendar-grid">
+            <!-- Дни недели и числа будут сгенерированы скриптом -->
+        </div>
+    </div>
+
+    <!-- Обновленная кнопка с анимированной SVG-стрелкой -->
+    <button class="back-button" id="back-btn-container" onclick="alert('Переход назад...')">
+        <svg class="back-arrow-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span id="back-text">Назад в меню</span>
+    </button>
+</div>
+
+<script>
+    // Текущий язык ('ru' или 'en')
+    let currentLang = 'ru';
+    
+    // Имитируем активные дни (когда пользователь занимался)
+    // Формат: YYYY-MM-DD
+    const activeDays = new Set([
+        "2026-05-21", // Сегодня
+        "2026-05-20",
+        "2026-05-19",
+        "2026-05-18",
+        "2026-05-17",
+        "2026-05-16",
+        "2026-05-15", // Стрик в 7 дней
+        "2026-05-10",
+        "2026-05-09",
+        "2026-05-04",
+        "2026-05-03",
+        "2026-04-30",
+        "2026-04-29"
+    ]);
+
+    // Календарная дата для просмотра
+    let viewDate = new Date(2026, 4, 21); // Май 2026 года
+
+    // Словари локализации
+    const translations = {
+        en: {
+            title: 'My Activity',
+            daysConsecutive: 'days in a row',
+            back: 'Back to Menu',
+            weekdays: ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'],
+            months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+        },
+        ru: {
+            title: 'Моя активность',
+            daysConsecutive: 'дней подряд',
+            back: 'Назад в меню',
+            weekdays: ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'],
+            months: ['Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь', 'Январь', 'Февраль', 'Март', 'Апрель'] // Сдвинуто для отображения
+        }
+    };
+
+    // Функция получения правильного месяца на русском
+    function getMonthYearString(date, lang) {
+        const year = date.getFullYear();
+        const monthIndex = date.getMonth();
+        
+        if (lang === 'ru') {
+            const ruMonths = [
+                'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 
+                'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+            ];
+            return `${ruMonths[monthIndex]} ${year}`;
+        } else {
+            const enMonths = [
+                'January', 'February', 'March', 'April', 'May', 'June', 
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+            return `${enMonths[monthIndex]} ${year}`;
+        }
+    }
+
+    function renderCalendar() {
+        const t = translations[currentLang];
+        
+        // Обновляем текстовые метки
+        document.getElementById('screen-title').textContent = t.title;
+        document.getElementById('streak-label').textContent = t.daysConsecutive;
+        document.getElementById('back-text').textContent = t.back;
+        document.getElementById('month-name').textContent = getMonthYearString(viewDate, currentLang);
+        
+        const grid = document.getElementById('calendar-grid');
+        grid.innerHTML = '';
+        
+        // Добавляем дни недели
+        t.weekdays.forEach(wd => {
+            const cell = document.createElement('div');
+            cell.className = 'calendar-grid-weekday';
+            cell.textContent = wd;
+            grid.appendChild(cell);
+        });
+        
+        const year = viewDate.getFullYear();
+        const month = viewDate.getMonth();
+        
+        const firstDay = new Date(year, month, 1);
+        const lastDay = new Date(year, month + 1, 0);
+        
+        // Вычисляем индекс дня недели (0 = Понедельник, 6 = Воскресенье)
+        let startDayIndex = firstDay.getDay() - 1;
+        if (startDayIndex === -1) startDayIndex = 6;
+        
+        const prevLastDay = new Date(year, month, 0).getDate();
+        
+        // Сегодняшний день (жестко зафиксирован для демонстрации)
+        const todayStr = "2026-05-21";
+        
+        // 1. Добавляем дни предыдущего месяца для заполнения сетки
+        for (let i = startDayIndex - 1; i >= 0; i--) {
+            const cell = document.createElement('div');
+            cell.className = 'calendar-grid-day other-month';
+            cell.textContent = prevLastDay - i;
+            grid.appendChild(cell);
+        }
+        
+        // 2. Добавляем дни текущего месяца
+        for (let i = 1; i <= lastDay.getDate(); i++) {
+            const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+            const cell = document.createElement('div');
+            
+            let classes = 'calendar-grid-day';
+            if (activeDays.has(dateStr)) classes += ' active';
+            if (dateStr === todayStr) classes += ' today';
+            
+            cell.className = classes;
+            cell.textContent = i;
+            
+            // Клик по дню для интерактивности (переключаем активность дня!)
+            cell.onclick = () => {
+                if (activeDays.has(dateStr)) {
+                    activeDays.delete(dateStr);
+                } else {
+                    activeDays.add(dateStr);
+                }
+                // Пересчитываем стрик для красоты
+                recalculateStreak();
+                renderCalendar();
+            };
+            
+            grid.appendChild(cell);
+        }
+        
+        // 3. Заполняем сетку до конца
+        const totalCells = startDayIndex + lastDay.getDate();
+        const remaining = 42 - totalCells;
+        const nextMonthPadding = remaining > 7 ? remaining - 7 : remaining;
+        for (let i = 1; i <= nextMonthPadding; i++) {
+            const cell = document.createElement('div');
+            cell.className = 'calendar-grid-day other-month';
+            cell.textContent = i;
+            grid.appendChild(cell);
+        }
+    }
+
+    function changeMonth(delta) {
+        viewDate.setMonth(viewDate.getMonth() + delta);
+        renderCalendar();
+    }
+
+    function toggleLanguage() {
+        if (currentLang === 'ru') {
+            currentLang = 'en';
+            document.getElementById('lang-btn').textContent = 'RU';
+        } else {
+            currentLang = 'ru';
+            document.getElementById('lang-btn').textContent = 'EN';
+        }
+        renderCalendar();
+    }
+
+    function recalculateStreak() {
+        // Простой пересчет стрика назад от сегодняшнего дня 2026-05-21
+        let count = 0;
+        let checkDate = new Date(2026, 4, 21);
+        
+        while (true) {
+            const dateStr = `${checkDate.getFullYear()}-${String(checkDate.getMonth() + 1).padStart(2, '0')}-${String(checkDate.getDate()).padStart(2, '0')}`;
+            if (activeDays.has(dateStr)) {
+                count++;
+                checkDate.setDate(checkDate.getDate() - 1);
+            } else {
+                break;
+            }
+        }
+        document.getElementById('streak-count').textContent = count;
+    }
+
+    // Инициализация
+    recalculateStreak();
+    renderCalendar();
+</script>
+
+</body>
+</html>

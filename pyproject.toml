@@ -25,6 +25,7 @@ dependencies = [
     "torchaudio>=2.5.1",
     "ruaccent>=1.4.0",
     "ngrok>=1.7.0",
+    "faster-whisper>=1.2.1",
 ]
 
 [[tool.uv.index]]

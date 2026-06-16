@@ -1,6 +1,7 @@
 ACCUSATIVE_CASE_QUESTIONS = [
     {
         "level": "game_ac_lvl_nouns",
+        "pos": "nouns",
         "text": "1. Я читаю интересную ... . (книга)",
         "options": ["книгой", "книге", "книгу"],
         "correct_answer": "книгу",
@@ -18,6 +19,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_ac_lvl_nouns",
+        "pos": "nouns",
         "text": "2. Он любит свою ... . (работа)",
         "options": ["работу", "работе", "работой"],
         "correct_answer": "работу",
@@ -35,6 +37,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_ac_lvl_nouns",
+        "pos": "nouns",
         "text": "3. Мы ждём ... . (гости)",
         "options": ["гостем", "гостям", "гостей"],
         "correct_answer": "гостей",
@@ -52,6 +55,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_ac_lvl_nouns",
+        "pos": "nouns",
         "text": "4. Ты видишь этот ... ? (дом)",
         "options": ["домой", "дом", "домом"],
         "correct_answer": "дом",
@@ -69,6 +73,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_ac_lvl_nouns",
+        "pos": "nouns",
         "text": "5. Дети слушают ... . (сказка)",
         "options": ["сказку", "сказкой", "сказке"],
         "correct_answer": "сказку",
@@ -86,6 +91,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_ac_lvl_nouns",
+        "pos": "nouns",
         "text": "6. Он знает этого ... . (человек)",
         "options": ["человеком", "человеку", "человека"],
         "correct_answer": "человека",
@@ -101,9 +107,9 @@ ACCUSATIVE_CASE_QUESTIONS = [
             "zh": "对于有生命阳性名词，第四格（对格）的词尾与第二格（生格）相同（-а）。"
         }
     },
-
     {
         "level": "game_ac_lvl_direction",
+        "pos": "nouns",
         "text": "1. Я кладу ключи ... . (сумка)",
         "options": ["в сумку", "в сумке", "в сумку"],
         "correct_answer": "в сумку",
@@ -121,6 +127,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_ac_lvl_direction",
+        "pos": "nouns",
         "text": "2. Он переводит текст ... . (тетрадь)",
         "options": ["в тетрадь", "в тетради", "тетрадь"],
         "correct_answer": "в тетрадь",
@@ -138,6 +145,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_ac_lvl_direction",
+        "pos": "nouns",
         "text": "3. Мы покупаем молоко ... . (магазин)",
         "options": ["в магазин", "в магазине", "магазин"],
         "correct_answer": "в магазин",
@@ -155,6 +163,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_ac_lvl_direction",
+        "pos": "nouns",
         "text": "4. Ты положишь письмо ... ? (стол)",
         "options": ["на стол", "на столе", "стол"],
         "correct_answer": "на стол",
@@ -172,6 +181,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_ac_lvl_direction",
+        "pos": "nouns",
         "text": "5. Она отправляет посылку ... . (Москва)",
         "options": ["в Москва", "в Москве", "в Москву"],
         "correct_answer": "в Москву",
@@ -187,9 +197,9 @@ ACCUSATIVE_CASE_QUESTIONS = [
             "zh": "表示去往某个城市：使用“в”+ 第四格（对格，Москву）。"
         }
     },
-
     {
         "level": "game_ac_lvl_time",
+        "pos": "nouns",
         "text": "1. Я изучаю новые слова ... . (каждый вечер)",
         "options": ["каждый вечер", "каждым вечером", "каждого вечера"],
         "correct_answer": "каждый вечер",
@@ -207,6 +217,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_ac_lvl_time",
+        "pos": "nouns",
         "text": "2. Мы слушаем радио ... . (каждое утро)",
         "options": ["каждое утро", "каждым утром", "каждого утра"],
         "correct_answer": "каждое утро",
@@ -224,6 +235,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_ac_lvl_time",
+        "pos": "nouns",
         "text": "3. Ты читаешь газету ... ? (каждая суббота)",
         "options": ["каждую субботу", "каждой субботой", "каждой субботы"],
         "correct_answer": "каждую субботу",
@@ -239,9 +251,9 @@ ACCUSATIVE_CASE_QUESTIONS = [
             "zh": "阴性词组“каждая суббота”在第四格中变为“каждую субботу”。"
         }
     },
-
     {
         "level": "game_ac_lvl_similarity",
+        "pos": "nouns",
         "text": "1. Этот твой друг похож на ... из моего двора. (сосед)",
         "options": ["сосед", "соседе", "соседа"],
         "correct_answer": "соседа",
@@ -259,6 +271,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_ac_lvl_similarity",
+        "pos": "nouns",
         "text": "2. Новая песня очень похожа на ... из детства. (старая песня)",
         "options": ["старая песня", "старой песней", "старую песню"],
         "correct_answer": "старую песню",
@@ -274,9 +287,9 @@ ACCUSATIVE_CASE_QUESTIONS = [
             "zh": "修饰第四格中阴性对象的形容词以-ую结尾。"
         }
     },
-
     {
         "level": "game_ac_lvl_adjectives",
+        "pos": "adjectives",
         "text": "1. Я ищу ... . (свой чёрный портфель)",
         "options": ["свой чёрный портфель", "своего чёрного портфеля", "своём чёрном портфеле"],
         "correct_answer": "свой чёрный портфель",
@@ -294,6 +307,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_ac_lvl_adjectives",
+        "pos": "adjectives",
         "text": "7. Ты видишь ... ? (моя двоюродная сестра)",
         "options": ["моя двоюродная сестра", "мою двоюродную сестру", "моей двоюродной сестре"],
         "correct_answer": "мою двоюродную сестру",
@@ -309,9 +323,9 @@ ACCUSATIVE_CASE_QUESTIONS = [
             "zh": "对于第四格（对格）中的阴性形容词和名词，词尾分别变为-ую/-юю和-у/-ю。"
         }
     },
-
     {
         "level": "game_ac_lvl_pronouns",
+        "pos": "pronouns",
         "text": "1. Я давно не видел ... . (она)",
         "options": ["она", "её", "ей"],
         "correct_answer": "её",
@@ -329,6 +343,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_ac_lvl_pronouns",
+        "pos": "pronouns",
         "text": "2. Ты позовёшь ... на концерт? (я)",
         "options": ["я", "меня", "мне"],
         "correct_answer": "меня",
@@ -349,6 +364,7 @@ ACCUSATIVE_CASE_QUESTIONS = [
 PREPOSITIONAL_CASE_QUESTIONS = [
     {
         "level": "game_pc_lvl_nouns",
+        "pos": "nouns",
         "text": "1. Я часто думаю ... . (семья)",
         "options": ["о семья", "о семье", "о семьёй"],
         "correct_answer": "о семье",
@@ -366,6 +382,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_pc_lvl_nouns",
+        "pos": "nouns",
         "text": "2. Мы говорим ... . (работа)",
         "options": ["о работа", "о работе", "о работой"],
         "correct_answer": "о работе",
@@ -383,6 +400,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_pc_lvl_nouns",
+        "pos": "nouns",
         "text": "3. Ты расскажешь ... ? (путешествие)",
         "options": ["о путешествие", "о путешествии", "о путешествием"],
         "correct_answer": "о путешествии",
@@ -400,6 +418,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_pc_lvl_nouns",
+        "pos": "nouns",
         "text": "4. Он никогда не забывает ... . (друзья)",
         "options": ["о друзья", "о друзьях", "о друзьями"],
         "correct_answer": "о друзьях",
@@ -415,9 +434,9 @@ PREPOSITIONAL_CASE_QUESTIONS = [
             "zh": "第六格中的复数名词通常以-ах/-ях结尾。"
         }
     },
-
     {
         "level": "game_pc_lvl_where",
+        "pos": "nouns",
         "text": "1. Сейчас я ... . (библиотека)",
         "options": ["в библиотеку", "в библиотеке", "на библиотеке"],
         "correct_answer": "в библиотеке",
@@ -435,6 +454,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_pc_lvl_where",
+        "pos": "nouns",
         "text": "2. Мои друзья живут ... . (Санкт-Петербург)",
         "options": ["в Санкт-Петербург", "в Санкт-Петербурге", "на Санкт-Петербурге"],
         "correct_answer": "в Санкт-Петербурге",
@@ -452,6 +472,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_pc_lvl_where",
+        "pos": "nouns",
         "text": "3. Сегодня важное собрание, все сотрудники ... . (работа)",
         "options": ["на работе", "в работе", "о работе"],
         "correct_answer": "на работе",
@@ -467,9 +488,9 @@ PREPOSITIONAL_CASE_QUESTIONS = [
             "zh": "某些特定地点（如“работа”，指工作单位）使用介词“на”而不是“в”。"
         }
     },
-
     {
         "level": "game_pc_lvl_exceptions",
+        "pos": "nouns",
         "text": "1. Все вещи лежат ... . (шкаф)",
         "options": ["в шкафе", "в шкафу", "на шкафе"],
         "correct_answer": "в шкафу",
@@ -485,9 +506,9 @@ PREPOSITIONAL_CASE_QUESTIONS = [
             "zh": "一些阳性名词在表示位于某物内部或上方时，词尾使用-у。"
         }
     },
-
     {
         "level": "game_pc_lvl_adjectives",
+        "pos": "adjectives",
         "text": "1. Эта статья была ... . (Новая газета)",
         "options": ["в «Новая газета»", "в «Новой газете»", "на «Новой газете»"],
         "correct_answer": "в «Новой газете»",
@@ -505,6 +526,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_pc_lvl_adjectives",
+        "pos": "adjectives",
         "text": "2. Мы учимся ... . (педагогический институт)",
         "options": ["в педагогический институт", "в педагогическом институте", "на педагогическом институте"],
         "correct_answer": "в педагогическом институте",
@@ -520,9 +542,9 @@ PREPOSITIONAL_CASE_QUESTIONS = [
             "zh": "阳性形容词在第六格中以-ом/-ем结尾。"
         }
     },
-
     {
         "level": "game_pc_lvl_pronouns",
+        "pos": "pronouns",
         "text": "1. Мы как раз говорили ... . (ты)",
         "options": ["о ты", "о тебе", "тебя"],
         "correct_answer": "о тебе",
@@ -540,6 +562,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_pc_lvl_pronouns",
+        "pos": "pronouns",
         "text": "2. Ты помнишь ... ? (я)",
         "options": ["о я", "обо мне", "меня"],
         "correct_answer": "обо мне",
@@ -557,6 +580,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_pc_lvl_pronouns",
+        "pos": "pronouns",
         "text": "3. Что ты думаешь ... ? (этот проект)",
         "options": ["об этот проект", "об этом проекте", "этим проектом"],
         "correct_answer": "об этом проекте",
@@ -574,6 +598,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_pc_lvl_pronouns",
+        "pos": "pronouns",
         "text": "4. В ... работе есть ошибки. (моя)",
         "options": ["в моя работа", "в моей работе", "мою работу"],
         "correct_answer": "в моей работе",
@@ -594,6 +619,7 @@ PREPOSITIONAL_CASE_QUESTIONS = [
 DATIVE_CASE_QUESTIONS = [
     {
         "level": "game_dc_lvl_nouns",
+        "pos": "nouns",
         "text": "1. Я всегда верю ... в трудную минуту. (друг)",
         "options": ["друзья", "друг", "другу"],
         "correct_answer": "другу",
@@ -611,6 +637,7 @@ DATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_dc_lvl_nouns",
+        "pos": "nouns",
         "text": "2. Он должен позвонить ... сегодня вечером. (родители)",
         "options": ["родителям", "родители", "родителей"],
         "correct_answer": "родителям",
@@ -628,6 +655,7 @@ DATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_dc_lvl_nouns",
+        "pos": "nouns",
         "text": "3. Я написал письмо ... . (сестра)",
         "options": ["сестре", "сестра", "сестру"],
         "correct_answer": "сестре",
@@ -645,6 +673,7 @@ DATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_dc_lvl_exceptions",
+        "pos": "nouns",
         "text": "4. Мама купила подарок ... . (дочь)",
         "options": ["дочери", "дочь", "дочерью"],
         "correct_answer": "дочери",
@@ -662,6 +691,7 @@ DATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_dc_lvl_exceptions",
+        "pos": "nouns",
         "text": "5. Мы написали письмо ... . (мать)",
         "options": ["мать", "матери", "матерью"],
         "correct_answer": "матери",
@@ -679,6 +709,7 @@ DATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_dc_lvl_pronouns",
+        "pos": "pronouns",
         "text": "6. Он обещал позвонить ... завтра. (я)",
         "options": ["я", "мне", "меня"],
         "correct_answer": "мне",
@@ -696,6 +727,7 @@ DATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_dc_lvl_pronouns",
+        "pos": "pronouns",
         "text": "7. Преподаватель объяснил правило ... ещё раз. (она)",
         "options": ["она", "ей", "её"],
         "correct_answer": "ей",
@@ -713,6 +745,7 @@ DATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_dc_lvl_demonstratives",
+        "pos": "pronouns",
         "text": "8. Я хорошо отношусь к ... человеку. (этот)",
         "options": ["этому", "этот", "этим"],
         "correct_answer": "этому",
@@ -730,6 +763,7 @@ DATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_dc_lvl_possessives",
+        "pos": "pronouns",
         "text": "9. Я позвонил ... брату вчера. (мой)",
         "options": ["мой", "моему", "моим"],
         "correct_answer": "моему",
@@ -747,6 +781,7 @@ DATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_dc_lvl_possessives",
+        "pos": "pronouns",
         "text": "10. Ты написал письмо ... сестре? (твой)",
         "options": ["твоей", "твой", "твоим"],
         "correct_answer": "твоей",
@@ -764,6 +799,7 @@ DATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_dc_lvl_verbs",
+        "pos": "verbs",
         "text": "11. Мне вчера ... этот фильм. (понравиться)",
         "options": ["нравиться", "понравился", "нравятся"],
         "correct_answer": "понравился",
@@ -781,6 +817,7 @@ DATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_dc_lvl_verbs",
+        "pos": "verbs",
         "text": "12. Тебе ... мои новые друзья? (понравиться)",
         "options": ["понравился", "нравишься", "понравились"],
         "correct_answer": "понравились",
@@ -798,6 +835,7 @@ DATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_dc_lvl_adjectives",
+        "pos": "adjectives",
         "text": "13. Мы готовимся к ... . (сложный экзамен)",
         "options": ["сложный экзамен", "сложному экзамену", "сложным экзаменам"],
         "correct_answer": "сложному экзамену",
@@ -815,6 +853,7 @@ DATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_dc_lvl_adjectives",
+        "pos": "adjectives",
         "text": "14. Ты готовишься к ... ? (важная встреча)",
         "options": ["важная встреча", "важной встрече", "важным встречам"],
         "correct_answer": "важной встрече",
@@ -835,6 +874,7 @@ DATIVE_CASE_QUESTIONS = [
 GENITIVE_CASE_QUESTIONS = [
     {
         "level": "game_gn_lvl_nouns",
+        "pos": "nouns",
         "text": "1. В нашей стране много ... (город).",
         "options": ["города", "городов", "городом", "городам"],
         "correct_answer": "городов",
@@ -852,6 +892,7 @@ GENITIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_gn_lvl_nouns",
+        "pos": "nouns",
         "text": "2. В пустыне мало ... (вода).",
         "options": ["вода", "воды", "воду", "воде"],
         "correct_answer": "воды",
@@ -869,6 +910,7 @@ GENITIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_gn_lvl_nouns",
+        "pos": "nouns",
         "text": "3. На выставке мне понравилось несколько ... (картина).",
         "options": ["картины", "картин", "картинами", "картинам"],
         "correct_answer": "картин",
@@ -886,6 +928,7 @@ GENITIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_gn_lvl_nouns",
+        "pos": "nouns",
         "text": "4. На уроке математики мы решили несколько ... (задача).",
         "options": ["задачи", "задач", "задачами", "задачам"],
         "correct_answer": "задач",
@@ -901,9 +944,9 @@ GENITIVE_CASE_QUESTIONS = [
             "zh": "在“несколько”之后，像“задача”这样的阴性名词在复数第二格中失去词尾元音。"
         }
     },
-
     {
         "level": "game_gn_lvl_adjectives",
+        "pos": "adjectives",
         "text": "5. У неё не было ... (голубое платье) для вечера.",
         "options": ["голубое платье", "голубого платья", "голуبوму платью", "голубым платьем"],
         "correct_answer": "голубого платья",
@@ -921,6 +964,7 @@ GENITIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_gn_lvl_adjectives",
+        "pos": "adjectives",
         "text": "6. Вкус ... (свежая клубника) невозможно забыть.",
         "options": ["свежая клубника", "свежей клубники", "свежую клубнику", "свежей клубникой"],
         "correct_answer": "свежей клубники",
@@ -938,6 +982,7 @@ GENITIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_gn_lvl_adjectives",
+        "pos": "adjectives",
         "text": "7. Без ... (твой совет) я бы ошибся.",
         "options": ["твой совет", "твоего совета", "твоему совету", "твоим советом"],
         "correct_answer": "твоего совета",
@@ -953,9 +998,9 @@ GENITIVE_CASE_QUESTIONS = [
             "zh": "介词“без”要求第二格。“Твой”变为“твоего”。"
         }
     },
-
     {
         "level": "game_gn_lvl_pronouns",
+        "pos": "pronouns",
         "text": "8. У вас есть этот словарь? → У меня нет ... .",
         "options": ["этот словарь", "этого словаря", "этому словарю", "этим словарём"],
         "correct_answer": "этого словаря",
@@ -973,6 +1018,7 @@ GENITIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_gn_lvl_pronouns",
+        "pos": "pronouns",
         "text": "9. Без ... (ты) скучно.",
         "options": ["ты", "тебя", "тебе", "тобой"],
         "correct_answer": "тебя",
@@ -990,6 +1036,7 @@ GENITIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_gn_lvl_pronouns",
+        "pos": "pronouns",
         "text": "10. У ... (вы) есть вопросы?",
         "options": ["вы", "вас", "вам", "вами"],
         "correct_answer": "вас",
@@ -1005,9 +1052,9 @@ GENITIVE_CASE_QUESTIONS = [
             "zh": "结构“У + 第二格”表示所属关系。“Вы”变为“вас”。"
         }
     },
-
     {
         "level": "game_gn_lvl_counting",
+        "pos": "nouns",
         "text": "11. У меня пять ... (друг).",
         "options": ["друг", "друга", "друзья", "друзей"],
         "correct_answer": "друзей",
@@ -1025,6 +1072,7 @@ GENITIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_gn_lvl_counting",
+        "pos": "nouns",
         "text": "12. У нас сегодня две ... (лекция).",
         "options": ["лекций", "лекции", "лекция", "лекцию"],
         "correct_answer": "лекции",
@@ -1042,6 +1090,7 @@ GENITIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_gn_lvl_counting",
+        "pos": "nouns",
         "text": "13. На этой улице три ... (магазин).",
         "options": ["магазины", "магазинов", "магазин", "магазина"],
         "correct_answer": "магазина",
@@ -1057,16 +1106,11 @@ GENITIVE_CASE_QUESTIONS = [
             "zh": "数字3使用单数第二格。阳性词“магазин”加-а。"
         }
     },
-
     {
         "level": "game_gn_lvl_dates",
+        "pos": "nouns",
         "text": "14. Когда родился А.С. Пушкин? (6 июня 1799).",
-        "options": [
-            "Шесть июня тысяча семьсот девяносто девятого года.",
-            "Шестого июня тысяча семьсот девяносто девятого года.",
-            "Шестое июня тысяча семьсот девяносто девять год.",
-            "Шестому июня тысяча семьсот девяносто девятого года."
-        ],
+        "options": ["Шесть июня тысяча семьсот девяносто девятого года.", "Шестого июня тысяча семьсот девяносто девятого года.", "Шестое июня тысяча семьсот девяносто девять год.", "Шестому июня тысяча семьсот девяносто девятого года."],
         "correct_answer": "Шестого июня тысяча семьсот девяносто девятого года.",
         "explanation": {
             "en": "When answering 'When?', the ordinal number of the day and the year must be in Genitive.",
@@ -1085,6 +1129,7 @@ GENITIVE_CASE_QUESTIONS = [
 INSTRUMENTAL_CASE_QUESTIONS = [
     {
         "level": "game_it_lvl_nouns",
+        "pos": "nouns",
         "text": "1. Антон разговаривает по телефону с ... . (друг)",
         "options": ["друг", "друга", "другом", "другу"],
         "correct_answer": "другом",
@@ -1102,6 +1147,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_it_lvl_nouns",
+        "pos": "nouns",
         "text": "2. Нина гуляла в парке с ... . (подруга)",
         "options": ["подруга", "подруги", "подругой", "подруге"],
         "correct_answer": "подругой",
@@ -1119,6 +1165,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_it_lvl_nouns",
+        "pos": "nouns",
         "text": "3. Анна была в театре с ... . (мать)",
         "options": ["мать", "матери", "матерью", "матерью (без предлога)"],
         "correct_answer": "матерью",
@@ -1136,6 +1183,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_it_lvl_verbs",
+        "pos": "verbs",
         "text": "4. Мой друг был рабочим, а теперь он стал ... . (инженер)",
         "options": ["инженером", "инженера", "инженеру", "инженер"],
         "correct_answer": "инженером",
@@ -1153,6 +1201,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_it_lvl_verbs",
+        "pos": "verbs",
         "text": "5. Пять лет она была студенткой, а теперь она стала ... . (аспирантка)",
         "options": ["аспирантка", "аспиранткой", "аспирантку", "аспирантки"],
         "correct_answer": "аспиранткой",
@@ -1170,6 +1219,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_it_lvl_adjectives",
+        "pos": "adjectives",
         "text": "6. Моя сестра работает ... . (хороший врач)",
         "options": ["хороший врач", "хорошего врача", "хорошему врачу", "хорошим врачом"],
         "correct_answer": "хорошим врачом",
@@ -1187,6 +1237,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_it_lvl_adjectives",
+        "pos": "adjectives",
         "text": "7. В этой ситуации он оказался ... . (невинная жертва)",
         "options": ["невинная жертва", "невинной жертвой", "невинную жертву", "невинной жертве"],
         "correct_answer": "невинной жертвой",
@@ -1204,6 +1255,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_it_lvl_pronouns",
+        "pos": "pronouns",
         "text": "8. Моя сестра часто спорит ... . (она)",
         "options": ["она", "её", "ей", "с ней"],
         "correct_answer": "с ней",
@@ -1221,6 +1273,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_it_lvl_pronouns",
+        "pos": "pronouns",
         "text": "9. Я хочу посоветоваться ... . (ты)",
         "options": ["ты", "тебя", "тебе", "с тобой"],
         "correct_answer": "с тобой",
@@ -1238,6 +1291,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_it_lvl_pronouns",
+        "pos": "pronouns",
         "text": "10. Вы знакомы с ... ? (мой брат)",
         "options": ["мой брат", "моего брата", "моим братом", "моём брате"],
         "correct_answer": "моим братом",
@@ -1255,6 +1309,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_it_lvl_prepositions",
+        "pos": "nouns",
         "text": "11. Кошка спит ... . (удобный диван)",
         "options": ["удобный диван", "удобного дивана", "под удобным диваном", "на удобном диване"],
         "correct_answer": "под удобным диваном",
@@ -1272,6 +1327,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_it_lvl_prepositions",
+        "pos": "nouns",
         "text": "12. ... растёт старая яблоня. (наш дом)",
         "options": ["Наш дом", "Нашего дома", "Перед нашим домом", "В нашем доме"],
         "correct_answer": "Перед нашим домом",
@@ -1289,6 +1345,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_it_lvl_prepositions",
+        "pos": "nouns",
         "text": "13. Самолёт летел ... . (тяжёлые тучи)",
         "options": ["тяжёлые тучи", "тяжёлых туч", "над тяжёлыми тучами", "в тяжёлые тучи"],
         "correct_answer": "над тяжёлыми тучами",
@@ -1306,6 +1363,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
     },
     {
         "level": "game_it_lvl_prepositions",
+        "pos": "nouns",
         "text": "14. Он стоял ... и слушал. (закрытая дверь)",
         "options": ["закрытая дверь", "закрытую дверь", "за закрытой дверью", "у закрытой двери"],
         "correct_answer": "за закрытой дверью",
@@ -1326,6 +1384,7 @@ INSTRUMENTAL_CASE_QUESTIONS = [
 NOMINATIVE_CASE_QUESTIONS = [
     {
         "level": "game_nm_lvl_basics",
+        "pos": "nouns",
         "text": "1. — Кто это? — Это мой ... . (брат)",
         "options": ["брат", "брата", "брату"],
         "correct_answer": "брат",
@@ -1343,6 +1402,7 @@ NOMINATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_nm_lvl_basics",
+        "pos": "nouns",
         "text": "2. Это новый ... . (стол)",
         "options": ["стол", "стола", "столе"],
         "correct_answer": "стол",
@@ -1360,6 +1420,7 @@ NOMINATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_nm_lvl_basics",
+        "pos": "nouns",
         "text": "3. Мой папа — ... . (инженер)",
         "options": ["инженер", "инженера", "инженером"],
         "correct_answer": "инженер",
@@ -1377,6 +1438,7 @@ NOMINATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_nm_lvl_adjectives",
+        "pos": "adjectives",
         "text": "4. Это ... картина. (красивая)",
         "options": ["красивая", "красивую", "красивой"],
         "correct_answer": "красивая",
@@ -1394,6 +1456,7 @@ NOMINATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_nm_lvl_adjectives",
+        "pos": "adjectives",
         "text": "5. Там находится ... море. (синее)",
         "options": ["синее", "синяя", "синий"],
         "correct_answer": "синее",
@@ -1411,6 +1474,7 @@ NOMINATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_nm_lvl_plural",
+        "pos": "nouns",
         "text": "6. На столе лежат ... . (книга)",
         "options": ["книги", "книг", "книгах"],
         "correct_answer": "книги",
@@ -1428,6 +1492,7 @@ NOMINATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_nm_lvl_plural",
+        "pos": "nouns",
         "text": "7. В городе стоят новые ... . (дом)",
         "options": ["дома", "домы", "домов"],
         "correct_answer": "дома",
@@ -1445,6 +1510,7 @@ NOMINATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_nm_lvl_plural",
+        "pos": "nouns",
         "text": "8. В парке гуляют ... . (ребёнок)",
         "options": ["дети", "ребёнка", "ребёнки"],
         "correct_answer": "дети",
@@ -1462,6 +1528,7 @@ NOMINATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_nm_lvl_pronouns",
+        "pos": "pronouns",
         "text": "9. ... люблю этот город. (я)",
         "options": ["я", "меня", "мне"],
         "correct_answer": "я",
@@ -1479,6 +1546,7 @@ NOMINATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_nm_lvl_pronouns",
+        "pos": "pronouns",
         "text": "10. Где Антон? ... сейчас в школе. (он)",
         "options": ["он", "его", "ему"],
         "correct_answer": "он",
@@ -1496,6 +1564,7 @@ NOMINATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_nm_lvl_questions",
+        "pos": "pronouns",
         "text": "11. ... это лежит на столе? (что)",
         "options": ["что", "чего", "чем"],
         "correct_answer": "что",
@@ -1513,6 +1582,7 @@ NOMINATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_nm_lvl_questions",
+        "pos": "pronouns",
         "text": "12. ... этот человек? (кто)",
         "options": ["кто", "кого", "кем"],
         "correct_answer": "кто",
@@ -1530,6 +1600,7 @@ NOMINATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_nm_lvl_advanced",
+        "pos": "nouns",
         "text": "13. Мои ... живут в Москве. (родители)",
         "options": ["родители", "родителей", "родителям"],
         "correct_answer": "родители",
@@ -1547,6 +1618,7 @@ NOMINATIVE_CASE_QUESTIONS = [
     },
     {
         "level": "game_nm_lvl_advanced",
+        "pos": "nouns",
         "text": "14. Это ... здание. (новое)",
         "options": ["новое", "новая", "новый"],
         "correct_answer": "новое",

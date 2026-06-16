@@ -32,6 +32,41 @@ CASE_QUESTIONS_MAP = {
     "prepositional": PREPOSITIONAL_CASE_QUESTIONS,
 }
 
+
+def _get_question_pos(question: dict) -> str | None:
+    """Явный источник части речи только из поля `pos`."""
+    pos = question.get("pos")
+    if pos in {"nouns", "adjectives", "pronouns", "verbs"}:
+        return pos
+    return None
+
+
+def _build_pos_index_map() -> tuple[dict[str, dict[str, list[int]]], dict[str, list[str]]]:
+    """Предвычисляет индексы вопросов по частям речи для каждого падежа."""
+    pos_index_map: dict[str, dict[str, list[int]]] = {}
+    case_pos_options: dict[str, list[str]] = {}
+
+    for case_id, questions in CASE_QUESTIONS_MAP.items():
+        grouped: dict[str, list[int]] = {
+            "nouns": [],
+            "adjectives": [],
+            "pronouns": [],
+            "verbs": [],
+        }
+
+        for i, q in enumerate(questions):
+            pos = _get_question_pos(q)
+            if pos in grouped:
+                grouped[pos].append(i)
+
+        pos_index_map[case_id] = grouped
+        case_pos_options[case_id] = [p for p, idxs in grouped.items() if idxs]
+
+    return pos_index_map, case_pos_options
+# Предвычисление индексов
+POS_INDEX_MAP, CASE_POS_OPTIONS = _build_pos_index_map()
+
+
 class RussianCasesQuiz(BaseGame):
     def __init__(self):
         super().__init__(game_id="russian_cases_quiz")
@@ -52,7 +87,12 @@ class RussianCasesQuiz(BaseGame):
             status=GameStatus.IN_PROGRESS,
             current_question=-1,
             score=0,
-            game_state={"lang": lang, "selected_case": None}
+            game_state={
+                "lang": lang,
+                "selected_case": None,
+                "selected_pos": None,
+                "question_indices": [],
+            }
         )
 
         await self._send_case_selection(bot, session)
@@ -94,7 +134,104 @@ class RussianCasesQuiz(BaseGame):
             )
             session.message_id = new_message_id
 
+    def _get_pos_options_for_case(self, case_id: str) -> list[str]:
+        return CASE_POS_OPTIONS.get(case_id, [])
+
+    def _build_question_indices(self, case_id: str, pos_id: str) -> list[int]:
+        questions = CASE_QUESTIONS_MAP.get(case_id, [])
+        if pos_id == "mixed":
+            return list(range(len(questions)))
+        return POS_INDEX_MAP.get(case_id, {}).get(pos_id, [])
+
+    def _ensure_game_state_defaults(self, session: GameSession) -> None:
+        """Гарантирует наличие новых полей состояния для старых сессий."""
+        session.game_state.setdefault("selected_case", None)
+        session.game_state.setdefault("selected_pos", None)
+        session.game_state.setdefault("question_indices", [])
+
+        selected_case = session.game_state.get("selected_case")
+        selected_pos = session.game_state.get("selected_pos")
+        question_indices = session.game_state.get("question_indices") or []
+
+        # Восстановление индексов для старых/частично заполненных сессий
+        if selected_case and selected_pos and not question_indices:
+            session.game_state["question_indices"] = self._build_question_indices(
+                selected_case, selected_pos
+            )
+
+    def _get_current_questions(self, session: GameSession) -> list[dict]:
+        self._ensure_game_state_defaults(session)
+        selected_case = session.game_state.get("selected_case")
+        selected_pos = session.game_state.get("selected_pos")
+        all_questions = CASE_QUESTIONS_MAP.get(selected_case, [])
+
+        # Жёсткая фильтрация по выбранной части речи (защита от "грязного" состояния сессии)
+        if selected_pos == "mixed":
+            return all_questions
+
+        if selected_pos in {"nouns", "adjectives", "pronouns", "verbs"}:
+            indices = POS_INDEX_MAP.get(selected_case, {}).get(selected_pos, [])
+            return [all_questions[i] for i in indices if 0 <= i < len(all_questions)]
+
+        # Если часть речи ещё не выбрана
+        return []
+
+    async def _send_pos_selection(self, bot: Bot, session: GameSession, as_new_message: bool = False):
+        lang = session.game_state.get("lang", "en")
+        selected_case = session.game_state.get("selected_case")
+
+        text = translator.get_text("game_rc_select_pos", lang)
+        menu_hint = translator.get_text("menu_hint", lang)
+        full_text = f"{text}\n\n{menu_hint}"
+
+        available_pos = self._get_pos_options_for_case(selected_case)
+        buttons = []
+
+        pos_to_key = {
+            "nouns": "game_rc_pos_nouns",
+            "adjectives": "game_rc_pos_adjectives",
+            "pronouns": "game_rc_pos_pronouns",
+            "verbs": "game_rc_pos_verbs",
+        }
+
+        for pos_id in available_pos:
+            buttons.append([
+                InlineKeyboardButton(
+                    text=translator.get_text(pos_to_key[pos_id], lang),
+                    callback_data=f"select_pos:{pos_id}"
+                )
+            ])
+
+        buttons.append([
+            InlineKeyboardButton(
+                text=translator.get_text("game_rc_pos_mixed", lang),
+                callback_data="select_pos:mixed"
+            )
+        ])
+
+        keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
+
+        if as_new_message:
+            sent_message = await bot.send_message(
+                chat_id=session.chat_id,
+                text=full_text,
+                parse_mode="Markdown",
+                reply_markup=keyboard
+            )
+            session.message_id = sent_message.message_id
+        else:
+            new_message_id = await safe_edit_message(
+                bot=bot,
+                chat_id=session.chat_id,
+                message_id=session.message_id,
+                text=full_text,
+                parse_mode="Markdown",
+                reply_markup=keyboard
+            )
+            session.message_id = new_message_id
+
     async def resume_game(self, bot: Bot, session: GameSession):
+        self._ensure_game_state_defaults(session)
         lang = session.game_state.get("lang", "en")
         resume_text = translator.get_text("game_rc_resume", lang)
         
@@ -102,13 +239,18 @@ class RussianCasesQuiz(BaseGame):
         
         if session.game_state.get("selected_case") is None:
              await self._send_case_selection(bot, session, as_new_message=True)
+        elif session.game_state.get("selected_pos") is None:
+             await self._send_pos_selection(bot, session, as_new_message=True)
         else:
              await self._send_question(bot, session, as_new_message=True)
 
     async def _send_question(self, bot: Bot, session: GameSession, as_new_message: bool = False):
         lang = session.game_state.get("lang", "en")
-        selected_case = session.game_state.get("selected_case")
-        questions = CASE_QUESTIONS_MAP[selected_case]
+        questions = self._get_current_questions(session)
+
+        if not questions:
+            await self._send_pos_selection(bot, session, as_new_message=as_new_message)
+            return
         
         question_index = session.current_question
         question = questions[question_index]
@@ -144,6 +286,7 @@ class RussianCasesQuiz(BaseGame):
     async def handle_callback(
         self, bot: Bot, session: GameSession, callback: CallbackQuery
     ) -> GameSession:
+        self._ensure_game_state_defaults(session)
         lang = session.game_state.get("lang", "en")
 
         # КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ: синхронизируем ID сообщения из колбэка
@@ -151,11 +294,32 @@ class RussianCasesQuiz(BaseGame):
         session.message_id = callback.message.message_id
 
         if callback.data.startswith("select_case:"):
+            await callback.answer()
             case_id = callback.data.split(":")[1]
             session.game_state["selected_case"] = case_id
+            session.game_state["selected_pos"] = None
+            session.game_state["question_indices"] = []
+            session.current_question = -1
+            await self._send_pos_selection(bot, session)
+            return session
+
+        if callback.data.startswith("select_pos:"):
+            await callback.answer()
+            pos_id = callback.data.split(":")[1]
+            selected_case = session.game_state.get("selected_case")
+            question_indices = self._build_question_indices(selected_case, pos_id)
+
+            if not question_indices:
+                await callback.answer(
+                    translator.get_text("game_rc_no_questions_for_pos", lang),
+                    show_alert=True,
+                )
+                return session
+
+            session.game_state["selected_pos"] = pos_id
+            session.game_state["question_indices"] = list(question_indices)
             session.current_question = 0
             await self._send_question(bot, session)
-            await callback.answer()
             return session
 
         action, *data = callback.data.split(":")
@@ -164,13 +328,20 @@ class RussianCasesQuiz(BaseGame):
             question_index_str, user_answer = data
             question_index = int(question_index_str)
 
+            questions = self._get_current_questions(session)
+            if not questions:
+                await callback.answer(
+                    translator.get_text("game_rc_no_questions_for_pos", lang),
+                    show_alert=True,
+                )
+                await self._send_pos_selection(bot, session)
+                return session
+
             if question_index != session.current_question:
                 warning_text = translator.get_text("game_rc_already_answered", lang)
                 await callback.answer(warning_text, show_alert=True)
                 return session
 
-            selected_case = session.game_state.get("selected_case")
-            questions = CASE_QUESTIONS_MAP[selected_case]
             question = questions[question_index]
             
             correct_answer = question["correct_answer"]
@@ -178,7 +349,7 @@ class RussianCasesQuiz(BaseGame):
 
             if user_answer == correct_answer:
                 session.score += 1
-                random_praise = random.choice(POSITIVE_FEEDBACKS.get(lang, POSITIVE_FEEDBACKS["en"]))
+                random_praise = random.choice(POSITIVE_FEEDBACKS.get(lang, ["Great!"]))
                 
                 feedback_template = translator.get_text("game_rc_feedback_correct", lang)
                 feedback_text = feedback_template.format(praise=random_praise, explanation=explanation)
@@ -217,7 +388,21 @@ class RussianCasesQuiz(BaseGame):
             session.message_id = new_message_id
 
         elif action == "next_question":
+            questions = self._get_current_questions(session)
+            if not questions:
+                await callback.answer(
+                    translator.get_text("game_rc_no_questions_for_pos", lang),
+                    show_alert=True,
+                )
+                await self._send_pos_selection(bot, session)
+                return session
+
             session.current_question += 1
+            if session.current_question >= len(questions):
+                session.current_question = len(questions) - 1
+                await callback.answer()
+                return session
+
             await self._send_question(bot, session)
             await callback.answer()
 
@@ -231,8 +416,7 @@ class RussianCasesQuiz(BaseGame):
     async def end_game(self, bot: Bot, session: GameSession, send_message: bool = True):
         if send_message:
             lang = session.game_state.get("lang", "en")
-            selected_case = session.game_state.get("selected_case")
-            questions = CASE_QUESTIONS_MAP[selected_case]
+            questions = self._get_current_questions(session)
             total_questions = len(questions)
             
             final_text_template = translator.get_text("game_rc_end_text", lang)
@@ -247,5 +431,6 @@ class RussianCasesQuiz(BaseGame):
                 reply_markup=None,
             )
             session.message_id = new_message_id
+
 
 game_registry.register(RussianCasesQuiz())

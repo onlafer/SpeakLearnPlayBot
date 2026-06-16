@@ -87,7 +87,12 @@ class ReadingComprehensionQuiz(BaseGame):
             text=translator.get_text("game_reading_skip", lang),
             callback_data="skip_question"
         )
-        keyboard = InlineKeyboardMarkup(inline_keyboard=[[skip_btn]])
+        # Кнопка "Меню"
+        menu_btn = InlineKeyboardButton(
+            text=translator.get_text("nav_menu", lang) or "📋 Menu",
+            callback_data="show_menu"
+        )
+        keyboard = InlineKeyboardMarkup(inline_keyboard=[[menu_btn, skip_btn]])
 
         await bot.send_message(
             chat_id=session.chat_id,
@@ -157,9 +162,16 @@ class ReadingComprehensionQuiz(BaseGame):
             lang = session.game_state["lang"]
             score = session.score
             total = session.game_state["total_questions"]
+            # Кнопка "Меню"
+            menu_btn = InlineKeyboardButton(
+                text=translator.get_text("nav_menu", lang) or "📋 Menu",
+                callback_data="show_menu"
+            )
+            keyboard = InlineKeyboardMarkup(inline_keyboard=[[menu_btn]])
             await bot.send_message(
                 chat_id=session.chat_id,
                 text=translator.get_text("game_reading_end", lang).format(score=score, total=total),
+                reply_markup=keyboard,
                 parse_mode="Markdown"
             )
 
