@@ -12,7 +12,6 @@ dependencies = [
     "speechrecognition>=3.14.3",
     "pydub>=0.25.1",
     "opuslib>=3.0.1",
-    "gigachat>=0.1.42.post2",
     "sqlalchemy>=2.0.44",
     "aiosqlite>=0.20.0",
     "asyncpg>=0.29.0",

@@ -29,22 +29,8 @@ ADMIN_LIST=[123456789]
 uv run main.py
 ```
 
-## Docker
+## Проверка перед сервером
 
-**Запуск (production):**
+Для предсерверной проверки и запуска с отдельными env-файлами смотрите:
 
-```bash
-cp config/.env.example config/.env   # заполнить BOT_TOKEN, DB_*, ADMIN_LIST, GIGACHAT_CREDENTIALS
-docker-compose up -d
-```
-
-**Разработка** (код монтируется в контейнер, можно править локально):
-
-```bash
-git clone <repo> && cd SpeakLearnPlayBot
-cp config/.env.example config/.env   # заполнить переменные
-docker-compose -f docker-compose.dev.yml up
-```
-
-- `Dockerfile` — образ для запуска бота.
-- `Dockerfile.dev` — образ для разработки (используется с `docker-compose.dev.yml`, код монтируется с хоста).
+- [docs/pre-server-testing.md](docs/pre-server-testing.md)

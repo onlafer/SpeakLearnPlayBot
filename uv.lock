@@ -1192,19 +1192,6 @@ wheels = [
 ]
 
 [[package]]
-name = "gigachat"
-version = "0.1.42.post2"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "httpx" },
-    { name = "pydantic" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/f3/65/be50c11d851f6330d2e4b761070922eb377f06c703983a7ee7586c4d350c/gigachat-0.1.42.post2.tar.gz", hash = "sha256:bef416d62cb603b4f71ded1752a4a6e258bafa25bc0a3de2d03a8e60eb09971e", size = 34058, upload-time = "2025-08-25T14:38:59.706Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/ba/f9/1cbd9f592f5deb75696acd4d8573f52a46aa5bbe8e467d2708f91bca4d66/gigachat-0.1.42.post2-py3-none-any.whl", hash = "sha256:db7c0bd1db9e4ca0b78f73a533553dcfc79bf1eb0eba951aad0f00b9e7aacc48", size = 69704, upload-time = "2025-08-25T14:38:58.276Z" },
-]
-
-[[package]]
 name = "gitdb"
 version = "4.0.12"
 source = { registry = "https://pypi.org/simple" }
@@ -3585,7 +3572,6 @@ dependencies = [
     { name = "fastapi" },
     { name = "faster-whisper" },
     { name = "ffmpeg-python" },
-    { name = "gigachat" },
     { name = "gtts" },
     { name = "ngrok" },
     { name = "openai-whisper" },
@@ -3610,7 +3596,6 @@ requires-dist = [
     { name = "fastapi", specifier = ">=0.115.0" },
     { name = "faster-whisper", specifier = ">=1.2.1" },
     { name = "ffmpeg-python", specifier = ">=0.2.0" },
-    { name = "gigachat", specifier = ">=0.1.42.post2" },
     { name = "gtts", specifier = ">=2.5.4" },
     { name = "ngrok", specifier = ">=1.7.0" },
     { name = "openai-whisper", specifier = ">=20231117" },

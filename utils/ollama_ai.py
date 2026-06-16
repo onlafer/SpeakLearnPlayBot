@@ -26,7 +26,7 @@ async def get_ollama_response(history: list) -> str:
     max_input = config["max_input"]
 
     try:
-        # Convert GigaChat format to Ollama format
+        # Convert history format to Ollama format
         messages = []
 
         # 1. First, find and add system message if it exists
